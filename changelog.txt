@@ -1,0 +1,8 @@
+2022/03/25 - Rearranging
+    changes:
+        - Rearranging React elements and structure
+        - Changed Parcel Port to 8080
+        - Created Routing Lazy Component with Error Handling
+    observations:
+        - Founded and fixed 2 vulnerabilities in npm report of Web package.
+        - Nobody likes doing nothing on a rainy day. You just have to look at the beautiful rain and drink hot chocolate milk.

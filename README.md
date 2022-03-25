@@ -1,4 +1,8 @@
-# Welcome!
+# Read Changelog 
+
+Read the [changelog](./changelog.txt) to see details about the commits and observations
+
+# Condor's React.js assessment challenge!
 
 Welcome to Condor's React.js assessment challenge!
 
