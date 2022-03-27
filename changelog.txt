@@ -1,8 +1,16 @@
+2022/03/27 - Views and Controllers
+    changes:
+        - A proxy (localhost:3001) has been created to obtain information from the Universities.
+        - Design: search,profile,login and signup views have been created.
+        - Most ajax requests have been developed, with the exception of user requests.
+    observations:
+        - The proxy server is made with expressjs and open-graph-scraper.
+        - I need sleep.
 2022/03/25 - Rearranging
     changes:
-        - Rearranging React elements and structure
-        - Changed Parcel Port to 8080
-        - Created Routing Lazy Component with Error Handling
+        - Rearranging React elements and structure.
+        - Changed Parcel Port to 8080.
+        - Created Routing Lazy Component with Error Handling.
     observations:
         - Founded and fixed 2 vulnerabilities in npm report of Web package.
         - Nobody likes doing nothing on a rainy day. You just have to look at the beautiful rain and drink hot chocolate milk.

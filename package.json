@@ -5,13 +5,15 @@
   "main": "index.js",
   "scripts": {
     "app": "npm start -w web",
-    "server": "npm start -w server"
+    "server": "npm start -w server",
+    "proxy": "npm start -w proxy"
   },
   "repository": "git@condor:rgCondor/Challenge-React.js.git",
   "author": "Rafael González",
   "license": "MIT",
   "workspaces": [
     "server",
-    "web"
+    "web",
+    "proxy"
   ]
 }

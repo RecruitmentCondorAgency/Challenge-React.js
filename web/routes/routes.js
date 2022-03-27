@@ -1,56 +1,32 @@
-import 'src/assets/css/styles.css'
 import * as React from "react";
-import { Routes, Route, Link, } from "react-router-dom";
+import { Routes, Route, } from "react-router-dom";
+import ErrorBoundary from "src/components/errorBoundary"
+import Header from "src/components/header"
 
 const Home = React.lazy(() => import('src/pages/home'));
-const Example = React.lazy(() => import('src/pages/example'));
+const Search = React.lazy(() => import('src/pages/search'));
+const Login = React.lazy(() => import('src/pages/login'));
+const Signup = React.lazy(() => import('src/pages/signup'));
+const Profile = React.lazy(() => import('src/pages/profile'));
+const Error404 = React.lazy(() => import('src/pages/Error404'));
 
-class ErrorBoundary extends React.Component {
-	constructor(props) {
-	  super(props);
-	  this.state = { hasError: false };
-	}
-  
-	static getDerivedStateFromError(error) {    
-        // Update state so the next render will show the fallback UI.    
-        return { hasError: true };  
-    }
 
-    componentDidCatch(error, errorInfo) {   
-        // You can also log the error to an error reporting service    
-        logErrorToMyService(error, errorInfo);  
-    }
-	render() {
-		if (this.state.hasError) {      // You can render any custom fallback UI      return <h1>Something went wrong.</h1>;    }
-			return this.props.children; 
-		}
-		return this.props.children; 
-  }
+export default function App(){
+	return (
+		<div className="bg-light">
+			<Header loged="false"/>
+			<React.Suspense fallback={<div>Loading…</div>} >
+				<ErrorBoundary>
+					<Routes>
+						<Route path="/" element={<Home/>} />
+						<Route path="/search" element={<Search />} />
+						<Route path="/login" element={<Login />} />
+						<Route path="/signup" element={<Signup />} />
+						<Route path="/profile" element={<Profile />} />
+						<Route path="*" element={<Error404/>} />
+					</Routes>
+				</ErrorBoundary>
+			</React.Suspense>
+		</div>
+	);
 }
-
-class App extends React.Component {
-
-    render() {
-        return (
-			<div>
-				<header>
-					<h1>Welcome Condor University Database</h1>
-				</header>
-				<React.Suspense fallback={<div>Loading…</div>} >
-					<ErrorBoundary>
-						<Routes>
-							<Route path="/" element={<Home/>} />
-							<Route path="/example" element={<Example />} />
-						</Routes>
-					</ErrorBoundary>
-				</React.Suspense>
-				<ul>
-					<li><Link to="/">Home</Link></li>
-					<li><Link to="/example">Example</Link></li>
-				</ul>
-			</div>
-		);
-    }
-}
-  
-export default App;
