@@ -5,6 +5,7 @@
         - Most ajax requests have been developed, with the exception of user requests.
     observations:
         - The proxy server is made with expressjs and open-graph-scraper.
+        - Moved some components to utils folder of components.
         - I need sleep.
 2022/03/25 - Rearranging
     changes:

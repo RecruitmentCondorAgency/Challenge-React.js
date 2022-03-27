@@ -28,7 +28,7 @@ function fetchUniversityData(url){
     })
 }
 
-export default function FavoriteUniversity(props){
+export default function ItemUniversity(props){
 
     const [countryData, countryDataUpdate] = React.useState('Loading...');
     const [descriptionData, descriptionDataUpdate] = React.useState('Loading...');

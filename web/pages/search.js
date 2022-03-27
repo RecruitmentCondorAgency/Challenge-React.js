@@ -1,8 +1,8 @@
 import * as React from "react";
 
-import SearchTypeahead from "src/components/searchTypeahead";
+import SearchTypeahead from "src/components/utils/searchTypeahead";
 import ItemUniversity from "src/components/itemUniversity"
-import LoadUniversityButton from "src/components/loadUniversityButton"
+import LoadUniversityButton from "src/components/utils/loadUniversityButton"
 
 import axios from "axios";
 

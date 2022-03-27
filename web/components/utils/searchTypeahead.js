@@ -8,7 +8,6 @@ var Typeahead = require('react-bootstrap-typeahead').Typeahead; // CommonJS
 import 'react-bootstrap-typeahead/css/Typeahead.css';
 
 export default function searchList(props){
-
     return (
         <div>
             <Row>
