@@ -11,6 +11,7 @@ import Input from "../../components/InputText";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './Login.scss';
+import notifyConfig from "../../utils/notifyConfig";
 
 interface LoginFields {email: string, password: string}
 
@@ -24,13 +25,18 @@ const Login = () => {
       password: ''
     },
     onSubmit: async (values: LoginFields, { setSubmitting }: FormikHelpers<LoginFields>) => {
-      const user = (await store.dispatch(fetchLogin(values))).payload
-      setSubmitting(false);
-      if (user) {
-        setExistance(false)
-        navigate('/home')
-      } else {
-        setExistance(true)
+      try {
+        const user = (await store.dispatch(fetchLogin(values))).payload
+        setSubmitting(false);
+        if (user) {
+          setExistance(false)
+          navigate('/home')
+        } else {
+          setExistance(true)
+        }
+      } catch (err) {
+        console.error(err)
+        toast('An error ocuured while login, please try again', {...notifyConfig, type: 'error'})
       }
     },
     validationSchema: Yup.object({

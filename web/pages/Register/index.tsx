@@ -10,6 +10,8 @@ import { store } from "../../store";
 import './Register.scss';
 import { fetchPost } from "../../store/user/thunks";
 import AvatarSelector from "../../components/AvatarSelector";
+import { toast } from "react-toastify";
+import notifyConfig from "../../utils/notifyConfig";
 
 interface RegisterFields {
   email: '',
@@ -33,10 +35,15 @@ const Register = () => {
       repeatpassword: ''
     },
     onSubmit: async (values: RegisterFields, { setSubmitting }: FormikHelpers<RegisterFields>) => {
-      const {repeatpassword, ...data} = values
-      await store.dispatch(fetchPost({...data, avatar}))
-      setSubmitting(false);
-      navigate('/login')
+      try {
+        const {repeatpassword, ...data} = values
+        await store.dispatch(fetchPost({...data, avatar}))
+        setSubmitting(false);
+        navigate('/login')
+      } catch (err) {
+        console.error(err)
+        toast('An error ocuured while registering, please try again', {...notifyConfig, type: 'error'})
+      }
     },
     validationSchema: Yup.object({
       email: Yup.string().required(requiredMessage('Email')).matches(/^.+@.+\..+$/, `Email format isn't valid`),
