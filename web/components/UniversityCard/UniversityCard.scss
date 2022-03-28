@@ -1,0 +1,26 @@
+.card {
+  width: 100%;
+  max-width: 600px;
+  padding: 1rem;
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    .card-title {
+      max-width: 300px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    .card-btns {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.5rem;
+      @apply text-gray-500;
+    }
+  }
+  .card-description {
+    width: 100%;
+    height: 50px;
+    @apply text-gray-500;
+  }
+}

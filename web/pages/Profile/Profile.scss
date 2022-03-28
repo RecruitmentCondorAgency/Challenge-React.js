@@ -1,0 +1,24 @@
+.profile-container {
+  @apply py-5 px-5;
+  display: flex;
+  gap: 2rem;
+  .card {
+    max-width: 1000px;
+  }
+  h2 {
+    font-size: calmp(1rem, 15vw, 4rem);
+    font-weight: bold;
+    @apply text-blue-500
+  }
+  .profile-universities {
+    .card {
+      cursor: pointer;
+    }
+    max-width: 1000px;
+    flex: 1.1 1 50%;
+  }
+  .profile-data {
+    max-width: 1000px;
+    flex: 1 1 50%;
+  }
+}

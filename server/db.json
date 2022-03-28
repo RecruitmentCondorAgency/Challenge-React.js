@@ -1,3 +1,26 @@
 {
-  "users": []
+  "users": [
+    {
+      "email": "rcorona@gmail.com",
+      "lastname": "Corona",
+      "name": "Romulo",
+      "password": "12345678",
+      "id": 1,
+      "universities": [
+        {
+          "country": "Japan",
+          "name": "Kumamoto Gakuen University",
+          "domains": [
+            "kumagaku.ac.jp"
+          ],
+          "alpha_two_code": "JP",
+          "state-province": null,
+          "web_pages": [
+            "http://www.kumagaku.ac.jp/"
+          ],
+          "description": "熊本学園大学　公式サイトトップページ"
+        }
+      ]
+    }
+  ]
 }
