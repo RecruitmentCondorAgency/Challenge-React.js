@@ -90,7 +90,7 @@ export default function signup() {
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicRepeat">
-                        <Form.Label>Repead Password</Form.Label>
+                        <Form.Label>Repeat Password</Form.Label>
                         <Form.Control required type="password" placeholder="Repeat Password"
                             value={repeat}
                             onChange={(e)=> repeatUpdate(e.target.value)}

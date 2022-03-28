@@ -59,7 +59,7 @@ function showWeather(weatherData){
         return(
             <div>
                 <h5>{type}</h5>
-                <h6>Wheater Type: {weatherData.weather}</h6>
+                <h6>Weather Type: {weatherData.weather}</h6>
             </div>
 
         )
