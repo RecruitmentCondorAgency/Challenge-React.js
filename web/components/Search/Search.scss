@@ -4,28 +4,16 @@
   width: 100%;
   display: flex;
   height: 45px;
-  .search-form {
-    gap: 1rem;
-    display: flex;
-    width: 100%;
-    max-width: 600px;
-  }
-  .search-form .search-input {
-    position: relative;
-    flex: 1 0 auto;
-    height: 100%;
-  }
-  .search-form > button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    $size: 50px;
-    flex: 0 0 70px;
-    height: 100%;
-    svg {
-      $size: 35px;
-      height: $size;
-      width: $size;
-    }
-  }
+}
+
+.floating-btn {
+  justify-content: center;
+  align-items: center;
+  $size: 45px;
+  $padding: 20px;
+  position: fixed;
+  width: $size;
+  height: $size;
+  bottom: $padding;
+  right: $padding;
 }

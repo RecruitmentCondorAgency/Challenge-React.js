@@ -51,7 +51,7 @@ const UniversityList = (props: PropTypes) => {
     setTimeout(() => {
       setCurrentItems(list);
       setPageCount(Math.ceil(items.length / itemsPerPage));
-    }, 200)
+    }, 150)
   }
 
   return (

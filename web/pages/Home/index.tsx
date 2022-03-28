@@ -9,13 +9,13 @@ const Home = () => {
   const items = useSelector(selectResult)
 
   return (
-    <>
+    <div className='w-full sm:pb-0 pb-11'>
       <MainHeader></MainHeader>
       <div className='py-5 home-container'>
         <Search></Search>
         <UniversityList items={items} itemsPerPage={5}></UniversityList>
       </div>
-    </>
+    </div>
   )
 }
 
