@@ -3,6 +3,7 @@
         - Fixed bug in selectedUniversity caused by the failure of the university website.
         - Fixed Responsive Bugs.
         - Fixed Grammatical errors.
+        - Fixed bug in header caused by a condition about loged state.
     observations:
         - I know there are too many commits. I know.
 2022/03/27 - Complete

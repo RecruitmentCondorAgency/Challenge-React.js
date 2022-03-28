@@ -3,7 +3,7 @@ import { useLocation, Link } from "react-router-dom";
 import { Navbar,Nav,Container } from 'react-bootstrap';
 
 function NavLinkLog(props){
-    if(props.loged !== false){
+    if(props.loged){
         return (
             <>
                 <Nav.Link href="/profile" as={Link} to="/profile">
