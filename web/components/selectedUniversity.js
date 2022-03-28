@@ -66,7 +66,7 @@ function getCountryData(countryData){
 }
 
 function getGallery(images){
-    if(images){
+    if(images&&images.length>1){
         var List = images.map((img) => <a key={img.url} href={img.url} target="_blank"><img className="m-2" src={img.url} width="100"/></a>);
         return List
     }

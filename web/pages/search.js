@@ -65,22 +65,30 @@ export default function Search(){
                         link: element.web_pages[0]
                     });
                 });
-                universityListUpdate(list);
+
+                function arrUnique(arr, index, self){
+                    return index === self.findIndex((t) => (t.name === arr.name && t.alpha === arr.alpha && t.link === arr.link ))
+                }
+                
+                universityListUpdate(list.filter(arrUnique));
 
                 var options = [];
                 var maxOptions = data.length>10 ? 10:data.length;
                 for (let index = 0; index < maxOptions; index++) {
-                    options.push(data[index].name);
+                    options.push(`${data[index].name}`);
                 }
-                universityOptionsUpdate(options);
+                universityOptionsUpdate([...new Set(options)]);
 
             })
         }, 1000);
     };
 
     const createUniversityListItem = () => {
-        universityListItemUpdate(universityList);
+        universityListItemUpdate([]);
         pagerUpdate(1);
+        setTimeout(() => {
+            universityListItemUpdate(universityList);
+        }, 100);
     }
 
     const changePager = () => {
@@ -90,7 +98,7 @@ export default function Search(){
     return (
         <div className="page container">
             <div className="row">
-                <div className="col-12 col-lg-7 col-xl-6 px-sm-5 py-5 mx-auto">
+                <div className="col-12 col-lg-7 col-xl-6 px-2 py-5 mx-auto">
                     <SearchTypeahead
                         model={searchText}
                         options={universityOptions}

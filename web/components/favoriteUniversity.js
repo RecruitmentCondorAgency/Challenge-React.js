@@ -1,4 +1,6 @@
 import * as React from "react";
+import { ReactSession } from 'react-client-session';
+
 import { Card,Button } from 'react-bootstrap';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -17,14 +19,67 @@ function fetchCountryData(alpha){
     })
 }
 
+function removeFavorite(id){
+    var link = `http://localhost:3000/favorites/${id}`;
+    return new Promise((resolve,reject)=>{
+        axios.delete(link).then((response)=>{
+            resolve(response.data);
+        }).catch((error)=>{
+            console.error(error);
+            reject(error.response);
+        });
+    });
+}
+
+function setFavorite(data){
+    var link = `http://localhost:3000/favorites`;
+    return new Promise((resolve,reject)=>{
+        axios.post(link,data).then((response)=>{
+            resolve(response.data);
+        }).catch((error)=>{
+            console.error(error);
+            reject(error.response);
+        });
+    });
+}
+
 export default function FavoriteUniversity(props){
 
+    const [session,sessionUpdate] = React.useState(false);
     const [countryData, countryDataUpdate] = React.useState(false);
+    const [favorite, favoriteUpdate] = React.useState(true);
 
     if(!countryData){
         fetchCountryData(props.alpha).then((data)=>{
             countryDataUpdate(data[0].name.common)
         });
+    }
+
+    React.useEffect(() => {
+		var userID = ReactSession.get("user.id");
+        sessionUpdate(userID);
+	},[]);
+
+    const toggleFavorite = () => {
+        if(favorite){
+            removeFavorite(props.id).then((data)=>{
+                favoriteUpdate(false);
+            }).catch((error)=>{
+                console.log(error);
+            });
+        }else{
+            setFavorite({
+                linkID:props.link,
+                name:props.name,
+                alpha: props.alpha,
+                description:props.description,
+                userID:session
+            }).then((data)=>{
+                favoriteUpdate(true);
+            }).catch((error)=>{
+                console.log(error);
+            });
+        }
     }
 
     return (
@@ -47,7 +102,7 @@ export default function FavoriteUniversity(props){
                     >
                         {props.name}
                     </h6> 
-                    <h6 className="mx-3 text-muted" 
+                    <h6 className="mx-3 text-center text-muted" 
                         style={{ padding:'0px', fontSize:"12px" }}
                     >
                         {countryData}
@@ -55,8 +110,10 @@ export default function FavoriteUniversity(props){
                     <div className="text-end" 
                         style={{ minWidth: '25%', padding:'0px' }}
                     >
-                        <Button className="p-0" variant="none">
-                            <FontAwesomeIcon color="orange"  
+                        <Button className="p-0" variant="none"
+                            onClick={toggleFavorite}
+                        >
+                            <FontAwesomeIcon color={favorite ? 'orange':'grey'}
                                 icon={faStar} 
                             />
                         </Button>

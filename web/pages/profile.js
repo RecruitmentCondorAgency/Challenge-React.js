@@ -1,4 +1,6 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
+import { ReactSession } from 'react-client-session';
 
 import FavoriteUniversity from "src/components/favoriteUniversity";
 import SelectedUniversity from "src/components/selectedUniversity";
@@ -16,10 +18,22 @@ function fetchUniversitySelectedData(url){
     })
 }
 
+function fetchFavorites(email){
+    var link = `http://localhost:3000/favorites?userID=${email}`;
+    return new Promise((resolve,reject)=>{
+        axios.get(link).then((response)=>{
+            resolve(response.data);
+        }).catch((error)=>{
+            console.error(error);
+            reject(error.response);
+        });
+    });
+}
+
 function showSelectedUniversity(selectedUniversity){
     if(selectedUniversity){
         return (
-            <div className="col-12 col-lg-6 px-sm-5 my-5 mt-lg-0">
+            <div className="col-12 col-lg-6 px-2 my-5 mt-lg-0">
                 <h2 className="text-condor">Selected University</h2>
                 <SelectedUniversity
                     name={selectedUniversity.name}
@@ -36,42 +50,70 @@ function showSelectedUniversity(selectedUniversity){
 
 export default function Profile(){
 
+    const [session,sessionUpdate] = React.useState(false);
     const [selectedUniversity, selectedUniversityUpdate] = React.useState(false);
+    const [favorites, favoritesUpdate] = React.useState([]);
 
-    const selectUniversity = (e) => {
-        fetchUniversitySelectedData(e.link).then((data)=>{
-            selectedUniversityUpdate({
-                name:e.name,
-                favicon: data.favicon,
-                link:e.link,
-                alpha: e.alpha,
-                description: data.ogDescription,
-                gallery: data.ogImage
+    function showFavorites(favorites){
+
+        const selectUniversity = (e) => {
+            fetchUniversitySelectedData(e.link).then((data)=>{
+                selectedUniversityUpdate({
+                    name:e.name,
+                    favicon: data.favicon,
+                    link:e.link,
+                    alpha: e.alpha,
+                    description: data.ogDescription,
+                    gallery: data.ogImage
+                })
             })
-        })
-    };
+        };
+    
+        if(favorites.length>0){
+            var key = 0
+            var list = [];
+            favorites.forEach(element => {
+                list.push(
+                    <FavoriteUniversity
+                        model={selectUniversity}
+                        key={key++}
+                        id={element.id}
+                        name={element.name}
+                        alpha={element.alpha}
+                        description={element.description}
+                        link={element.linkID}
+                    />
+                );
+            });
+            return list;
+        }else{
+            return (
+                <div>It seems that you do not have any favorite university. We recommend you to choose some <Link to="/search"> Here </Link> </div>
+            )
+        }
+    }
+
+    React.useEffect(() => {
+		var userID = ReactSession.get("user.id");
+        sessionUpdate(userID);
+        if(userID){
+            fetchFavorites(userID).then((data)=>{
+                if(data.length>0){
+                    favoritesUpdate(data);
+                }
+            }).catch((error)=>{
+                console.log(error);
+            });
+        }
+	},[]);
+
 
     return (
         <div className="page container">
             <div className="row">
-                <div className="col-12 col-lg-6 px-sm-5 mx-auto">
+                <div className="col-12 col-lg-6 px-2 mx-auto">
                     <h2 className="text-condor">My Favorites</h2>
-                    <FavoriteUniversity
-                        model={selectUniversity}
-                        code="1"
-                        name="University of Oxford" 
-                        alpha="GB" 
-                        description="University Description"
-                        link="http://www.ox.ac.uk/"
-                    />
-                    <FavoriteUniversity
-                        model={selectUniversity}
-                        code="2"
-                        name="Massachusetts Institute of Technology" 
-                        alpha="US" 
-                        description="MIT Description"
-                        link="http://web.mit.edu/"
-                    />
+                    {showFavorites(favorites)}
                 </div>
                 {showSelectedUniversity(selectedUniversity)}
             </div>

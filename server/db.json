@@ -1,3 +1,48 @@
 {
-  "users": []
+  "users": [
+    {
+      "id": "rogeliogomeza1@gmail.com",
+      "name": "Rogelio Gómez",
+      "password": "rogelio"
+    },
+    {
+      "id": "test@condor",
+      "name": "Test Condor",
+      "password": "condor"
+    }
+  ],
+  "favorites": [
+    {
+      "linkID": "http://www.ox.ac.uk/",
+      "name": "University of Oxford",
+      "alpha": "GB",
+      "description": "The University of Oxford is one of the leading universities in the world.",
+      "userID": "rogeliogomeza1@gmail.com",
+      "id": 1
+    },
+    {
+      "linkID": "http://www.cam.ac.uk/",
+      "name": "University of Cambridge",
+      "alpha": "GB",
+      "description": "The mission of the University of Cambridge is to contribute to society through education, learning and research at the highest international level.",
+      "userID": "rogeliogomeza1@gmail.com",
+      "id": 2
+    },
+    {
+      "linkID": "http://www.harvard.edu/",
+      "name": "Harvard University",
+      "alpha": "US",
+      "description": "Harvard University is devoted to excellence in teaching, learning, and research, and to developing leaders who make a difference globally.",
+      "userID": "test@condor",
+      "id": 3
+    },
+    {
+      "linkID": "http://www.uvm.edu.ve/",
+      "name": "Universidad Valle del Momboy",
+      "alpha": "VE",
+      "description": "Sorry. We couldn't find any description",
+      "userID": "test@condor",
+      "id": 4
+    }
+  ]
 }

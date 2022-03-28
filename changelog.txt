@@ -1,3 +1,13 @@
+2022/03/27 - Complete
+    changes:
+        - All of the UI/UX is finished.
+        - User Sessiones is finished.
+        - Universities interaction is finished.
+    observations:
+        - The Hipolabs Universities API has errors. Returns duplicate options with null state/province. Fixed duplicates, another API needed to get state/province.
+        - Given that it was not possible to obtain the states/provinces of the universities for now, it was decided to use the Weather API locally with the GPS.
+        - Coincidentally it was raining while I was developing the test. That's not fair.
+        - I'll probably be doing some bug fixes tomorrow.
 2022/03/27 - Views and Controllers
     changes:
         - A proxy (localhost:3001) has been created to obtain information from the Universities.
