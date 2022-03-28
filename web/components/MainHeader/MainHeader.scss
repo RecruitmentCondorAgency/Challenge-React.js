@@ -1,0 +1,18 @@
+.main-header {
+  z-index: 99;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  &__title {
+    gap: clamp(0.5rem, 5vw, 3rem)
+  }
+  &__menu-btn, & img {
+    $size: 45px;
+    width: $size;
+    height: $size;
+  }
+  &__menu-btn svg {
+    height: 100%;
+    width: 100%;
+  }
+}

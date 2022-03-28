@@ -1,0 +1,23 @@
+.input-container {
+  width: 100%;
+}
+.input-container .input-text {
+  width: 100%;
+}
+.input-container .error {
+  height: 1.5rem;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.input-container .error span {
+  position: absolute;
+  bottom: 1.5rem;
+  opacity: 0;
+  transition: all 0.2s;
+}
+.input-container .error.active span {
+  opacity: 1;
+  bottom: 0.1rem;
+}

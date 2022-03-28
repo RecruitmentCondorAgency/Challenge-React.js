@@ -1,0 +1,30 @@
+.result-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-paginator {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  li:not(.previous):not(.next) {
+    $size: 1.8rem;
+    width: $size;
+    width: $size;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 0.2rem;
+    @apply bg-blue-400 text-white border-2 border-blue-300 shadow-lg rounded-full;
+    &.selected {
+      @apply bg-blue-600 text-white border-2 border-blue-300 shadow-lg rounded-full;
+    }
+  }
+  
+  .next , & .previous {
+    font-weight: 600;
+    @apply text-blue-500
+  }
+}
