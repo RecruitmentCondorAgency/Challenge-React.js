@@ -66,7 +66,10 @@ export default function Profile(){
                     description: data.ogDescription,
                     gallery: data.ogImage
                 })
-            })
+            }).catch((error)=>{
+                alert("Can't fetch University Webpage Data");
+                console.error(error);
+            });
         };
     
         if(favorites.length>0){
