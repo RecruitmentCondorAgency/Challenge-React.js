@@ -1,5 +1,5 @@
 import { ChangeEventHandler, FocusEventHandler } from "react"
-import './InputText.css'
+import './InputText.scss'
 
 type Props = {value: string, name: string, placeholder: string, onChange: ChangeEventHandler<HTMLInputElement>, onBlur: FocusEventHandler<HTMLInputElement>, type?: string, error?: boolean, errorMessage?: string}
 
