@@ -1,6 +1,7 @@
 2022/03/27 - Bugfixes
     changes:
         - Fixed bug in selectedUniversity caused by the failure of the university website.
+        - Fixed Responsive Bugs.
 2022/03/27 - Complete
     changes:
         - All of the UI/UX is finished.

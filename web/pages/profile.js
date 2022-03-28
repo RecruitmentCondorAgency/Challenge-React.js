@@ -113,8 +113,8 @@ export default function Profile(){
 
     return (
         <div className="page container">
-            <div className="row">
-                <div className="col-12 col-lg-6 px-2 mx-auto">
+            <div className="row flex-column-reverse flex-lg-row">
+                <div className="col-12 col-lg-6 px-2 mx-auto mt-5 mt-lg-0">
                     <h2 className="text-condor">My Favorites</h2>
                     {showFavorites(favorites)}
                 </div>

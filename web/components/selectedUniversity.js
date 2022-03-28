@@ -118,7 +118,7 @@ export default function SelectedUniversity(props){
     }
 
     return (
-        <Card className="mt-3 shadow" border="light" 
+        <Card className="shadow" border="light" 
             style={{ width: '100%', padding:'0px' }}
         >
             <Card.Body>
