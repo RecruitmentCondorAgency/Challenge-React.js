@@ -83,7 +83,7 @@ export default function FavoriteUniversity(props){
     }
 
     return (
-        <Card className="mt-3 shadow cursor-pointer" border="light" 
+        <Card className="mb-3 shadow cursor-pointer" border="light" 
             style={{ width: '100%', padding:'0px' }}
             onClick={
                 ()=>{ 
