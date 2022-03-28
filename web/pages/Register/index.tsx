@@ -3,12 +3,13 @@ import * as Yup from 'yup';
 import { FormikHelpers, useFormik } from 'formik';
 import Card from "../../components/Card";
 import { setUser } from "../../store/user";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import Input from "../../components/InputText";
 import FormButton from "../../components/Button";
 import { store } from "../../store";
 import './Register.scss';
 import { fetchPost } from "../../store/user/thunks";
+import AvatarSelector from "../../components/AvatarSelector";
 
 interface RegisterFields {
   email: '',
@@ -22,6 +23,7 @@ const requiredMessage = (field: string) => `${field} is required`
 
 const Register = () => {
   const navigate = useNavigate();
+  const [avatar, setAvatar] = useState('')
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -32,9 +34,8 @@ const Register = () => {
     },
     onSubmit: async (values: RegisterFields, { setSubmitting }: FormikHelpers<RegisterFields>) => {
       const {repeatpassword, ...data} = values
-      await store.dispatch(fetchPost(data))
+      await store.dispatch(fetchPost({...data, avatar}))
       setSubmitting(false);
-      alert(JSON.stringify(values))
       navigate('/login')
     },
     validationSchema: Yup.object({
@@ -77,6 +78,9 @@ const Register = () => {
         <Card>
           <>
           <h1 className="text-slate-500 register-title">Register</h1>
+          <div className="flex justify-center mb-4">
+              <AvatarSelector value={avatar} onChange={(value) => setAvatar(value)}/>
+            </div>
           <form className="flex direction-column" onSubmit={formik.handleSubmit}>
             <Input
               placeholder="Email"

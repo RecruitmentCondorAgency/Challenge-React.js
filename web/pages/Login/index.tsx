@@ -28,7 +28,7 @@ const Login = () => {
       setSubmitting(false);
       if (user) {
         setExistance(false)
-        navigate('/')
+        navigate('/home')
       } else {
         setExistance(true)
       }

@@ -9,7 +9,7 @@ import { SearchState } from './search/types'
 const rootReducer = combineReducers({
   userReducer: persistReducer({
     key: 'userReducer',
-    blacklist: ['selected'],
+    blacklist: ['university'],
     storage
   }, userReducer),
   searchReducer

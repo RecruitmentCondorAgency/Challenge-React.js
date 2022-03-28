@@ -1,18 +1,23 @@
-.detail-container {
+.detail-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.detail-list {
+  margin: 0.5rem 0;
   display: flex;
-  justify-content: center;
-  width: 100%;
-
-  .card .deatil-title {
-    font-size: 2rem;
-    font-weight: 700;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  a {
+    @apply text-blue-500;
+    text-decoration: underline;
   }
+}
 
-  .card .deatil-list {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 1rem;
+.detail-weather {
+  h4 {
+    font-weight: 700;
   }
 }
 

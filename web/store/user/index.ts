@@ -22,7 +22,7 @@ export const userSlice = createSlice({
     setUniversities: (state, action: PayloadAction<SelectedUniversity[]>) => {
       state.universities =  action.payload
     },
-    setUniversity: (state, action: PayloadAction<SelectedUniversity>) => {
+    setUniversity: (state, action: PayloadAction<SelectedUniversity | null>) => {
       state.university =  action.payload
     }
   },

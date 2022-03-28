@@ -8,8 +8,12 @@ export const fetchLogin = createAsyncThunk<any, {email: string, password: string
   "users/login", async (data ,thunkAPI) => {
      try {
         const response = await users.getUser(data)
-        let result = response.data[0] ?? null
-        if (result) thunkAPI.dispatch(setUser(result))
+        let result: User & {universities: University[]} = response.data[0]
+        if (result) {
+          const {universities, ...user} = result
+          thunkAPI.dispatch(setUser(user))
+          thunkAPI.dispatch(setUniversities(universities))
+        }
         return result
       } catch (error) {
          return thunkAPI.rejectWithValue({ error });
