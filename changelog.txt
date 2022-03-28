@@ -1,0 +1,35 @@
+2022/03/27 - Bugfixes
+    changes:
+        - Fixed bug in selectedUniversity caused by the failure of the university website.
+        - Fixed Responsive Bugs.
+        - Fixed Grammatical errors.
+        - Fixed bug in header caused by a condition about loged state.
+    observations:
+        - I know there are too many commits. I know.
+2022/03/27 - Complete
+    changes:
+        - All of the UI/UX is finished.
+        - User Sessiones is finished.
+        - Universities interaction is finished.
+    observations:
+        - The Hipolabs Universities API has errors. Returns duplicate options with null state/province. Fixed duplicates, another API needed to get state/province.
+        - Given that it was not possible to obtain the states/provinces of the universities for now, it was decided to use the Weather API locally with the GPS.
+        - Coincidentally it was raining while I was developing the test. That's not fair.
+        - I'll probably be doing some bug fixes tomorrow.
+2022/03/27 - Views and Controllers
+    changes:
+        - A proxy (localhost:3001) has been created to obtain information from the Universities.
+        - Design: search,profile,login and signup views have been created.
+        - Most ajax requests have been developed, with the exception of user requests.
+    observations:
+        - The proxy server is made with expressjs and open-graph-scraper.
+        - Moved some components to utils folder of components.
+        - I need sleep.
+2022/03/25 - Rearranging
+    changes:
+        - Rearranging React elements and structure.
+        - Changed Parcel Port to 8080.
+        - Created Routing Lazy Component with Error Handling.
+    observations:
+        - Founded and fixed 2 vulnerabilities in npm report of Web package.
+        - Nobody likes doing nothing on a rainy day. You just have to look at the beautiful rain and drink hot chocolate milk.

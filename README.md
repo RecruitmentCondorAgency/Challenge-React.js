@@ -1,4 +1,8 @@
-# Welcome!
+# Read Changelog 
+
+Read the [changelog](./changelog.txt) to see details about the commits and observations
+
+# Condor's React.js assessment challenge!
 
 Welcome to Condor's React.js assessment challenge!
 
@@ -20,6 +24,7 @@ In the main `package.json` you'll have access to the following scripts:
 
 - `npm run app`: To run the react app.
 - `npm run server`: To start the local db.
+- `npm run proxy`: To start the proxy ajax server.
 
 You may use any other package of your choice to enrich your development experience.
 
