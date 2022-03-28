@@ -1,8 +1,19 @@
-
 .detail-container {
   display: flex;
   justify-content: center;
   width: 100%;
+
+  .card .deatil-title {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  .card .deatil-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1rem;
+  }
 }
 
 .loader {

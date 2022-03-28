@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-import { universities } from "../../services";
 import { University } from "../../store/user/types";
 import { ExternalLinkIcon } from '@heroicons/react/solid';
 import { StarIcon } from '@heroicons/react/outline';
@@ -9,7 +7,6 @@ import Clamp from 'react-multiline-clamp';
 import { store } from "../../store";
 import { fetchPostUniversities } from "../../store/user/thunks";
 import useHasUniversity from "../../hooks/useHasUniversity";
-import abortSignal from "../../utils/abortSiganl";
 import './UniversityCard.scss'
 import { setUniversity } from "../../store/user";
 import useGetDescription from "../../hooks/useGetDescription";
