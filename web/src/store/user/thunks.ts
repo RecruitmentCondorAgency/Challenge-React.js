@@ -16,7 +16,7 @@ export const fetchLogin = createAsyncThunk<any, {email: string, password: string
         }
         return result
       } catch (error) {
-         return thunkAPI.rejectWithValue({ error });
+        return thunkAPI.rejectWithValue({ error });
       }
 });
 

@@ -2,16 +2,15 @@ import { Link, useNavigate } from "react-router-dom";
 import * as Yup from 'yup';
 import { FormikHelpers, useFormik } from 'formik';
 import Card from "../../components/Card";
-import { setUser } from "../../store/user";
 import { useMemo, useState } from "react";
 import Input from "../../components/InputText";
 import FormButton from "../../components/Button";
 import { store } from "../../store";
-import './Register.scss';
 import { fetchPost } from "../../store/user/thunks";
 import AvatarSelector from "../../components/AvatarSelector";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import notifyConfig from "../../utils/notifyConfig";
+import './Register.scss';
 
 interface RegisterFields {
   email: '',
@@ -37,12 +36,16 @@ const Register = () => {
     onSubmit: async (values: RegisterFields, { setSubmitting }: FormikHelpers<RegisterFields>) => {
       try {
         const {repeatpassword, ...data} = values
-        await store.dispatch(fetchPost({...data, avatar}))
+        const user = ((await store.dispatch(fetchPost({...data, avatar})))).payload
         setSubmitting(false);
-        navigate('/login')
+        console.log(user?.error)
+        if (user?.error) {
+          createNotification()
+        } else {
+          navigate('/login')
+        }
       } catch (err) {
-        console.error(err)
-        toast('An error ocuured while registering, please try again', {...notifyConfig, type: 'error'})
+        createNotification()
       }
     },
     validationSchema: Yup.object({
@@ -78,6 +81,10 @@ const Register = () => {
     !!(formik.touched.repeatpassword && formik.errors.repeatpassword),
     [formik.touched.repeatpassword, formik.errors.repeatpassword]
   )
+
+  const createNotification = () => {
+    toast('An error ocuured while registering, please try again', {...notifyConfig, type: 'error'})
+  }
 
   return (
     <div className="register-container">
@@ -136,20 +143,20 @@ const Register = () => {
               error={repeatpasswordError}
               errorMessage={formik.errors.repeatpassword}
             ></Input>
-            <div className="mt-4 flex justify-end">
-              <FormButton text="Enviar" loading={formik.isSubmitting} className="inline-flex justify-center"/>
+            <div className="register-redirect">
+              <p className="text-center"><span className="text-slate-500 mr-2">You already have an account?</span>
+                <Link to={'/login'}>Login</Link>
+              </p>
+              <div className="mt-4 flex justify-end">
+                <FormButton text="Enviar" loading={formik.isSubmitting} className="inline-flex justify-center"/>
+              </div>
             </div>
           </form>
-          <div className="register-redirect">
-            <p className="text-center"><span className="text-slate-500 mr-2">You already have an account?</span>
-              <Link to={'/login'}>Login</Link>
-            </p>
-          </div>
           </>
         </Card>
       </div>
+      <ToastContainer />
     </div>
-    // <Link to="/home">Invoices</Link>
   )
 }
 

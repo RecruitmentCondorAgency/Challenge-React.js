@@ -3,12 +3,12 @@ import { toast } from "react-toastify"
 import { countries } from "../services"
 import { SelectedUniversity } from "../store/user/types"
 import abortSignal from "../utils/abortSiganl"
-import notifyConfig from "../utils/notifyConfig"
 
 let controller: AbortController
 
-const useCountryInfo = (item: SelectedUniversity): [any, boolean] => {
+const useCountryInfo = (item: SelectedUniversity): [any, boolean, any] => {
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
   const [info, setInfo] = useState(null)
   useEffect (() => {
     abortSignal(controller)
@@ -19,10 +19,11 @@ const useCountryInfo = (item: SelectedUniversity): [any, boolean] => {
       newInfo.currencies = convertObjectToArray(newInfo.currencies)
       newInfo.languages = convertObjectToArray(newInfo.languages)
       setInfo(newInfo)
+      setError(null)
     })
     .catch((err) => {
       console.error(err)
-      toast('An error ocuured while fetching data, please try again', {...notifyConfig, type: 'error'})
+      setError(err)
     })
     .finally(() => {
       setLoading(false)
@@ -30,7 +31,7 @@ const useCountryInfo = (item: SelectedUniversity): [any, boolean] => {
     return () => abortSignal(controller)
   }, [item])
 
-  return [info, loading]
+  return [info, loading, error]
 }
 
 export default useCountryInfo
