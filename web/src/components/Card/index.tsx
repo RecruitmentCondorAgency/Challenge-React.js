@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import './Card.css'
+import './Card.scss'
 
 const Card = ({children}: {children: ReactElement}) => (
   <div className="card my-3 rounded">

@@ -1,14 +1,22 @@
+import { useEffect } from "react"
 import useCountryInfo from "../../hooks/useCountryInfo"
 import { SelectedUniversity } from "../../store/user/types"
 import Spinner from "../Spinner"
+import notifyConfig from "../../utils/notifyConfig"
+import { toast, ToastContainer } from "react-toastify"
 import './UniversityDetail.scss'
 
 type Props = {item: SelectedUniversity}
 
 const UniversityDetail = (props: Props) => {
   const {item} = props
-  const [countryInfo, loading] = useCountryInfo(item)
+  const [countryInfo, loading, error] = useCountryInfo(item)
 
+  useEffect(() => {
+    if (error) {
+      toast('An error ocuured while fetching data, please try again', {...notifyConfig, type: 'error'})
+    }
+  }, [error])
   return (
     <div>
 
@@ -24,7 +32,7 @@ const UniversityDetail = (props: Props) => {
             {item.description}
           </p>
           {
-            countryInfo && <>
+            (countryInfo && !error) ? <>
             <ul className="detail-list">
               <li>
                 Website: <a href={item.web_pages[0]} target="_blank" rel="noopener noreferrer">{item.web_pages[0]}</a>
@@ -69,9 +77,12 @@ const UniversityDetail = (props: Props) => {
                 }.
               </p>
             </div>
-          </>}
+          </> :
+          <p className="mt-5 font-bold">No country description</p>
+          }
         </>
       }
+      <ToastContainer />
     </div>
   )
 }

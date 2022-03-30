@@ -28,19 +28,20 @@ const Login = () => {
       try {
         const user = (await store.dispatch(fetchLogin(values))).payload
         setSubmitting(false);
-        if (user) {
+        if (user && !user.error) {
           setExistance(false)
           navigate('/home')
+        } else if (user && user.error) {
+          createNotification()
         } else {
           setExistance(true)
         }
       } catch (err) {
-        console.error(err)
-        toast('An error ocuured while login, please try again', {...notifyConfig, type: 'error'})
+        createNotification()
       }
     },
     validationSchema: Yup.object({
-      email: Yup.string().required('You must enter an email'),
+      email: Yup.string().required('You must enter an email').matches(/^.+@.+\..+$/, `Email format isn't valid`),
       password: Yup.string().required('You must enter a password').min(8, 'Minimum 8 characters'),
     })
   });
@@ -55,15 +56,9 @@ const Login = () => {
     [formik.touched.password, formik.errors.password]
   )
 
-  const notifyLoad = () => toast('Cargando data', {
-    type: 'info',
-    position: "top-right",
-    pauseOnHover: true,
-    draggable: false,
-    progress: undefined,
-    closeButton: false,
-    isLoading: true
-  });
+  const createNotification = () => {
+    toast('An error ocuured while login, please try again', {...notifyConfig, type: 'error'})
+  }
 
   return (
     <>
@@ -86,6 +81,7 @@ const Login = () => {
               <Input
                 placeholder="Password"
                 name="password"
+                type="password"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.password}
