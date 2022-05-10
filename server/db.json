@@ -1,3 +1,168 @@
 {
-  "users": []
+  "users": [
+    {
+      "id": 1,
+      "fullname": "Gianni Narracci",
+      "username": "gnarracci",
+      "password": "91d207b180ab6ac280f90500db727f5b",
+      "email": "gnarracci@gmail.com",
+      "gender": "He"
+    },
+    {
+      "id": 2,
+      "fullname": "Evelyn Leon",
+      "username": "eleon",
+      "password": "76e2b725f3843e14af466d34c9cb227d",
+      "email": "evelynleongonzalez4@gmail.com",
+      "gender": "She"
+    },
+    {
+      "id": 3,
+      "fullname": "Karelis Fuenmayor",
+      "username": "kfuenmayor",
+      "password": "7344d6e090cc2ffea96a391d21e3ce69",
+      "email": "fuenmayork85@gmail.com",
+      "gender": "She"
+    },
+    {
+      "id": 4,
+      "fullname": "Jim Steeb",
+      "username": "jsteeb",
+      "password": "b2309ae92d54068ae15d7a2229d27e2f",
+      "email": "jimsteeb715@gmail.com",
+      "gender": "He"
+    },
+    {
+      "id": 5,
+      "fullname": "Samuel Collins",
+      "username": "scollins",
+      "password": "c505743a992b5f55e611e7379233700a",
+      "email": "scollins.885@gmail.com",
+      "gender": "He"
+    }
+
+  ],
+  "universities": [
+    {
+        "alpha_two_code": "US",
+        "domains": [
+            "mga.edu"
+        ],
+        "country": "United States",
+        "state-province": null,
+        "web_pages": [
+            "http://www.mga.edu/"
+        ],
+        "name": "Middle Georgia State College"
+    },
+    {
+        "alpha_two_code": "JO",
+        "domains": [
+            "meu.edu.jo"
+        ],
+        "country": "Jordan",
+        "state-province": null,
+        "web_pages": [
+            "http://www.meu.edu.jo/"
+        ],
+        "name": "Middle East University"
+    },
+    {
+        "alpha_two_code": "TR",
+        "domains": [
+            "metu.edu.tr"
+        ],
+        "country": "Turkey",
+        "state-province": null,
+        "web_pages": [
+            "http://www.metu.edu.tr/"
+        ],
+        "name": "Middle East Technical University"
+    },
+    {
+        "alpha_two_code": "US",
+        "domains": [
+            "mtsu.edu"
+        ],
+        "country": "United States",
+        "state-province": null,
+        "web_pages": [
+            "http://www.mtsu.edu/"
+        ],
+        "name": "Middle Tennessee State University"
+    },
+    {
+        "alpha_two_code": "KW",
+        "domains": [
+            "aum.edu.kw"
+        ],
+        "country": "Kuwait",
+        "state-province": null,
+        "web_pages": [
+            "http://www.aum.edu.kw/"
+        ],
+        "name": "American University of Middle East"
+    },
+    {
+        "alpha_two_code": "GB",
+        "domains": [
+            "mdx.ac.uk"
+        ],
+        "country": "United Kingdom",
+        "state-province": null,
+        "web_pages": [
+            "http://www.mdx.ac.uk/"
+        ],
+        "name": "Middlesex University"
+    },
+    {
+        "alpha_two_code": "US",
+        "domains": [
+            "middlesexcc.edu"
+        ],
+        "country": "United States",
+        "state-province": null,
+        "web_pages": [
+            "http://www.middlesexcc.edu"
+        ],
+        "name": "Middlesex County College"
+    },
+    {
+        "alpha_two_code": "US",
+        "domains": [
+            "middlesex.mass.edu"
+        ],
+        "country": "United States",
+        "state-province": null,
+        "web_pages": [
+            "http://www.middlesex.mass.edu"
+        ],
+        "name": "Middlesex Community College"
+    },
+    {
+        "alpha_two_code": "GB",
+        "domains": [
+            "middlesbro.ac.uk",
+            "mbro.ac.uk"
+        ],
+        "country": "United Kingdom",
+        "state-province": null,
+        "web_pages": [
+            "https://www.mbro.ac.uk/"
+        ],
+        "name": "Middlesbrough College"
+    },
+    {
+        "alpha_two_code": "US",
+        "domains": [
+            "middlebury.edu"
+        ],
+        "country": "United States",
+        "state-province": null,
+        "web_pages": [
+            "http://www.middlebury.edu/"
+        ],
+        "name": "Middlebury College"
+    }
+]
 }
