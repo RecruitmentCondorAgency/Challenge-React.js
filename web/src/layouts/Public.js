@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import * as styles from './public.module.css';
 import HeaderMenu from '../components/HeaderMenu';
 import HeaderLogo from '../components/HeaderLogo';
+import Main from '../components/Main';
 
 const PublicLayout = () => {
   return (
@@ -13,9 +14,9 @@ const PublicLayout = () => {
         </div>
         <HeaderMenu />
       </header>
-      <main className={styles.mainContainer}>
+      <Main>
         <Outlet />
-      </main>
+      </Main>
     </div>
   );
 };

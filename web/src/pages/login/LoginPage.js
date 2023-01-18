@@ -1,9 +1,10 @@
-import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import { loginSchema } from '../../utils/loginSchema';
 import FormikInput from '../../components/FormikInput';
 import * as styles from './styles.module.css';
 import MainButton from '../../components/mainbutton/MainButton';
+import useLogin from './hooks/useLogin';
+import useVerifyAuth from '../../hooks/useVerifyAuth';
 
 const initialValues = {
   email: '',
@@ -11,15 +12,18 @@ const initialValues = {
 };
 
 const LoginPage = () => {
+  const login = useLogin();
+  useVerifyAuth();
+
   return (
     <div className={styles.formContainer}>
       <Formik
         initialValues={initialValues}
         validationSchema={loginSchema}
-        onSubmit={(values) => {
-          alert(JSON.stringify(values, null, 2));
+        onSubmit={(user) => {
+          login(user);
         }}>
-        {({ errors, touched }) => (
+        {({ errors, touched, handleSubmit }) => (
           <Form>
             <Field
               label="Email"
@@ -38,7 +42,7 @@ const LoginPage = () => {
             />
             {errors.password && touched.password ? <div>{errors.password}</div> : null}
             <div className={styles.btnContainer}>
-              <MainButton>Login</MainButton>
+              <MainButton clickHandler={handleSubmit}>Login</MainButton>
             </div>
           </Form>
         )}

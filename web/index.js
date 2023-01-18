@@ -1,6 +1,4 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
-import { App } from './src/app';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ErrorPage from './src/pages/ErrorPage';
 import LoginPage from './src/pages/login/LoginPage';
@@ -9,6 +7,9 @@ import UniversitiesPage from './src/pages/universities/UniversitiesPage';
 import PrivateLayout from './src/layouts/Private';
 import Details from './src/pages/universities/Details';
 import SignUp from './src/pages/signup/SignUp';
+import { App } from './src/app';
+import React from 'react';
+import { AuthProvider } from './src/lib/contexts/AuthContext';
 
 const router = createBrowserRouter([
   {
@@ -18,33 +19,32 @@ const router = createBrowserRouter([
   },
   {
     path: '/login',
-    element: <PublicLayout />,
-    errorElement: <ErrorPage />,
+    element: (
+      <AuthProvider>
+        <PublicLayout />
+      </AuthProvider>
+    ),
     children: [
       {
         path: '/login',
         element: <LoginPage />
-      }
-    ]
-  },
-  {
-    path: '/signup',
-    element: <PublicLayout />,
-    errorElement: <ErrorPage />,
-    children: [
+      },
       {
-        path: '/signup',
+        path: 'signup',
         element: <SignUp />
       }
     ]
   },
   {
-    path: '/universities',
-    element: <PrivateLayout />,
-    errorElement: <ErrorPage />,
+    path: '/search',
+    element: (
+      <AuthProvider>
+        <PrivateLayout />
+      </AuthProvider>
+    ),
     children: [
       {
-        path: '/universities',
+        path: '/search',
         element: <UniversitiesPage />
       },
       {
@@ -57,8 +57,8 @@ const router = createBrowserRouter([
 
 const app = document.getElementById('app');
 ReactDOM.render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>,
+  // <React.StrictMode>
+  <RouterProvider router={router} />,
+  // </React.StrictMode>,
   app
 );

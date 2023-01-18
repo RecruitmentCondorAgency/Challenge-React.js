@@ -1,3 +1,67 @@
 {
-  "users": []
+  "users": [
+    {
+      "universities": [
+        {
+          "id": 1,
+          "name": "Shaa",
+          "description": "Esa lista",
+          "country": "Venezuela"
+        },
+        {
+          "id": 2,
+          "name": "Shaa",
+          "description": "Esa lista",
+          "country": "Gran Bretaña"
+        }
+      ],
+      "email": "aburender@gmail.com",
+      "password": "gttt",
+      "id": 1
+    },
+    {
+      "universities": [],
+      "email": "aburender@gmail.com",
+      "password": "jesus",
+      "id": 2
+    },
+    {
+      "universities": [],
+      "email": "aburender@gmail.com",
+      "password": "jesus",
+      "id": 3
+    },
+    {
+      "universities": [],
+      "email": "aburender@gmail.com",
+      "password": "jesus",
+      "id": 4
+    },
+    {
+      "universities": [],
+      "email": "aburender@gmail.com",
+      "password": "jesus",
+      "id": 5
+    }
+  ],
+  "universities": [
+    {
+      "id": 1,
+      "name": "Shaa",
+      "description": "Esa lista",
+      "country": "Venezuela"
+    },
+    {
+      "id": 2,
+      "name": "Shaa",
+      "description": "Esa lista",
+      "country": "Gran Bretaña"
+    },
+    {
+      "id": 3,
+      "name": "Shaa",
+      "description": "Esa lista",
+      "country": "Dinamarca"
+    }
+  ]
 }
