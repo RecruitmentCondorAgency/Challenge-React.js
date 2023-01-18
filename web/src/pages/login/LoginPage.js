@@ -1,9 +1,9 @@
 import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import { loginSchema } from '../../utils/loginSchema';
-import Input from '../../components/Input';
+import FormikInput from '../../components/FormikInput';
 import * as styles from './styles.module.css';
-import MainButton from '../../components/MainButton';
+import MainButton from '../../components/mainbutton/MainButton';
 
 const initialValues = {
   email: '',
@@ -26,7 +26,7 @@ const LoginPage = () => {
               placeholder="Enter your email"
               name="email"
               type="email"
-              component={Input}
+              component={FormikInput}
             />
             {errors.email && touched.email ? <div>{errors.email}</div> : null}
             <Field
@@ -34,7 +34,7 @@ const LoginPage = () => {
               placeholder="Enter your password"
               name="password"
               type="password"
-              component={Input}
+              component={FormikInput}
             />
             {errors.password && touched.password ? <div>{errors.password}</div> : null}
             <div className={styles.btnContainer}>

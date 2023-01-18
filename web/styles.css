@@ -9,3 +9,12 @@ ul {
 header {
   --text-color: rgb(65, 65, 65);
 }
+
+ul li a {
+  text-decoration: none;
+  color: rgb(65, 65, 65);
+}
+
+:root {
+  --main-color: rgb(66, 136, 250);
+}

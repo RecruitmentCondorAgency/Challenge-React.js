@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  width: 900px;
+  margin: auto;
+}
+
+.information {
+  box-shadow: 0 2px 8px rgba(87, 87, 87, 0.339);
+  padding: 1.5em;
+}
+
+.title {
+  color: var(--main-color);
+}
+
+section {
+  margin-left: 20px;
+}
+
+ul li {
+  margin: 0.8em 0;
+}

@@ -1,4 +1,4 @@
-import * as styles from './styles/button.module.css';
+import * as styles from './styles.module.css';
 
 const MainButton = ({ children, clickHandler, type = 'button' }) => {
   return (

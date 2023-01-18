@@ -1,12 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import * as styles from '../layouts/public.module.css';
 import { getMenuClasses } from '../utils/helpers';
 
-const NavItem = () => {
+const NavItem = ({ to, label }) => {
   return (
     <li>
       <NavLink
-        to={`profile`}
+        to={to}
         className={({ isActive, isPending }) =>
           getMenuClasses({
             isActive,
@@ -16,7 +17,7 @@ const NavItem = () => {
             pendingLink: styles.pendingLink
           })
         }>
-        Profile
+        {label}
       </NavLink>
     </li>
   );

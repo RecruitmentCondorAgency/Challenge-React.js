@@ -1,56 +1,13 @@
 import React from 'react';
 import * as styles from '../layouts/public.module.css';
-import { NavLink } from 'react-router-dom';
-import { getMenuClasses } from '../utils/helpers';
+import NavItem from './NavItem';
 
 const HeaderMenu = () => {
   return (
     <ul className={styles.headerMenu}>
-      <li>
-        <NavLink
-          to={`search`}
-          className={({ isActive, isPending }) =>
-            getMenuClasses({
-              isActive,
-              isPending,
-              menuLink: styles.menuLink,
-              aciveLink: styles.activeLink,
-              pendingLink: styles.pendingLink
-            })
-          }>
-          Search
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to={`profile`}
-          className={({ isActive, isPending }) =>
-            getMenuClasses({
-              isActive,
-              isPending,
-              menuLink: styles.menuLink,
-              aciveLink: styles.activeLink,
-              pendingLink: styles.pendingLink
-            })
-          }>
-          Profile
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to={`logout`}
-          className={({ isActive, isPending }) =>
-            getMenuClasses({
-              isActive,
-              isPending,
-              menuLink: styles.menuLink,
-              aciveLink: styles.activeLink,
-              pendingLink: styles.pendingLink
-            })
-          }>
-          Logout
-        </NavLink>
-      </li>
+      <NavItem to="search" label="Search" />
+      <NavItem to="/universities" label="Profile" />
+      <NavItem to="search" label="Logout" />
     </ul>
   );
 };

@@ -1,13 +1,14 @@
-import React from 'react';
 import * as styles from './styles/input.module.css';
 
-const Input = ({ field, form, ...props }) => {
+const Input = ({ htmlFor, label, ...props }) => {
   return (
     <div className={styles.inputContainer}>
-      <label className={styles.label} htmlFor={field.name}>
-        {props.label}
-      </label>
-      <input className={styles.input} {...field} {...props} />
+      {label ? (
+        <label className={styles.label} htmlFor={htmlFor}>
+          {label}
+        </label>
+      ) : null}
+      <input className={styles.input} {...props} />
     </div>
   );
 };

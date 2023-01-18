@@ -1,6 +1,6 @@
 .button {
   width: 100%;
-  background-color: rgb(66, 136, 250);
+  background-color: var(--main-color);
   padding: 12px 8px;
   text-align: center;
   color: white;
