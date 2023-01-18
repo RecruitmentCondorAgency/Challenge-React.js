@@ -1,9 +1,9 @@
-import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import { signUpSchema } from '../../utils/signUpSchema';
 import FormikInput from '../../components/FormikInput';
 import * as styles from './styles.module.css';
 import MainButton from '../../components/mainbutton/MainButton';
+import useSignUp from './hooks/useSignUp';
 
 const initialValues = {
   email: '',
@@ -12,15 +12,16 @@ const initialValues = {
 };
 
 const SignUp = () => {
+  const signUp = useSignUp();
   return (
     <div className={styles.formContainer}>
       <Formik
         initialValues={initialValues}
         validationSchema={signUpSchema}
-        onSubmit={(values) => {
-          alert(JSON.stringify(values, null, 2));
+        onSubmit={(data) => {
+          signUp(data);
         }}>
-        {({ errors, touched }) => (
+        {({ errors, touched, handleSubmit }) => (
           <Form>
             <Field
               label="Email"
@@ -47,7 +48,7 @@ const SignUp = () => {
             />
             {errors.passwordtwo && touched.passwordtwo ? <div>{errors.passwordtwo}</div> : null}
             <div className={styles.btnContainer}>
-              <MainButton>Login</MainButton>
+              <MainButton clickHandler={(_) => handleSubmit()}>Sign Up</MainButton>
             </div>
           </Form>
         )}
