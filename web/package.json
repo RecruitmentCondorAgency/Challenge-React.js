@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "scripts": {
     "start": "parcel ./index.html",
-    "build": "parcel build ./index.html"
+    "build": "parcel build ./index.html",
+    "lint": "eslint  src/ --ext .js --ext .jsx",
+    "lint-fix": "eslint src/ --ext .js --ext .jsx --fix"
   },
   "repository": "git@condor:rgCondor/Challenge-React.js.git",
   "author": "Rafael González",
@@ -15,6 +17,11 @@
     "react-router-dom": "^6.2.2"
   },
   "devDependencies": {
-    "parcel": "^2.2.1"
+    "eslint": "^8.32.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.1",
+    "parcel": "^2.2.1",
+    "prettier": "^2.8.3"
   }
 }
