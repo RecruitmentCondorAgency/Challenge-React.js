@@ -8,6 +8,7 @@ import PublicLayout from './src/layouts/Public';
 import UniversitiesPage from './src/pages/universities/UniversitiesPage';
 import PrivateLayout from './src/layouts/Private';
 import Details from './src/pages/universities/Details';
+import SignUp from './src/pages/signup/SignUp';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,17 @@ const router = createBrowserRouter([
       {
         path: '/login',
         element: <LoginPage />
+      }
+    ]
+  },
+  {
+    path: '/signup',
+    element: <PublicLayout />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: '/signup',
+        element: <SignUp />
       }
     ]
   },
