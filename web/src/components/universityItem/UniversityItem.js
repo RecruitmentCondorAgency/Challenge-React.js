@@ -1,25 +1,26 @@
-import React, { useContext, useEffect, useRef } from 'react';
+import React, { useContext } from 'react';
 import * as styles from './styles.module.css';
 import { ImNewTab } from 'react-icons/im';
 import { addToFavorite, removeFromFavorite } from '../../lib/actions/favorite';
 import { AuthContext } from '../../lib/contexts/AuthContext';
+import useAbortController from '../../hooks/useAbortController';
 import FavoriteStar from '../favoriteStar/FavoriteStar';
 import { setCurrentUniversity } from '../../lib/actions/university';
+import { useLocation, useNavigate } from 'react-router-dom';
+import getFavoriteAndActive from '../../utils/unversity';
 
 const UniversityItem = ({ id, name, description, country }) => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const {
-    state: { user },
+    state: { user, university },
     dispatch
   } = useContext(AuthContext);
-  const controllerRef = useRef(null);
 
-  useEffect(() => {
-    controllerRef.current = new AbortController();
+  const controller = useAbortController();
 
-    return () => controllerRef.current.abort();
-  }, []);
-
-  const isFavorite = user.universities.some((uni) => uni.id === id);
+  const { isFavorite, isActive } = getFavoriteAndActive(user, university, id);
 
   const clickHandler = () => {
     const args = {
@@ -31,7 +32,7 @@ const UniversityItem = ({ id, name, description, country }) => {
       },
       user,
       universities: user.universities,
-      controller: controllerRef.current,
+      controller: controller,
       errorCb: () => alert('Uups')
     };
     if (isFavorite) {
@@ -42,7 +43,14 @@ const UniversityItem = ({ id, name, description, country }) => {
   };
 
   return (
-    <li className={styles.university}>
+    <li
+      className={`${styles.university} ${isActive ? styles.active : ''}`}
+      onClick={() => {
+        setCurrentUniversity(dispatch, id);
+        if (location.pathname !== '/profile') {
+          navigate('/profile', { replace: true });
+        }
+      }}>
       <div className={styles.mainContainer}>
         <div className={styles.title}>
           <div className={styles.info}>
@@ -51,7 +59,7 @@ const UniversityItem = ({ id, name, description, country }) => {
           </div>
           <div className={styles.actions}>
             <FavoriteStar clickHandler={clickHandler} favorite={isFavorite} />
-            <ImNewTab onClick={() => setCurrentUniversity(dispatch, id)} />
+            {location.pathname === '/profile' ? null : <ImNewTab />}
           </div>
         </div>
         <div className={styles.description}>

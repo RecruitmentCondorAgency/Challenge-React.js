@@ -2,6 +2,14 @@
   margin: 10px 0;
 }
 
+.university:hover {
+  cursor: pointer;
+}
+
+.active {
+  border: 1px solid var(--main-color);
+}
+
 .mainContainer {
   display: flex;
   flex-direction: column;
