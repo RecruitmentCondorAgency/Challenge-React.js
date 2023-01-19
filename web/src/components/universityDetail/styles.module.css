@@ -3,3 +3,8 @@
   padding: 1.5em;
   min-width: 400px;
 }
+
+.locationLink {
+  text-decoration: underline;
+  color: blue;
+}

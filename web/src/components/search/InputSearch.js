@@ -1,41 +1,38 @@
 import * as styles from './styles.module.css';
-import IconButton from '../iconbutton/IconButton';
-import { ImSearch } from 'react-icons/im';
 import { useEffect, useState } from 'react';
-import useDebounce from '../../hooks/useDebounce';
 import { getUniversitiesByName } from '../../lib/actions/university';
+import AsyncSelect from 'react-select/async';
+import _ from 'lodash';
 
 const InputSearch = ({ placeholder, setUniversities, setIsEmpty }) => {
   const [value, setValue] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const debouncedValue = useDebounce(value, 700);
 
   useEffect(() => {
     const fetch = async () => {
-      if (debouncedValue === '') {
+      if (value === '') {
         setUniversities([]);
         setIsEmpty(false);
       } else {
-        setIsLoading(true);
-        const universities = await getUniversitiesByName(debouncedValue);
-        setIsLoading(false);
+        const universities = await getUniversitiesByName(value);
         setIsEmpty(universities.length === 0);
         setUniversities(universities);
       }
     };
 
     fetch();
-  }, [debouncedValue]);
+  }, [value]);
 
+  const loadOptions = _.debounce((name) => getUniversitiesByName(name), 500);
   return (
     <div className={styles.searchContainer}>
-      <input
+      <AsyncSelect
+        onChange={(uni) => setValue(uni.name)}
+        noOptionsMessage={() => 'No universities'}
+        getOptionLabel={(option) => option.name}
+        getOptionValue={(option) => option.id}
         placeholder={placeholder}
-        onChange={(e) => setValue(e.target.value)}
-        name="search"
-        type="search"
+        loadOptions={(inputValue) => loadOptions(inputValue)}
         className={styles.input}
-        disabled={isLoading}
       />
     </div>
   );

@@ -11,6 +11,7 @@ export const setCurrentUniversity = (dispatch, id) => {
 
 export const getUniversitiesByName = async (name) => {
   const builder = new FetchBuilder('universities');
+  builder.setParentRelations(['country']);
   if (name !== '') builder.setQuery(name);
 
   const universities = await fetchData(builder);

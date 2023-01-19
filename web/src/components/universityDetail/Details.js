@@ -8,7 +8,11 @@ import { ProfileContext } from '../../lib/contexts/ProfileContext';
 
 const Details = () => {
   const { selectedUniversity } = useContext(ProfileContext);
-  const { details: countryDetails, isLoading, err } = useFetchCountry(selectedUniversity?.country);
+  const {
+    details: countryDetails,
+    isLoading,
+    err
+  } = useFetchCountry(selectedUniversity?.country?.name);
 
   if (!selectedUniversity) {
     return <h4>Select any university to see details</h4>;
@@ -30,14 +34,19 @@ const Details = () => {
         </li>
         <li>
           Location:{' '}
-          <a target="_blank" href={countryDetails?.maps?.googleMaps}>
+          <a
+            target="_blank"
+            href={countryDetails?.maps?.googleMaps}
+            className={styles.locationLink}>
             {countryDetails?.name?.common}
           </a>
         </li>
         {Array.isArray(countryDetails?.capital) && countryDetails?.capital.length > 0 ? (
           <li>
             Country:{' '}
-            <Link to={`/search/country/${countryDetails?.name?.common}`}>
+            <Link
+              to={`/search/country/${countryDetails?.name?.common}`}
+              className={styles.locationLink}>
               Country&apos;s capital: {countryDetails?.capital[0]}
             </Link>
           </li>
