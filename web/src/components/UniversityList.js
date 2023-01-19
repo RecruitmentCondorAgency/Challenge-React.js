@@ -1,9 +1,6 @@
 import UniversityItem from './UniversityItem';
-import useFetchUniversities from '../pages/universities/hooks/useFetchUniversities';
 
-const UniversityList = () => {
-  const universities = useFetchUniversities();
-
+const UniversityList = ({ universities }) => {
   return (
     <ul>
       {universities.map((university) => (

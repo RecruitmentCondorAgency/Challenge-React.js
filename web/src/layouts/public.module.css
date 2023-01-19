@@ -28,5 +28,9 @@
 .mainContainer {
   display: flex;
   justify-content: center;
-  justify-items: center;
+}
+
+.centered {
+  display: grid;
+  place-items: center;
 }

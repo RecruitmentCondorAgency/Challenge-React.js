@@ -14,7 +14,7 @@ const PublicLayout = () => {
         </div>
         <HeaderMenu />
       </header>
-      <Main>
+      <Main centered>
         <Outlet />
       </Main>
     </div>
