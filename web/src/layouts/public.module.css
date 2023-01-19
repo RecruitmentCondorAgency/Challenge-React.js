@@ -33,4 +33,5 @@
 .centered {
   display: grid;
   place-items: center;
+  height: 85vh;
 }
