@@ -5,9 +5,11 @@ import useFetchCountry from '../../hooks/useFetchCountry';
 import Loading from '../loading/Loading';
 
 const Details = ({ description, name, website, country }) => {
-  const { details: countryDetails, isLoading } = useFetchCountry(country);
+  const { details: countryDetails, isLoading, err } = useFetchCountry(country);
 
-  return isLoading ? (
+  return err ? (
+    <p>Has ocurred an error while fetching country details.</p>
+  ) : isLoading ? (
     <Loading />
   ) : (
     <div className={styles.information}>

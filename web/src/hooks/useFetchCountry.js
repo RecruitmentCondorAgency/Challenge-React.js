@@ -7,6 +7,7 @@ const useFetchCountry = (name) => {
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     const fetch = async () => {
+      setError(null);
       setIsLoading(true);
       const details = await fetchCountryByCode(name, (err) => {
         setError(err);
