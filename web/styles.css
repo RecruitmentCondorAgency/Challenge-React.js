@@ -15,6 +15,7 @@ ul li a {
   color: rgb(65, 65, 65);
 }
 
-:root {
+header,
+main {
   --main-color: rgb(66, 136, 250);
 }
