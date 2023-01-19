@@ -9,6 +9,7 @@ const useFetchUniversities = () => {
     const builder = new FetchBuilder('universities');
     const controller = new AbortController();
     builder.setSignal(controller.signal);
+    builder.setParentRelations(['country']);
     const fetch = async () => {
       const universities = await fetchData(builder, () =>
         console.error('Error fetch universities')

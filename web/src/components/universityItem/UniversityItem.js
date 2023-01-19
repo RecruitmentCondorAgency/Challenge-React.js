@@ -4,13 +4,13 @@ import { ImNewTab } from 'react-icons/im';
 import { addToFavorite, removeFromFavorite } from '../../lib/actions/favorite';
 import { AuthContext } from '../../lib/contexts/AuthContext';
 import FavoriteStar from '../favoriteStar/FavoriteStar';
+import { setCurrentUniversity } from '../../lib/actions/university';
 
 const UniversityItem = ({ id, name, description, country }) => {
   const {
     state: { user },
     dispatch
   } = useContext(AuthContext);
-
   const controllerRef = useRef(null);
 
   useEffect(() => {
@@ -34,7 +34,7 @@ const UniversityItem = ({ id, name, description, country }) => {
       controller: controllerRef.current,
       errorCb: () => alert('Uups')
     };
-    if (user.universities.some((uni) => uni.id === id)) {
+    if (isFavorite) {
       removeFromFavorite(dispatch)(args);
     } else {
       addToFavorite(dispatch)(args);
@@ -47,11 +47,11 @@ const UniversityItem = ({ id, name, description, country }) => {
         <div className={styles.title}>
           <div className={styles.info}>
             <h3>{name}</h3>
-            <p>{country}</p>
+            <p>{country.name}</p>
           </div>
           <div className={styles.actions}>
             <FavoriteStar clickHandler={clickHandler} favorite={isFavorite} />
-            <ImNewTab />
+            <ImNewTab onClick={() => setCurrentUniversity(dispatch, id)} />
           </div>
         </div>
         <div className={styles.description}>
