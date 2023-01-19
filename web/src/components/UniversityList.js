@@ -1,4 +1,4 @@
-import UniversityItem from './UniversityItem';
+import UniversityItem from './universityItem/UniversityItem';
 
 const UniversityList = ({ universities }) => {
   return (

@@ -5,11 +5,11 @@ import LoginPage from './src/pages/login/LoginPage';
 import PublicLayout from './src/layouts/Public';
 import UniversitiesPage from './src/pages/universities/UniversitiesPage';
 import PrivateLayout from './src/layouts/Private';
-import Details from './src/pages/universities/Details';
 import SignUp from './src/pages/signup/SignUp';
 import { App } from './src/app';
 import React from 'react';
 import { AuthProvider } from './src/lib/contexts/AuthContext';
+import ProfilePage from './src/pages/profile/Profile';
 
 const router = createBrowserRouter([
   {
@@ -46,10 +46,20 @@ const router = createBrowserRouter([
       {
         path: '/search',
         element: <UniversitiesPage />
-      },
+      }
+    ]
+  },
+  {
+    path: '/profile',
+    element: (
+      <AuthProvider>
+        <PrivateLayout />
+      </AuthProvider>
+    ),
+    children: [
       {
-        path: 'details/:universityId',
-        element: <Details />
+        path: '/profile',
+        element: <ProfilePage />
       }
     ]
   }

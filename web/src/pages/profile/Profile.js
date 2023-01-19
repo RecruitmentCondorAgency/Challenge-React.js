@@ -8,14 +8,13 @@ const ProfilePage = () => {
   const {
     state: { user }
   } = useContext(AuthContext);
-  const { favorites } = useFetchUser(user.id);
 
-  return favorites.length > 0 ? (
+  return user.universities.length > 0 ? (
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <section className={styles.favorites}>
           <h1 className={styles.title}>My Favorites</h1>
-          <UniversityList universities={favorites} />
+          <UniversityList universities={user.universities} />
         </section>
         <section className={styles.details}>
           <h1 className={styles.title}>Selected University</h1>
