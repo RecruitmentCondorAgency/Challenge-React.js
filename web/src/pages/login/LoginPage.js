@@ -3,9 +3,7 @@ import { loginSchema } from '../../utils/loginSchema';
 import FormikInput from '../../components/FormikInput';
 import * as styles from './styles.module.css';
 import MainButton from '../../components/mainbutton/MainButton';
-import useLogin from './hooks/useLogin';
-import { useContext } from 'react';
-import { AuthContext, useAuth } from '../../lib/contexts/AuthContext';
+import { useAuth } from '../../lib/contexts/AuthContext';
 
 const initialValues = {
   email: '',

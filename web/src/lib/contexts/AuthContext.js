@@ -1,9 +1,10 @@
-import { createContext, useContext, useReducer } from 'react';
-import authReducer, { initialState } from '../reducers/user';
+import { createContext, useContext } from 'react';
+import { initialState } from '../reducers/user';
 import useLocalStorage from '../../hooks/useLocalStorage';
 import { useNavigate } from 'react-router-dom';
 import { fetchData } from '../../utils/helpers';
 import FetchBuilder from '../../utils/fetchBuilder';
+import toast from 'react-hot-toast';
 
 const AuthContext = createContext({
   state: initialState,
@@ -24,7 +25,9 @@ const AuthProvider = ({ children }) => {
     const builder = new FetchBuilder('users');
     const users = await fetchData(builder, () => alert('error de login'));
     const user = users.find((usr) => usr.email === data.email && usr.password === data.password);
-    if (!user) throw new Error('User not found');
+    if (!user) {
+      return toast('User not found');
+    }
     setUser(user);
     navigate('/', { replace: true });
   };
