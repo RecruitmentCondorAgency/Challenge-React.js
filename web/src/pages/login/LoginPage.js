@@ -4,7 +4,8 @@ import FormikInput from '../../components/FormikInput';
 import * as styles from './styles.module.css';
 import MainButton from '../../components/mainbutton/MainButton';
 import useLogin from './hooks/useLogin';
-import useVerifyAuth from '../../hooks/useVerifyAuth';
+import { useContext } from 'react';
+import { AuthContext, useAuth } from '../../lib/contexts/AuthContext';
 
 const initialValues = {
   email: '',
@@ -12,8 +13,8 @@ const initialValues = {
 };
 
 const LoginPage = () => {
-  const login = useLogin();
-  useVerifyAuth();
+  // const login = useLogin();
+  const { login } = useAuth();
 
   return (
     <div className={styles.formContainer}>

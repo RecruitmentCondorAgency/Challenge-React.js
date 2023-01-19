@@ -18,13 +18,6 @@ export const fetchWeatherData = async (latlng, cb) => {
       timeout: 5000
     });
     const xmlDoc = parser.parseFromString(response.data, 'text/xml');
-    console.info(
-      xmlDoc
-        .getElementsByTagName('product')[0]
-        .getElementsByTagName('dataseries')[0]
-        .getElementsByTagName('data')[0]
-        .getElementsByTagName('weather')[0].innerHTML
-    );
     return xmlDoc;
   } catch (error) {
     if (cb) cb(error);

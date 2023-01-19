@@ -11,7 +11,6 @@ export const useWeatherData = (latlng) => {
       setIsLoading(true);
       const data = await fetchWeatherData(latlng, (err) => setError(err));
       setIsLoading(false);
-      console.info(data);
       setData(data);
     };
 

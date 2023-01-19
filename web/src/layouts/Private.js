@@ -4,22 +4,23 @@ import HeaderMenu from '../components/HeaderMenu';
 import HeaderLogo from '../components/HeaderLogo';
 import RequireAuth from '../components/RequireAuth';
 import Main from '../components/Main';
+import { AuthProvider } from '../lib/contexts/AuthContext';
 
 const PrivateLayout = () => {
   return (
-    <div>
-      <header className={styles.header}>
-        <div className={styles.imageContainer}>
-          <HeaderLogo />
-        </div>
-        <HeaderMenu />
-      </header>
-      <Main>
-        <RequireAuth>
+    <AuthProvider>
+      <div>
+        <header className={styles.header}>
+          <div className={styles.imageContainer}>
+            <HeaderLogo />
+          </div>
+          <HeaderMenu />
+        </header>
+        <Main>
           <Outlet />
-        </RequireAuth>
-      </Main>
-    </div>
+        </Main>
+      </div>
+    </AuthProvider>
   );
 };
 

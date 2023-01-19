@@ -2,26 +2,24 @@ import React, { useContext } from 'react';
 import * as styles from './styles.module.css';
 import { ImNewTab } from 'react-icons/im';
 import { addToFavorite, removeFromFavorite } from '../../lib/actions/favorite';
-import { AuthContext } from '../../lib/contexts/AuthContext';
+import { AuthContext, useAuth } from '../../lib/contexts/AuthContext';
+import { ProfileContext } from '../../lib/contexts/ProfileContext';
 import useAbortController from '../../hooks/useAbortController';
 import FavoriteStar from '../favoriteStar/FavoriteStar';
-import { setCurrentUniversity } from '../../lib/actions/university';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import getFavoriteAndActive from '../../utils/unversity';
+import useLocalStorage from '../../hooks/useLocalStorage';
 
 const UniversityItem = ({ id, name, description, country }) => {
   const location = useLocation();
 
-  const {
-    state: { user, university },
-    dispatch
-  } = useContext(AuthContext);
+  const { setSelectedUniversity, selectedUniversity } = useContext(ProfileContext);
 
-  const controller = useAbortController();
+  const { user, setUser } = useAuth();
 
-  const { isFavorite, isActive } = getFavoriteAndActive(user, university, id);
+  const { isFavorite, isActive } = getFavoriteAndActive(user, selectedUniversity, id);
 
-  const clickHandler = () => {
+  const clickHandler = async () => {
     const args = {
       university: {
         id,
@@ -30,15 +28,15 @@ const UniversityItem = ({ id, name, description, country }) => {
         country
       },
       user,
-      universities: user.universities,
-      controller: controller,
-      errorCb: () => alert('Uups')
+      errorCb: (error) => alert(error.message)
     };
+    let newUser;
     if (isFavorite) {
-      removeFromFavorite(dispatch)(args, isActive);
+      newUser = await removeFromFavorite(args, isActive);
     } else {
-      addToFavorite(dispatch)(args);
+      newUser = await addToFavorite(args);
     }
+    setUser(newUser);
   };
 
   return (
@@ -47,7 +45,7 @@ const UniversityItem = ({ id, name, description, country }) => {
         isActive && location.pathname === '/profile' ? styles.active : ''
       }`}
       onClick={() => {
-        setCurrentUniversity(dispatch, id);
+        setSelectedUniversity(user.universities.find((uni) => uni.id === id));
       }}>
       <div className={styles.mainContainer}>
         <div className={styles.title}>

@@ -11,20 +11,21 @@ import { AuthProvider } from './src/lib/contexts/AuthContext';
 import ProfilePage from './src/pages/profile/Profile';
 import './styles.css';
 import CountryDetailsPage from './src/pages/country/CountryDetails';
+import RequireAuth from './src/components/RequireAuth';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: (
-      <AuthProvider>
-        <PrivateLayout />
-      </AuthProvider>
-    ),
+    element: <PrivateLayout />,
     errorElement: <ErrorPage />,
     children: [
       {
         path: '/',
-        element: <UniversitiesPage />
+        element: (
+          <RequireAuth>
+            <UniversitiesPage />
+          </RequireAuth>
+        )
       }
     ]
   },
@@ -56,12 +57,12 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: '/search',
-        element: <UniversitiesPage />
-      },
-      {
         path: 'country/:countryName',
-        element: <CountryDetailsPage />
+        element: (
+          <RequireAuth>
+            <CountryDetailsPage />
+          </RequireAuth>
+        )
       }
     ]
   },
@@ -75,7 +76,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/profile',
-        element: <ProfilePage />
+        element: (
+          <RequireAuth>
+            <ProfilePage />
+          </RequireAuth>
+        )
       }
     ]
   }

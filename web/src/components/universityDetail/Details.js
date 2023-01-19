@@ -3,9 +3,18 @@ import { getFormattedCurrencies, getFormattedLanguages } from '../../utils/helpe
 import * as styles from './styles.module.css';
 import useFetchCountry from '../../hooks/useFetchCountry';
 import Loading from '../loading/Loading';
+import { useContext } from 'react';
+import { ProfileContext } from '../../lib/contexts/ProfileContext';
 
-const Details = ({ description, name, website, country }) => {
-  const { details: countryDetails, isLoading, err } = useFetchCountry(country);
+const Details = () => {
+  const { selectedUniversity } = useContext(ProfileContext);
+  const { details: countryDetails, isLoading, err } = useFetchCountry(selectedUniversity?.country);
+
+  if (!selectedUniversity) {
+    return <h4>Select any university to see details</h4>;
+  }
+
+  const { description, name, website } = selectedUniversity;
 
   return err ? (
     <p>Has ocurred an error while fetching country details.</p>

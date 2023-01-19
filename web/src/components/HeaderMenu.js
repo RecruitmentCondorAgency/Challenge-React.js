@@ -1,12 +1,12 @@
-import React, { useContext } from 'react';
 import * as styles from '../layouts/public.module.css';
 import NavItem from './NavItem';
-import { AuthContext } from '../lib/contexts/AuthContext';
-import { LOG_OUT } from '../lib/reducers/constants';
+import { useAuth } from '../lib/contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const HeaderMenu = () => {
-  const { dispatch, state } = useContext(AuthContext);
-  return state.user ? (
+  const { user, setUser } = useAuth();
+  const navigate = useNavigate();
+  return user ? (
     <ul className={styles.headerMenu}>
       <NavItem to="/" label="Search" />
       <NavItem to="/profile" label="Profile" />
@@ -15,9 +15,8 @@ const HeaderMenu = () => {
         label="Logout"
         clickHandler={(e) => {
           e.preventDefault();
-          dispatch({
-            type: LOG_OUT
-          });
+          setUser(null);
+          navigate('/login', { replace: true });
         }}
       />
     </ul>
