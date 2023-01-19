@@ -1,6 +1,5 @@
-import { useContext } from 'react';
 import UniversityList from '../../components/universityList/UniversityList';
-import { AuthContext, useAuth } from '../../lib/contexts/AuthContext';
+import { useAuth } from '../../lib/contexts/AuthContext';
 import { ProfileProvider } from '../../lib/contexts/ProfileContext';
 import * as styles from './styles.module.css';
 import Details from '../../components/universityDetail/Details';
