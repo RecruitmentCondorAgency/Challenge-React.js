@@ -26,7 +26,8 @@ const authReducer = (state = initialState, action) => {
     case UPDATE_USER:
       return {
         ...state,
-        user: action.payload
+        user: action.payload.data,
+        university: action.payload.isActive ? null : state.university
       };
     default:
       return {

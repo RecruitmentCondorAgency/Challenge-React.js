@@ -12,14 +12,16 @@ export const addToFavorite =
           universities: [...universities, university]
         },
         {
-          signal: controller.signal,
+          signal: controller?.signal,
           'Content-Type': 'application/json'
         }
       );
 
       dispatch({
         type: UPDATE_USER,
-        payload: response.data
+        payload: {
+          data: response.data
+        }
       });
       return response.data;
     } catch (error) {
@@ -30,7 +32,7 @@ export const addToFavorite =
 
 export const removeFromFavorite =
   (dispatch) =>
-  async ({ user, university, universities, controller, errorCb }) => {
+  async ({ user, university, universities, controller, errorCb }, isActive) => {
     try {
       const response = await axiosInstance.put(
         `users/${user.id}`,
@@ -39,14 +41,17 @@ export const removeFromFavorite =
           universities: universities.filter(({ id }) => university.id !== id)
         },
         {
-          signal: controller.signal,
+          signal: controller?.signal,
           'Content-Type': 'application/json'
         }
       );
 
       dispatch({
         type: UPDATE_USER,
-        payload: response.data
+        payload: {
+          data: response.data,
+          isActive
+        }
       });
 
       return response.data;

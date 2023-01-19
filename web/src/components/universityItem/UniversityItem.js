@@ -11,7 +11,6 @@ import getFavoriteAndActive from '../../utils/unversity';
 
 const UniversityItem = ({ id, name, description, country }) => {
   const location = useLocation();
-  const navigate = useNavigate();
 
   const {
     state: { user, university },
@@ -36,7 +35,7 @@ const UniversityItem = ({ id, name, description, country }) => {
       errorCb: () => alert('Uups')
     };
     if (isFavorite) {
-      removeFromFavorite(dispatch)(args);
+      removeFromFavorite(dispatch)(args, isActive);
     } else {
       addToFavorite(dispatch)(args);
     }
@@ -44,12 +43,11 @@ const UniversityItem = ({ id, name, description, country }) => {
 
   return (
     <li
-      className={`${styles.university} ${isActive ? styles.active : ''}`}
+      className={`${styles.university} ${
+        isActive && location.pathname === '/profile' ? styles.active : ''
+      }`}
       onClick={() => {
         setCurrentUniversity(dispatch, id);
-        if (location.pathname !== '/profile') {
-          navigate('/profile', { replace: true });
-        }
       }}>
       <div className={styles.mainContainer}>
         <div className={styles.title}>
