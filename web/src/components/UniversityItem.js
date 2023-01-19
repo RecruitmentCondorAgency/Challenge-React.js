@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import * as styles from './styles/university-item.module.css';
-import { ImNewTab, ImStarEmpty, ImStarFull } from 'react-icons/im';
+import { ImNewTab, ImStarFull } from 'react-icons/im';
 
 const UniversityItem = ({ id, name, description, country }) => {
   return (

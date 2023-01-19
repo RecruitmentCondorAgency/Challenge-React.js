@@ -1,2 +1,8 @@
+// AUTH
 export const LOGGED_IN = 'LOGGED_IN';
 export const LOG_OUT = 'LOG_OUT';
+
+// UNIVERSITY
+export const SET_UNIVERSITIES = 'SET_UNIVERSITIES';
+export const SET_UNIVERSITY = 'SET_UNIVERSITY';
+export const SEARCH_UNIVERSITY = 'SEARCH_UNIVERSITY';

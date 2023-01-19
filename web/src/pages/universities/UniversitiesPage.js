@@ -1,31 +1,13 @@
-import React from 'react';
 import InputSearch from '../../components/search/InputSearch';
 import UniversityList from '../../components/UniversityList';
-
-export const universities = [
-  {
-    name: 'sdflskdf',
-    country: 'ofdsgdfg9',
-    description: 'osi9848sdjfasd'
-  },
-  {
-    name: 'sdflskdf',
-    country: 'ofdsgdfg9',
-    description: 'osi9848sdjfasd'
-  },
-  {
-    name: 'sdflskdf',
-    country: 'ofdsgdfg9',
-    description: 'osi9848sdjfasd'
-  }
-];
+import { UniversityProvider } from '../../lib/contexts/UniversityContext';
 
 const UniversitiesPage = () => {
   return (
-    <div>
+    <UniversityProvider>
       <InputSearch />
-      <UniversityList universities={universities} />
-    </div>
+      <UniversityList />
+    </UniversityProvider>
   );
 };
 

@@ -1,14 +1,16 @@
-import React from 'react';
 import UniversityItem from './UniversityItem';
+import useFetchUniversities from '../pages/universities/hooks/useFetchUniversities';
 
-const UniversityList = ({ universities }) => {
-  return universities.length > 0 ? (
+const UniversityList = () => {
+  const universities = useFetchUniversities();
+
+  return (
     <ul>
       {universities.map((university) => (
         <UniversityItem key={university.name} {...university} />
       ))}
     </ul>
-  ) : null;
+  );
 };
 
 export default UniversityList;
