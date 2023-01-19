@@ -26,20 +26,22 @@ export const fetchData = async (builder, errorCb) => {
 };
 
 export const getFormattedCurrencies = (currencies) => {
-  if (!Array.isArray(currencies)) throw new Error('Argument must be an array');
   const names = [];
   const symbols = [];
 
-  for (const currency of currencies) {
-    names.push(currency.name);
-    symbols.push(currency.symbol);
+  for (const key in currencies) {
+    names.push(currencies[key].name);
+    symbols.push(currencies[key].symbol);
   }
 
-  return `${names.join(',')} ${symbols.join(',')}`;
+  return `${names.join(',')} / ${symbols.join(',')}`;
 };
 
 export const getFormattedLanguages = (languages) => {
-  if (!Array.isArray(languages)) throw new Error('Argument must be an array');
+  const temp = [];
+  for (const key in languages) {
+    temp.push(languages[key]);
+  }
 
-  return languages.map((lang) => lang.name).join(',');
+  return temp.join(',');
 };

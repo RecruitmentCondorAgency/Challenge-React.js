@@ -9,6 +9,8 @@ import SignUp from './src/pages/signup/SignUp';
 import React from 'react';
 import { AuthProvider } from './src/lib/contexts/AuthContext';
 import ProfilePage from './src/pages/profile/Profile';
+import './styles.css';
+import CountryDetailsPage from './src/pages/country/CountryDetails';
 
 const router = createBrowserRouter([
   {
@@ -56,6 +58,10 @@ const router = createBrowserRouter([
       {
         path: '/search',
         element: <UniversitiesPage />
+      },
+      {
+        path: 'country/:countryName',
+        element: <CountryDetailsPage />
       }
     ]
   },
