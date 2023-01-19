@@ -6,7 +6,6 @@ import PublicLayout from './src/layouts/Public';
 import UniversitiesPage from './src/pages/universities/UniversitiesPage';
 import PrivateLayout from './src/layouts/Private';
 import SignUp from './src/pages/signup/SignUp';
-import { App } from './src/app';
 import React from 'react';
 import { AuthProvider } from './src/lib/contexts/AuthContext';
 import ProfilePage from './src/pages/profile/Profile';
@@ -14,8 +13,18 @@ import ProfilePage from './src/pages/profile/Profile';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />,
-    errorElement: <ErrorPage />
+    element: (
+      <AuthProvider>
+        <PrivateLayout />
+      </AuthProvider>
+    ),
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: '/',
+        element: <UniversitiesPage />
+      }
+    ]
   },
   {
     path: '/login',
@@ -42,6 +51,7 @@ const router = createBrowserRouter([
         <PrivateLayout />
       </AuthProvider>
     ),
+    errorElement: <ErrorPage />,
     children: [
       {
         path: '/search',
