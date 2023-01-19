@@ -1,5 +1,5 @@
 import InputSearch from '../../components/search/InputSearch';
-import UniversityList from '../../components/UniversityList';
+import UniversityList from '../../components/universityList/UniversityList';
 import useFetchUniversities from '../../hooks/useFetchUniversities';
 
 const UniversitiesPage = () => {
