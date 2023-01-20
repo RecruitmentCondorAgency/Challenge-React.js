@@ -36,3 +36,15 @@
   place-items: center;
   height: 85vh;
 }
+
+@media screen and (max-width: 768px) {
+  .imageContainer {
+    margin-left: 1em;
+  }
+
+  .menuLink {
+    font-size: 0.8em;
+    color: var(--text-color);
+    margin: 0 5px;
+  }
+}

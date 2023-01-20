@@ -2,7 +2,6 @@ import { Outlet } from 'react-router-dom';
 import * as styles from './public.module.css';
 import HeaderMenu from '../components/HeaderMenu';
 import HeaderLogo from '../components/HeaderLogo';
-import RequireAuth from '../components/RequireAuth';
 import Main from '../components/Main';
 import { AuthProvider } from '../lib/contexts/AuthContext';
 

@@ -26,9 +26,3 @@ section {
 ul li {
   margin: 0.8em 0;
 }
-
-@media screen and (max-width: 768px) {
-  .container {
-    display: flex;
-  }
-}

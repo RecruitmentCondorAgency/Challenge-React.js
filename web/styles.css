@@ -22,3 +22,15 @@ header,
 main {
   --main-color: rgb(66, 136, 250);
 }
+
+@media screen and (max-width: 768px) {
+  body {
+    position: fixed;
+    left: 0;
+    right: 0;
+  }
+
+  header {
+    width: 100%;
+  }
+}

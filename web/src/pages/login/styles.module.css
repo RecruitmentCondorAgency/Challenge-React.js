@@ -13,3 +13,9 @@
   color: red;
   font-size: 1em;
 }
+
+@media screen and (max-width: 768px) {
+  .formContainer {
+    min-width: 100%;
+  }
+}
