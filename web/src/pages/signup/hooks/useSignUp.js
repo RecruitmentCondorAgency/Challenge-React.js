@@ -1,6 +1,8 @@
+import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../../../lib/axios';
 
 const useSignUp = () => {
+  const navigate = useNavigate();
   const signUp = async (data) => {
     const { passwordtwo, ...user } = data;
     try {
@@ -10,6 +12,7 @@ const useSignUp = () => {
           Accept: 'application/json'
         }
       });
+      navigate('/login');
     } catch (error) {
       console.error(error);
     }

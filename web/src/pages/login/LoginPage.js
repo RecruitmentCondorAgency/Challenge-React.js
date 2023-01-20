@@ -4,6 +4,7 @@ import FormikInput from '../../components/FormikInput';
 import * as styles from './styles.module.css';
 import MainButton from '../../components/mainbutton/MainButton';
 import { useAuth } from '../../lib/contexts/AuthContext';
+import { Link } from 'react-router-dom';
 
 const initialValues = {
   email: '',
@@ -11,7 +12,6 @@ const initialValues = {
 };
 
 const LoginPage = () => {
-  // const login = useLogin();
   const { login } = useAuth();
 
   return (
@@ -46,6 +46,9 @@ const LoginPage = () => {
           </Form>
         )}
       </Formik>
+      <div className={styles.signUpContainer}>
+        Don&apos;t have an account?<Link to="/signup"> register</Link>
+      </div>
     </div>
   );
 };
