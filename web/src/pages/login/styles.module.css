@@ -14,6 +14,9 @@
   font-size: 1em;
 }
 
+.signUpContainer {
+  margin-top: 1em;
+}
 @media screen and (max-width: 768px) {
   .formContainer {
     min-width: 100%;
