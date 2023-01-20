@@ -17,7 +17,7 @@ const useFetchCountry = (name) => {
       setDetails(Array.isArray(details) && details.length > 0 ? details[0] : undefined);
     };
 
-    fetch();
+    if (name) fetch();
   }, [name]);
 
   return {

@@ -4,11 +4,10 @@
 
 .container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   gap: 1em;
   width: 900px;
-  margin: auto;
+  margin: 2rem;
 }
 
 .favorites,
@@ -26,4 +25,10 @@ section {
 
 ul li {
   margin: 0.8em 0;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    display: flex;
+  }
 }

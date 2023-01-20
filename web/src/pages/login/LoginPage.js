@@ -31,7 +31,9 @@ const LoginPage = () => {
               type="email"
               component={FormikInput}
             />
-            {errors.email && touched.email ? <div>{errors.email}</div> : null}
+            {errors.email && touched.email ? (
+              <div className={styles.error}>{errors.email}</div>
+            ) : null}
             <Field
               label="Password"
               placeholder="Enter your password"
@@ -39,7 +41,9 @@ const LoginPage = () => {
               type="password"
               component={FormikInput}
             />
-            {errors.password && touched.password ? <div>{errors.password}</div> : null}
+            {errors.password && touched.password ? (
+              <div className={styles.error}>{errors.password}</div>
+            ) : null}
             <div className={styles.btnContainer}>
               <MainButton clickHandler={handleSubmit}>Login</MainButton>
             </div>

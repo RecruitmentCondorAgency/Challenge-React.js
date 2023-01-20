@@ -9,17 +9,15 @@ const ProfilePage = () => {
 
   return user.universities.length > 0 ? (
     <ProfileProvider>
-      <div className={styles.wrapper}>
-        <div className={styles.container}>
-          <h1 className={styles.title}>My Favorites</h1>
-          <h1 className={styles.title}>Selected University</h1>
-          <section className={styles.favorites}>
-            <UniversityList universities={user.universities} />
-          </section>
-          <section className={styles.details}>
-            <Details />
-          </section>
-        </div>
+      <div className={styles.container}>
+        <h1 className={styles.title}>My Favorites</h1>
+        <h1 className={styles.title}>Selected University</h1>
+        <section className={styles.favorites}>
+          <UniversityList universities={user.universities} />
+        </section>
+        <section className={styles.details}>
+          <Details />
+        </section>
       </div>
     </ProfileProvider>
   ) : (
