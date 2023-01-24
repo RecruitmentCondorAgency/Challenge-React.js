@@ -13,5 +13,12 @@
   "workspaces": [
     "server",
     "web"
-  ]
+  ],
+  "devDependencies": {
+    "bootstrap": "^5.2.3",
+    "react-bootstrap": "^2.7.0",
+    "react-error-boundary": "^3.1.4",
+    "react-router-dom": "^6.7.0",
+    "react-toastify": "^9.1.1"
+  }
 }

@@ -1,3 +1,119 @@
 {
-  "users": []
+  "users": [
+    {
+      "id": 1,
+      "first_name": "Robert",
+      "last_name": "Schwartz",
+      "email": "rob23@gmail.com",
+      "password": "123456",
+      "universities": [
+        {
+          "name": "Universidad Centro Occidental Lisandro Alvarado",
+          "country": "Venezuela, Bolivarian Republic of",
+          "alpha_two_code": "VE",
+          "web_pages": [
+            "http://www.ucla.edu.ve/"
+          ]
+        },
+        {
+          "name": "Universidad Central de Venezuela",
+          "country": "Venezuela, Bolivarian Republic of",
+          "alpha_two_code": "VE",
+          "web_pages": [
+            "http://www.ucv.ve/"
+          ]
+        },
+        {
+          "name": "Indiana University/Purdue University at Indianapolis",
+          "country": "United States",
+          "alpha_two_code": "US",
+          "web_pages": [
+            "http://www.iupui.edu/"
+          ]
+        },
+        {
+          "name": "Harvard University",
+          "country": "United States",
+          "alpha_two_code": "US",
+          "web_pages": [
+            "http://www.harvard.edu/"
+          ]
+        }
+      ]
+    },
+    {
+      "first_name": "Pablo",
+      "last_name": "Jesus",
+      "email": "pjegarcia@gmail.com",
+      "password": "123456",
+      "universities": [
+        {
+          "name": "Universidade de Lisboa",
+          "country": "Portugal",
+          "alpha_two_code": "PT",
+          "web_pages": [
+            "http://www.ul.pt/"
+          ]
+        },
+        {
+          "name": "Universidad Central de Venezuela",
+          "country": "Venezuela, Bolivarian Republic of",
+          "alpha_two_code": "VE",
+          "web_pages": [
+            "http://www.ucv.ve/"
+          ]
+        },
+        {
+          "name": "Universidade de Lisboa",
+          "country": "Portugal",
+          "alpha_two_code": "PT",
+          "web_pages": [
+            "http://www.ul.pt/"
+          ]
+        }
+      ],
+      "id": 2
+    },
+    {
+      "first_name": "Juan",
+      "last_name": "Quintero",
+      "email": "me@quinto.com",
+      "password": "123456",
+      "universities": [
+        {
+          "name": "Schiller International University, Madrid",
+          "country": "Spain",
+          "alpha_two_code": "ES",
+          "web_pages": [
+            "http://www.schillermadrid.edu/"
+          ]
+        },
+        {
+          "name": "Universidad Autónoma de Madrid",
+          "country": "Spain",
+          "alpha_two_code": "ES",
+          "web_pages": [
+            "http://www.uam.es/"
+          ]
+        },
+        {
+          "name": "Alice-Salomon-Fachhochschule für Sozialarbeit und Sozialpädagogik Berlin",
+          "country": "Germany",
+          "alpha_two_code": "DE",
+          "web_pages": [
+            "http://www.asfh-berlin.de/"
+          ]
+        },
+        {
+          "name": "Oberlin College",
+          "country": "United States",
+          "alpha_two_code": "US",
+          "web_pages": [
+            "http://www.oberlin.edu/"
+          ]
+        }
+      ],
+      "id": 3
+    }
+  ]
 }

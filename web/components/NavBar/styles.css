@@ -1,0 +1,29 @@
+.main-navbar {
+    height: 80px;
+    -webkit-box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.25);
+    box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.25);
+    padding: 15px 0;
+    background-color: var(--color-background-alt);
+}
+
+.logo {
+    height: 50px;
+    margin-right: 15px;
+}
+
+.main-menu .nav-link {
+    transition: ease all .5s;
+    font-weight: 600;
+}
+
+.main-navbar .container {
+    background-color: var(--color-background-alt);
+}
+
+@media (min-width: 768px) {
+    .main-navbar .container {
+        background-color: transparent;
+    }
+    
+  }
