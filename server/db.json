@@ -1,3 +1,104 @@
 {
-  "users": []
+  "users": [
+    {
+      "email": "mail@mail.com",
+      "password": "blah12345",
+      "id": 1
+    },
+    {
+      "email": "cristhian@mail.com",
+      "password": "admin1234567",
+      "id": 2
+    },
+    {
+      "email": "cristhian@mail.com",
+      "password": "admin1234567",
+      "id": 3
+    },
+    {
+      "email": "cristhian@mail.com",
+      "password": "admin1234567",
+      "id": 4
+    },
+    {
+      "email": "leo@mail.com",
+      "password": "admin123456",
+      "id": 5
+    },
+    {
+      "email": "carlos@mail.com",
+      "password": "admin123456",
+      "id": 6
+    },
+    {
+      "email": "mail@mail.com",
+      "password": "admin12345",
+      "id": 7
+    },
+    {
+      "email": "mail@mail.com",
+      "password": "admin12345",
+      "id": 8
+    },
+    {
+      "email": "mail@mail.com",
+      "password": "admin12345",
+      "id": 9
+    },
+    {
+      "email": "mail@mail.com",
+      "password": "admin12345",
+      "id": 10
+    },
+    {
+      "email": "mail@mail.com",
+      "password": "admin12345",
+      "id": 11
+    },
+    {
+      "email": "mail@mail.com",
+      "password": "admin12345",
+      "id": 12
+    },
+    {
+      "email": "mail@mail.com",
+      "password": "admin12345",
+      "id": 13
+    },
+    {
+      "email": "mail@mail.com",
+      "password": "admin12345",
+      "id": 14
+    },
+    {
+      "email": "mail@mail.com",
+      "password": "admin12345",
+      "id": 15
+    },
+    {
+      "email": "mail@mail.com",
+      "password": "admin1234",
+      "id": 16
+    },
+    {
+      "email": "mail@mail.com",
+      "password": "admin12345",
+      "id": 17
+    },
+    {
+      "email": "mail@mail.com",
+      "password": "admin12345",
+      "id": 18
+    },
+    {
+      "email": "mail@mail.com",
+      "password": "admin12345",
+      "id": 19
+    },
+    {
+      "email": "mail@mail.com",
+      "password": "admin12345",
+      "id": 20
+    }
+  ]
 }
