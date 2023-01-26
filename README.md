@@ -7,7 +7,7 @@ Please fork the repo to start. Once finished, issue a pull request to our repo s
 This challenge requires:
 
 - NodeJS (> v14.7.0)
-- NPM or Yarn
+- NPM > v7 or Yarn
 - A cup of ☕ or 🍵
 
 The repo is pre-configured, so just by running `npm i` or `yarn`, should be able to install these basic packages:
