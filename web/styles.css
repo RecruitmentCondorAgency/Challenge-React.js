@@ -1,0 +1,43 @@
+/* global variables */
+
+html {
+    --color-primary: #2991E0;
+    --color-secondary: #306ab2;
+    --color-highlight: #ff9100;
+    
+    --color-text: #636C7E;
+    --color-text-title: #00003D;
+    --color-text-alt: #FAFAFA;
+
+    --color-background: #F7F9FC;
+    --color-background-alt: #FFFFFF;
+    --color-background-input: #CFD8DC;
+
+    --color-primary-rgba-100: rgba(0, 0, 61, 1);
+    --color-primary-rgba-75: rgba(0, 0, 61, .75);
+    --color-primary-rgba-50: rgba(0, 0, 61, .50);
+    --color-primary-rgba-25: rgba(0, 0, 61, .25);
+
+    --color-secondary-rgba-100: rgba(48, 106, 178, 1);
+    --color-secondary-rgba-75: rgba(48, 106, 178, .75);
+    --color-secondary-rgba-50: rgba(48, 106, 178, .5);
+    --color-secondary-rgba-25: rgba(48, 106, 178, .25);
+
+    --dropshadow : 0px 5px 10px 0px rgba(0,0,0,0.25);
+}
+
+/* global styles */
+
+body {
+    color: var(--color-text);
+    background-color: var(--color-background);
+}
+
+
+.blockContent {
+    padding-top: 100px;
+}
+
+h1, h2, h3, h4 {
+    color: var(--color-primary);
+}

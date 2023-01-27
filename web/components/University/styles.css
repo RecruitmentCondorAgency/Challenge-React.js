@@ -1,0 +1,51 @@
+.university {
+    padding: 15px;
+    border-radius: 5px;
+    background-color: var(--color-background-alt);
+    box-shadow: var(--dropshadow);
+    margin: 15px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.infoBlock{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.actionBlock {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    
+}
+
+.actionBlock button {
+    margin-left: 15px;
+    padding: 0;
+    background-color: transparent!important;
+    border: none;
+    opacity: .8;
+    transition: ease all .5s;
+}
+
+.actionBlock button:hover {
+    opacity: 1
+}
+
+.flag {
+    margin-right: 10px;
+}
+
+.favoriteIcon {
+    opacity: 0.8;
+    transition: ease all .5s;
+    cursor: pointer;
+}
+
+.favoriteIcon:hover {
+    opacity: 1;
+}
