@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: system-ui;
+}
+ul {
+  list-style-type: none;
+}
+
+header {
+  --text-color: rgb(65, 65, 65);
+}
+
+ul li a {
+  text-decoration: none;
+  color: rgb(65, 65, 65);
+}
+
+header,
+main {
+  --main-color: rgb(66, 136, 250);
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    position: fixed;
+    left: 0;
+    right: 0;
+  }
+
+  header {
+    width: 100%;
+  }
+}

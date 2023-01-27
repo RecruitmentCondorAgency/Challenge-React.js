@@ -1,0 +1,24 @@
+.formContainer {
+  box-shadow: 0 2px 5px rgba(62, 62, 62, 0.307);
+  padding: 1.2em;
+  border-radius: 5px;
+  min-width: 80%;
+}
+
+.btnContainer {
+  margin-top: 15px;
+}
+
+.error {
+  color: red;
+  font-size: 1em;
+}
+
+.signUpContainer {
+  margin-top: 1em;
+}
+@media screen and (max-width: 768px) {
+  .formContainer {
+    min-width: 100%;
+  }
+}

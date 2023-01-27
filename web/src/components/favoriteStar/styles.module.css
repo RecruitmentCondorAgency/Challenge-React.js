@@ -1,0 +1,11 @@
+.fullfilled {
+  color: rgb(255, 168, 18);
+}
+
+.icon {
+  margin: 0 1em;
+}
+
+.icon:hover {
+  cursor: pointer;
+}

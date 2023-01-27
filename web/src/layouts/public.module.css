@@ -1,0 +1,50 @@
+.header {
+  display: flex;
+  width: 100vw;
+  box-shadow: 0 2px 5px rgba(169, 169, 169, 0.293);
+  padding: 0.5em 0;
+  align-items: center;
+}
+
+.headerMenu {
+  display: flex;
+  margin-right: 2em;
+}
+
+.imageContainer {
+  flex: 1;
+  margin-left: 150px;
+}
+
+.menuLink {
+  padding: 7px;
+  text-decoration: none;
+  color: blueviolet;
+  font-size: 1em;
+  color: var(--text-color);
+  margin: 0 20px;
+}
+
+.mainContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.centered {
+  display: grid;
+  place-items: center;
+  height: 85vh;
+}
+
+@media screen and (max-width: 768px) {
+  .imageContainer {
+    margin-left: 1em;
+  }
+
+  .menuLink {
+    font-size: 0.8em;
+    color: var(--text-color);
+    margin: 0 5px;
+  }
+}

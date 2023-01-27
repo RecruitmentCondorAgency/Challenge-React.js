@@ -1,0 +1,28 @@
+.wrapper {
+  margin-top: 2em;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: 1em;
+  width: 900px;
+  margin: 2rem;
+}
+
+.favorites,
+.details {
+  margin: 0;
+}
+
+.title {
+  color: var(--main-color);
+}
+
+section {
+  margin-left: 20px;
+}
+
+ul li {
+  margin: 0.8em 0;
+}

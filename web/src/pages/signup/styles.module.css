@@ -1,0 +1,11 @@
+.formContainer {
+  box-shadow: 0 2px 5px rgba(62, 62, 62, 0.307);
+  padding: 1.2em;
+  border-radius: 5px;
+  min-width: 200px;
+  width: 400px;
+}
+
+.btnContainer {
+  margin-top: 15px;
+}
