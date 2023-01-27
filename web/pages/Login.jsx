@@ -3,7 +3,11 @@ import { Button } from 'primereact/button'
 import { Checkbox } from 'primereact/checkbox'
 import { InputText } from 'primereact/inputtext'
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import CustomToast from '../components/CustomToast'
+import { API_URL } from '../constants'
+import { AuthContext } from '../context/AuthContext'
+import { ToastContext } from '../context/ToastContext'
 
 const validate = values => {
   const errors = {}
@@ -24,6 +28,10 @@ const validate = values => {
 
 export default function Login() {
   const [checked, setChecked] = React.useState(false)
+  const { login } = React.useContext(AuthContext)
+  const { toast } = React.useContext(ToastContext)
+  let navigate = useNavigate()
+
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -31,18 +39,34 @@ export default function Login() {
     },
     validate,
     onSubmit: values => {
-      alert(JSON.stringify(values, null, 2))
+      const { email, password } = values
+      fetch(`${API_URL}/users?email=${email}&password=${password}`)
+        .then(res => res.json())
+        .then(data => {
+          if (data.length > 0) {
+            toast?.current?.show({ severity: 'success', summary: 'Success', detail: 'Logged in!', life: 3000 });
+            login(data[0])
+            navigate('/search')
+          } else {
+            toast?.current?.show({ severity: 'error', summary: 'Error', detail: 'Invalid credentials', life: 3000 });
+          }
+        })
+        .catch(err => {
+          toast?.current?.show({ severity: 'error', summary: 'Error', detail: 'Server error', life: 3000 });
+        })
     }
   })
+
   return (
 
     <div className="flex align-items-center justify-content-center">
+      <CustomToast toast={toast} />
       <div className="surface-card p-4 shadow-2 border-round w-full lg:w-6">
         <div className="text-center mb-5">
           <img src="https://cdn3.iconfinder.com/data/icons/strokeline/128/revisi_02-256.png" alt="hyper" height={50} className="mb-3" />
           <div className="text-900 text-3xl font-medium mb-3">Welcome Back</div>
           <span className="text-600 font-medium line-height-3">Don't have an account?</span>
-          <Link to='/register' className="font-medium no-underline ml-2 text-blue-500 cursor-pointer">Create today!</Link>
+          <Link to='/register' className="font-medium no-underline ml-2 text-blue-500 cursor-pointer">Create one here!</Link>
         </div>
 
         <form onSubmit={formik.handleSubmit}>

@@ -1,10 +1,11 @@
 import { useFormik } from 'formik'
 import { Button } from 'primereact/button'
 import { InputText } from 'primereact/inputtext'
-import { Toast } from 'primereact/toast'
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import CustomToast from '../components/CustomToast'
 import { API_URL } from '../constants'
+import { ToastContext } from '../context/ToastContext'
 
 const validate = values => {
   const errors = {}
@@ -27,8 +28,24 @@ const validate = values => {
   return errors
 }
 
+const validateExistingUser = async (email) => {
+  let response = []
+
+  await fetch(`${API_URL}/users?email=${email}`)
+    .then(res => res.json())
+    .then(data => {
+      if (data.length > 0) {
+        response = [...data]
+      }
+    }).catch(err => {
+      console.log(err)
+    })
+
+  return response
+}
+
 export default function Login() {
-  const toast = React.useRef(null)
+  const { toast } = React.useContext(ToastContext)
   let navigate = useNavigate()
 
   const formik = useFormik({
@@ -38,8 +55,14 @@ export default function Login() {
       confirmPassword: ''
     },
     validate,
-    onSubmit: values => {
+    onSubmit: async (values) => {
       const { email, password } = values
+      const existingUser = await validateExistingUser(email)
+
+      if (existingUser.length > 0) {
+        toast?.current?.show({ severity: 'error', summary: 'Error', detail: 'Email already exists', life: 3000 });
+        return
+      }
       fetch(`${API_URL}/users`, {
         method: 'POST',
         headers: {
@@ -48,7 +71,7 @@ export default function Login() {
         body: JSON.stringify({ email, password })
       }).then(res => {
         if (res.status === 201) {
-          toast.current.show({ severity: 'success', summary: 'Success', detail: 'User created!', life: 3000 });
+          toast?.current?.show({ severity: 'success', summary: 'Success', detail: 'User created!', life: 3000 });
 
           setTimeout(() => {
             navigate('/login')
@@ -56,14 +79,14 @@ export default function Login() {
 
         }
       }).catch(err => {
-        toast.current.show({ severity: 'error', summary: 'Error', detail: 'Server error', life: 3000 });
+        toast?.current?.show({ severity: 'error', summary: 'Error', detail: 'Server error', life: 3000 });
       })
     }
   })
-  return (
 
+  return (
     <div className="flex align-items-center justify-content-center">
-      <Toast ref={toast} />
+      <CustomToast toast={toast} />
       <div className="surface-card p-4 shadow-2 border-round w-full lg:w-6">
         <div className="text-center mb-5">
           <img src="https://cdn4.iconfinder.com/data/icons/ui-marketplace-1-0-flat/19/4_login-256.png" alt="hyper" height={50} className="mb-3" />
@@ -110,7 +133,7 @@ export default function Login() {
           {formik.touched.confirmPassword && formik.errors.confirmPassword ? <div className="text-red-500 text-xs">{formik.errors.confirmPassword}</div> : null}
 
           <Button
-            label="Sign In"
+            label="Register"
             icon="pi pi-arrow-right"
             iconPos='right'
             className="w-full mt-6"

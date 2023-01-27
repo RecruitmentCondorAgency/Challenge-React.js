@@ -1,20 +1,32 @@
 
+import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import AuthProvider from './context/AuthContext';
+import ToastProvider from './context/ToastContext';
 import Login from './pages/Login';
+import Profile from './pages/Profile';
 import Register from './pages/Register';
+import Search from './pages/Search';
 import './styles.css';
 
 export function App() {
 	return (
-		<BrowserRouter>
-			<div className='mb-8'>
-				<Navbar />
-			</div>
-			<Routes>
-				<Route path="/login" element={<Login />} />
-				<Route path="/register" element={<Register />} />
-			</Routes>
-		</BrowserRouter>
+		<AuthProvider>
+			<ToastProvider>
+				<BrowserRouter>
+					<div className='mb-8'>
+						<Navbar />
+					</div>
+					<Routes>
+						<Route path="/" element={<Login />} />
+						<Route path="/login" element={<Login />} />
+						<Route path="/register" element={<Register />} />
+						<Route path="/search" element={<Search />} />
+						<Route path="/profile/:id" element={<Profile />} />
+					</Routes>
+				</BrowserRouter>
+			</ToastProvider>
+		</AuthProvider>
 	)
 }

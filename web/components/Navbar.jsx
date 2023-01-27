@@ -2,8 +2,13 @@ import { Button } from 'primereact/button'
 import { Image } from 'primereact/image'
 import { Menubar } from 'primereact/menubar'
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import { AuthContext } from '../context/AuthContext'
 
 function Navbar() {
+  const { user, isAuthenticated, logout } = React.useContext(AuthContext)
+  let navigate = useNavigate()
+
   return (
     <nav>
       <Menubar
@@ -17,9 +22,22 @@ function Navbar() {
         }
         end={
           <>
-            <Button label="Search" className="p-button-raised p-button-text p-button-plain mr-6" />
-            <Button label="Profile" className="p-button-raised p-button-text p-button-plain mr-6" />
-            <Button label="Logout" icon="pi pi-power-off" className='p-button-danger' />
+            {isAuthenticated ? (
+              <div>
+                <Button label="Search" className="p-button-raised p-button-text p-button-plain mr-6" onClick={() => navigate('/search')} />
+                <Button label="Profile" className="p-button-raised p-button-text p-button-plain mr-6" onClick={() => navigate(`/profile/${user?.id}`)} />
+                <Button label="Logout" icon="pi pi-power-off" className='p-button-danger' onClick={() => {
+                  logout()
+                  navigate('/')
+                }} />
+              </div>
+            ) : (
+              <div>
+                <Button label="Search" className="p-button-raised p-button-text p-button-plain mr-6" onClick={() => navigate('/search')} />
+                <Button label="Login" icon="pi pi-arrow-right" className="p-button-success mr-6" onClick={() => navigate('/')} />
+              </div>
+            )}
+
           </>
         }
       />
