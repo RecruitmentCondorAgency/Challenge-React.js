@@ -34,7 +34,7 @@ function Navbar() {
             ) : (
               <div>
                 <Button label="Search" className="p-button-raised p-button-text p-button-plain mr-6" onClick={() => navigate('/search')} />
-                <Button label="Login" icon="pi pi-arrow-right" className="p-button-success mr-6" onClick={() => navigate('/')} />
+                  <Button label="Login" icon="pi pi-arrow-right" className="p-button-success mr-6" onClick={() => navigate('/login')} />
               </div>
             )}
 

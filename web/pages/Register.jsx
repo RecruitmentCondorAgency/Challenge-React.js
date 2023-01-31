@@ -68,7 +68,7 @@ export default function Login() {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ email, password })
+        body: JSON.stringify({ email, password, universities: [] })
       }).then(res => {
         if (res.status === 201) {
           toast?.current?.show({ severity: 'success', summary: 'Success', detail: 'User created!', life: 3000 });

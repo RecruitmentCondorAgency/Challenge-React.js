@@ -3,37 +3,20 @@
     {
       "email": "admin@mail.com",
       "password": "admin12345",
+      "universities": [],
       "id": 1
     },
     {
-      "email": "admin@mail.com",
-      "password": "admin12345",
+      "email": "mail@mail.com",
+      "password": "blah12345",
+      "universities": [],
       "id": 2
     },
     {
-      "email": "admin@mail.com",
-      "password": "admin12345",
-      "id": 3
-    },
-    {
-      "email": "admin@mail.com",
-      "password": "admin12345",
-      "id": 4
-    },
-    {
-      "email": "admin@mail.com",
-      "password": "admin12345",
-      "id": 5
-    },
-    {
-      "email": "admin12@mail.com",
-      "password": "admin12345",
-      "id": 6
-    },
-    {
       "email": "admin1@mail.com",
-      "password": "admin123456",
-      "id": 7
+      "password": "admin12345",
+      "universities": [],
+      "id": 3
     }
   ]
 }

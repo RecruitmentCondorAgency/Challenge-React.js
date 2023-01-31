@@ -15,11 +15,11 @@ export function App() {
 		<AuthProvider>
 			<ToastProvider>
 				<BrowserRouter>
-					<div className='mb-8'>
+					<div className='mb-2'>
 						<Navbar />
 					</div>
 					<Routes>
-						<Route path="/" element={<Login />} />
+						<Route path="/" element={<Search />} />
 						<Route path="/login" element={<Login />} />
 						<Route path="/register" element={<Register />} />
 						<Route path="/search" element={<Search />} />
