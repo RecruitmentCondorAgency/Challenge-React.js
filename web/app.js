@@ -1,5 +1,6 @@
 import './styles.css'
+import Header from "./components/UI/Header";
 
-export function App() {
-	return <h1>Hello world!</h1>
+export default function App() {
+	return <Header/>
 }
