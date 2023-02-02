@@ -1,8 +1,11 @@
 import logo from '../../../graphics/logo.png';
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/solid'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
+import UserContext from "../../store/user-context";
+import {useContext} from "react";
 
 export default function Header() {
+    const userCtx = useContext(UserContext)
     const buildMenuOptionClass = isSelected =>
         isSelected ? "block rounded-md bg-blue-50 py-2 pl-3 pr-4 text-base font-medium text-blue-700 dark:bg-gray-900 dark:text-white" :
             "block rounded-md py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
@@ -16,18 +19,22 @@ export default function Header() {
             id: 'option_1',
             text: 'Search',
             href: '/search'
-        },
-        {
-            id: 'option_2',
-            text: 'Profile',
-            href: '/profile'
-        },
-        {
-            id: 'option_3',
-            text: 'Logout',
-            href: '/logout'
         }
     ]
+
+    if (userCtx.isLoggedIn)
+        menuOptions.push(
+            {
+                id: 'option_2',
+                text: 'Profile',
+                href: '/profile'
+            },
+            {
+                id: 'option_3',
+                text: 'Logout',
+                href: '/logout'
+            }
+        )
 
     return (
         <Disclosure as="nav" className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800 shadow">
