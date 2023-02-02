@@ -13,7 +13,7 @@ export default function Login() {
     const submitHandler = async function ({email, password}) {
         const user = await getUser(email)
 
-        if (password === user.password) {
+        if (user && password === user.password) {
             userCtx.login(user.id, user.email)
         } else {
             console.log('Error')
