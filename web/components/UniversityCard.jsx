@@ -7,7 +7,7 @@ import { useFetch } from '../hooks/useFetch'
 export default function UniversityCard({ university }) {
   const { name, country, web_pages, alpha_two_code } = university
   const { data: countryData, error: countryError } = useFetch(`${COUNTRIES_URL}/alpha/${alpha_two_code}`)
-  const { latlng } = countryData || {}
+  const { latlng } = countryError ? {} : countryData
   const [lat, lng] = latlng || []
   const { data: weatherData, error: weatherError } = useFetch(`${WEATHER_URL}&lat=${lat}&lon=${lng}`)
 
