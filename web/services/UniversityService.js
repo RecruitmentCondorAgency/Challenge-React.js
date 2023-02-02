@@ -17,3 +17,15 @@ export const postUniversity = async function (userId, university) {
 
     return response.data
 }
+
+export const getUserUniversities = async function (userId) {
+    const response = await axios.get('http://localhost:3000' + '/universities?userId=' + userId)
+
+    return response.data
+}
+
+export const deleteUniversity = async function (id) {
+    const response = await axios.delete('http://localhost:3000' + '/universities/' + id)
+
+    return response.data
+}
