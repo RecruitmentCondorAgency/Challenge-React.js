@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 
+// TODO: Persist session in browser.
 const UserContext = React.createContext({
     id: '',
     email: '',

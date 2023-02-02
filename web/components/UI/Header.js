@@ -41,7 +41,7 @@ export default function Header() {
             {({ open }) => (
                 <>
                     <div className="container flex flex-wrap items-center justify-between mx-auto">
-                        <a href="https://example.com/" className="flex items-center">
+                        <a href="/" className="flex items-center">
                             <img src={logo} className="h-6 mr-3 sm:h-9" alt="App Logo"/>
                         </a>
                         {/* Mobile menu button */}

@@ -19,6 +19,7 @@ export default function SearchBar({ setUniversities, setShowResults }) {
 
                 if (filteredUniversities.length === 1 && filteredUniversities[0].name === query) {
                     setFilteredItems([])
+                    setShowResults(true)
                 } else {
                     setFilteredItems(filteredUniversities)
                 }
@@ -52,6 +53,7 @@ export default function SearchBar({ setUniversities, setShowResults }) {
     }
 
     const handleSearch = () => {
+        setFilteredItems([])
         setShowResults(true)
     }
 
@@ -62,7 +64,7 @@ export default function SearchBar({ setUniversities, setShowResults }) {
                     <input type="text" className="h-12 w-full border-0 bg-transparent pl-11 pr-4 text-gray-800 placeholder-gray-400 focus:ring-0 sm:text-sm" value={query} onChange={handleInputChange} />
                     <div className="max-h-72 scroll-py-2 overflow-y-auto text-sm text-gray-800">
                         {filteredItems.map(university => (
-                            <div key={university.domain} className="block cursor-default select-none px-4 py-2">
+                            <div key={university.domains[0]} className="block cursor-default select-none px-4 py-2">
                                 <button onClick={handleSuggestionClick} value={university.name}>{university.name}</button>
                             </div>
                         ))}
