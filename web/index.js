@@ -1,5 +1,15 @@
-import ReactDOM from 'react-dom'
-import { App } from './App'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 
-const app = document.getElementById('app')
-ReactDOM.render(<App />, app)
+import App from './App';
+import {BrowserRouter} from "react-router-dom";
+import {UserContextProvider} from "./store/user-context";
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+    <UserContextProvider>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </UserContextProvider>
+);
