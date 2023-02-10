@@ -1,4 +1,5 @@
 import { useEffect, useReducer, useRef } from 'react'
+import { useDebounce } from './useDebounce'
 
 export function useFetch(url, options) {
   const cache = useRef({})
@@ -22,6 +23,7 @@ export function useFetch(url, options) {
   }
 
   const [state, dispatch] = useReducer(fetchReducer, initialState)
+  const debounceValue = useDebounce(state, 500)
 
   useEffect(() => {
     if (!url) return
@@ -57,7 +59,7 @@ export function useFetch(url, options) {
     return () => {
       cancelRequest.current = true
     }
-  }, [url])
+  }, [debounceValue])
 
   return state
 }

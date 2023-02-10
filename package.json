@@ -6,8 +6,8 @@
   "scripts": {
     "app": "npm start -w web",
     "server": "npm start -w server",
-    "format": "npx rome format",
-    "lint": "npx rome check"
+    "format": "npx rome format ./web/*/**.jsx --write",
+    "lint": "npx rome check ./web/*/**.jsx"
   },
   "repository": "git@condor:rgCondor/Challenge-React.js.git",
   "author": "Rafael González",

@@ -2,7 +2,7 @@
   "name": "web",
   "version": "1.0.0",
   "scripts": {
-    "start": "parcel ./index.html",
+    "start": "parcel ./index.html --no-source-maps",
     "build": "parcel build ./index.html"
   },
   "repository": "git@condor:rgCondor/Challenge-React.js.git",
