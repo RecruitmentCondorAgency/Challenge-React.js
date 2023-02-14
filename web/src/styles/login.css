@@ -1,0 +1,27 @@
+.card.login {
+  margin-top: 1rem;
+  box-shadow: 0 2px 4px 0px rgb(123, 122, 122);
+  padding: 1rem 1.6rem;
+  border-radius: 0.2rem;
+  width: 26rem;
+  margin-top: 10rem;
+}
+.groupForm {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+.groupForm label {
+  margin-bottom: 0.5rem;
+}
+.btnLogin {
+  background-color: var(--main-background-color);
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 0.2rem;
+  color: #fff;
+  width: 100%;
+  margin-top: 1rem;
+  font-size: 1.3rem;
+}

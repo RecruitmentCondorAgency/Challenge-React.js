@@ -1,0 +1,62 @@
+/* NavBar */
+@import url("./src/styles/navBar.css");
+/* Login */
+@import url("./src/styles/login.css");
+/* Home */
+@import url("./src/styles/home.css");
+/* University */
+@import url("./src/styles/university.css");
+/* University */
+@import url("./src/styles/profile.css");
+/* Fonts */
+@font-face {
+  font-family: "RobotoBold";
+  src: url("./src/fonts/Roboto-Bold.ttf");
+  font-family: "RobotoRegular";
+  src: url("./src/fonts/Roboto-Regular.ttf");
+}
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: "RobotoRegular", Arial, sans-serif;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  height: 90vh;
+  background-color: rgba(212, 234, 255, 0.205);
+}
+.card {
+  border-radius: 1rem;
+  background-color: #fff;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  background-color: #fff;
+  padding: 1rem 1rem;
+  border-radius: 0.2rem;
+  border: solid 1px rgb(225, 225, 225);
+}
+:root {
+  --main-font-color: rgb(104, 104, 104);
+  --main-background-color: #0874e4;
+}
+/* @media (min-width: 768px) {
+  .containerProfile {
+    margin-top: 15rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media (min-width: 1200px) {
+  .containerProfile {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+} */
