@@ -1,3 +1,276 @@
 {
-  "users": []
+  "users": [
+    {
+      "id": 1,
+      "email": "test1@test.com",
+      "password": "1234",
+      "name": "test1",
+      "universities": [
+        {
+          "state-province": null,
+          "domains": [
+            "ulm.edu"
+          ],
+          "country": "United States",
+          "web_pages": [
+            "http://www.ulm.edu/"
+          ],
+          "name": "University of Louisiana at Monroe",
+          "alpha_two_code": "US"
+        },
+        {
+          "state-province": null,
+          "domains": [
+            "monroeccc.edu"
+          ],
+          "country": "United States",
+          "web_pages": [
+            "http://www.monroeccc.edu"
+          ],
+          "name": "Monroe County Community College",
+          "alpha_two_code": "US"
+        },
+        {
+          "state-province": null,
+          "domains": [
+            "hsum-ac.mn"
+          ],
+          "country": "Mongolia",
+          "web_pages": [
+            "http://www.hsum-ac.mn/"
+          ],
+          "name": "Health sciences University of Mongolia",
+          "alpha_two_code": "MN"
+        },
+        {
+          "state-province": null,
+          "domains": [
+            "imau.edu.cn"
+          ],
+          "country": "China",
+          "web_pages": [
+            "http://www.imau.edu.cn/"
+          ],
+          "name": "Inner Mongolia Agricultural University",
+          "alpha_two_code": "CN"
+        },
+        {
+          "state-province": null,
+          "domains": [
+            "imu.edu.cn"
+          ],
+          "country": "China",
+          "web_pages": [
+            "http://www.imu.edu.cn/"
+          ],
+          "name": "Inner Mongolia University",
+          "alpha_two_code": "CN"
+        },
+        {
+          "state-province": null,
+          "domains": [
+            "num.edu.mn"
+          ],
+          "country": "Mongolia",
+          "web_pages": [
+            "http://www.num.edu.mn/"
+          ],
+          "name": "Mongolian National University",
+          "alpha_two_code": "MN"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "email": "test2@test.com",
+      "password": "1234",
+      "name": "test2",
+      "universities": []
+    },
+    {
+      "id": 3,
+      "email": "test3@test.com",
+      "password": "1234",
+      "name": "test3",
+      "universities": []
+    },
+    {
+      "name": "MaDe",
+      "email": "a@a.com",
+      "password": "123",
+      "universities": [],
+      "id": 4
+    },
+    {
+      "name": "asd",
+      "email": "asd",
+      "password": "asd",
+      "universities": [
+        {
+          "state-province": null,
+          "domains": [
+            "nmims.edu"
+          ],
+          "country": "India",
+          "web_pages": [
+            "http://www.nmims.edu/"
+          ],
+          "name": "Narsee Monjee Institute of Management Studies",
+          "alpha_two_code": "IN"
+        },
+        {
+          "state-province": null,
+          "domains": [
+            "nmims.edu"
+          ],
+          "country": "India",
+          "web_pages": [
+            "http://www.nmims.edu/"
+          ],
+          "name": "Narsee Monjee Institute of Management Studies",
+          "alpha_two_code": "IN"
+        },
+        {
+          "state-province": null,
+          "domains": [
+            "middlesbro.ac.uk",
+            "mbro.ac.uk"
+          ],
+          "country": "United Kingdom",
+          "web_pages": [
+            "https://www.mbro.ac.uk/"
+          ],
+          "name": "Middlesbrough College",
+          "alpha_two_code": "GB"
+        },
+        {
+          "state-province": null,
+          "domains": [
+            "middlesbro.ac.uk",
+            "mbro.ac.uk"
+          ],
+          "country": "United Kingdom",
+          "web_pages": [
+            "https://www.mbro.ac.uk/"
+          ],
+          "name": "Middlesbrough College",
+          "alpha_two_code": "GB"
+        },
+        {
+          "state-province": null,
+          "domains": [
+            "cit.drbit.com.ru"
+          ],
+          "country": "Russian Federation",
+          "web_pages": [
+            "http://cit.drbit.com.ru/"
+          ],
+          "name": "Novosibirsk State Academy of Economics and Mangement",
+          "alpha_two_code": "RU"
+        },
+        {
+          "state-province": null,
+          "domains": [
+            "wspiz.edu.pl"
+          ],
+          "country": "Poland",
+          "web_pages": [
+            "http://www.wspiz.edu.pl/"
+          ],
+          "name": "Leon Kozminski Academy of Entrepreneurship and Mangement in Warsaw",
+          "alpha_two_code": "PL"
+        },
+        {
+          "state-province": null,
+          "domains": [
+            "kdu.edu.my"
+          ],
+          "country": "Malaysia",
+          "web_pages": [
+            "http://www.kdu.edu.my/"
+          ],
+          "name": "KDU College Sdn Bhd",
+          "alpha_two_code": "MY"
+        },
+        {
+          "state-province": null,
+          "domains": [
+            "akfarmitseda.ac.id"
+          ],
+          "country": "Indonesia",
+          "web_pages": [
+            "http://www.akfarmitseda.ac.id/"
+          ],
+          "name": "Akademi Farmasi Mitra Sehat Mandiri Sidoarjo",
+          "alpha_two_code": "ID"
+        }
+      ],
+      "id": 5
+    },
+    {
+      "name": "asd",
+      "email": "asd2",
+      "password": "asd",
+      "universities": [],
+      "id": 6
+    },
+    {
+      "name": "asd",
+      "email": "asd3",
+      "password": "asd",
+      "universities": [],
+      "id": 7
+    },
+    {
+      "name": "asd",
+      "email": "asd4",
+      "password": "asd",
+      "universities": [],
+      "id": 8
+    },
+    {
+      "name": "asd",
+      "email": "asd5",
+      "password": "asd",
+      "universities": [
+        {
+          "state-province": null,
+          "domains": [
+            "vdu.lt"
+          ],
+          "country": "Lithuania",
+          "web_pages": [
+            "http://www.vdu.lt/"
+          ],
+          "name": "Vytautas Magnus University",
+          "alpha_two_code": "LT"
+        },
+        {
+          "state-province": null,
+          "domains": [
+            "vsmu.sk"
+          ],
+          "country": "Slovakia",
+          "web_pages": [
+            "http://www.vsmu.sk/"
+          ],
+          "name": "University of Performing Arts in Bratislava",
+          "alpha_two_code": "SK"
+        },
+        {
+          "state-province": null,
+          "domains": [
+            "cfpj.com"
+          ],
+          "country": "France",
+          "web_pages": [
+            "http://www.cfpj.com/"
+          ],
+          "name": "Centre de Formation et de Perfectionnement des Journalistes",
+          "alpha_two_code": "FR"
+        }
+      ],
+      "id": 9
+    }
+  ]
 }

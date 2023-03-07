@@ -1,0 +1,14 @@
+.CollegeCard__btn{
+    background-color: blue;
+    margin: auto;
+    width: 50px;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #0072e1;;
+    color: white;
+}
+
+.CollegeCard__title{
+    font-weight: bold;
+}
