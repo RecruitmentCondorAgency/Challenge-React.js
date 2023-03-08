@@ -7,10 +7,13 @@ import "./index.css";
 import { arrayDeleteItem } from "../../utils/utils";
 import ProfileCard from "./PorfileCard";
 import ProfileData from "./ProfileData";
+import Loader from "../../components/loader";
 
 function Profile() {
   const navigate = useNavigate();
   const [data, setData] = useState();
+  const [dataCountry, setDataCountry] = useState();
+  const [dataWeather, setDataWeather] = useState();
   const [selected, setSelected] = useState();
 
 
@@ -63,12 +66,47 @@ function Profile() {
         setLoading(false);
       });
   };
+  
+  const fetchWeather = (lat, long) => {
+    axios({
+      method: "get",
+      url: `https://www.7timer.info/bin/astro.php?lon=${long}&lat={${lat}}&ac=0&unit=metric&output=json&tzshift=0`})
+      .then((response)=>{
+        setDataWeather(response.data)
+        setLoading(false)
+      })
+      .catch((err) => {
+        console.log(err)
+        setLoading(false)
+      })
+  }
+
+  const fetchCountry = (college) => {
+    axios({
+      method: "get",
+      url: `https://restcountries.com/v3.1/name/${college.country}`})
+      .then((response)=>{
+        setDataCountry(response.data[0])
+        if(response.data[0].latlng){
+          fetchWeather(response.data[0].latlng[0], response.data[0].latlng[1])
+        } else {
+          setLoading(false)
+        } 
+      })
+      .catch((err) => {
+        console.log(err)
+        setLoading(false)
+      })
+  }
 
   const selectCollege = (item) => {
+    setLoading(true)
     setSelected(item)
+    fetchCountry(item)
   }
   return (
     <div>
+      {loading && <Loader />}
       <Header logged={true} />
       {data && (
         <>
@@ -90,7 +128,7 @@ function Profile() {
               </div>
             </div>
             <div className="Profile__college-data">
-              {selected && <ProfileData selected={selected}/>}
+              {selected && <ProfileData selected={selected} country={dataCountry} weather={dataWeather}/>}
             </div>
           </div>
         </>

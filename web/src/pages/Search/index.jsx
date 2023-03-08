@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../../components/Header";
 import axios from "axios";
+
+import { ReactSearchAutocomplete } from 'react-search-autocomplete'
 
 import "./index.css";
 import Loader from "../../components/loader";
@@ -10,9 +12,27 @@ import CollegeCard from "./CollegeCard";
 function Search() {
   const [searchWords, setSearchWords] = useState("");
   const [data, setData] = useState();
+  const [filteredData, setFilteredData] = useState()
   const [success, setSuccess] = useState();
 
   const [loading, setLoading] = useState(false);
+
+  const fetchCollege = () => {
+    setLoading(true);
+    axios({
+      method: "get",
+      url: `http://universities.hipolabs.com/search?name=${searchWords}`,
+    }).then((response) => {setData(response.data)
+      setLoading(false);
+    }).catch((err) => {
+      console.log(err)
+    });
+  }
+
+  useEffect(() => {
+    fetchCollege()
+  }, [])
+  
 
   const addCollege = (item) => {
     axios({
@@ -37,24 +57,18 @@ function Search() {
 
   const addedData = (item) => {
     setSuccess(item)
-    setData()
+    setFilteredData()
     setSearchWords("")
   }
 
-  const searchInit = () => {
+  const searchInit = (string, result) => {
+    setFilteredData(result)
     setSuccess(false)
-    setLoading(true);
-    
-    axios({
-      method: "get",
-      url: `http://universities.hipolabs.com/search?name=${searchWords}`,
-    }).then((response) => {
-        setData(response.data);
-      setLoading(false);
-    }).catch((err) => {
-      console.log(err)
-    });
   };
+
+  const handleOnSelect = (item) => {
+    setFilteredData([item])
+  }
 
 
   return (
@@ -62,18 +76,13 @@ function Search() {
       {loading && <Loader />}
       <Header logged={true} />
       <div className="Search__container">
-        <input
-          type="text"
-          value={searchWords}
-          onChange={(e) => setSearchWords(e.target.value)}
-          className="Search__input"
-        />
-        <btn onClick={searchInit} className="Search__btn">
-          Buscar
-        </btn>
-        {data && <p>Numero de coincidencias: {data.length}</p>}
-        {data &&
-          data?.map((college) => <CollegeCard college={college} addCollege={addCollege}/>)
+        <ReactSearchAutocomplete
+            items={data}
+            onSearch={searchInit}
+            onSelect={handleOnSelect}
+          />
+        {filteredData &&
+          filteredData?.map((college) => <CollegeCard college={college} addCollege={addCollege}/>)
           }
         <div></div>
       </div>

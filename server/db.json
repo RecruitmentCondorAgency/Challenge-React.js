@@ -109,100 +109,38 @@
         {
           "state-province": null,
           "domains": [
-            "nmims.edu"
+            "gadsenstate.edu"
           ],
-          "country": "India",
+          "country": "United States",
           "web_pages": [
-            "http://www.nmims.edu/"
+            "https://www.gadsdenstate.edu/index.cms"
           ],
-          "name": "Narsee Monjee Institute of Management Studies",
-          "alpha_two_code": "IN"
+          "name": "Gasden State Community College",
+          "alpha_two_code": "US"
         },
         {
           "state-province": null,
           "domains": [
-            "nmims.edu"
+            "adelphi.edu"
           ],
-          "country": "India",
+          "country": "United States",
           "web_pages": [
-            "http://www.nmims.edu/"
+            "http://www.adelphi.edu/"
           ],
-          "name": "Narsee Monjee Institute of Management Studies",
-          "alpha_two_code": "IN"
+          "name": "Adelphi University",
+          "alpha_two_code": "US"
         },
         {
-          "state-province": null,
+          "state-province": "Misiones",
           "domains": [
-            "middlesbro.ac.uk",
-            "mbro.ac.uk"
+            "unam.edu.ar"
           ],
-          "country": "United Kingdom",
+          "country": "Argentina",
           "web_pages": [
-            "https://www.mbro.ac.uk/"
+            "http://www.unam.edu.ar/"
           ],
-          "name": "Middlesbrough College",
-          "alpha_two_code": "GB"
-        },
-        {
-          "state-province": null,
-          "domains": [
-            "middlesbro.ac.uk",
-            "mbro.ac.uk"
-          ],
-          "country": "United Kingdom",
-          "web_pages": [
-            "https://www.mbro.ac.uk/"
-          ],
-          "name": "Middlesbrough College",
-          "alpha_two_code": "GB"
-        },
-        {
-          "state-province": null,
-          "domains": [
-            "cit.drbit.com.ru"
-          ],
-          "country": "Russian Federation",
-          "web_pages": [
-            "http://cit.drbit.com.ru/"
-          ],
-          "name": "Novosibirsk State Academy of Economics and Mangement",
-          "alpha_two_code": "RU"
-        },
-        {
-          "state-province": null,
-          "domains": [
-            "wspiz.edu.pl"
-          ],
-          "country": "Poland",
-          "web_pages": [
-            "http://www.wspiz.edu.pl/"
-          ],
-          "name": "Leon Kozminski Academy of Entrepreneurship and Mangement in Warsaw",
-          "alpha_two_code": "PL"
-        },
-        {
-          "state-province": null,
-          "domains": [
-            "kdu.edu.my"
-          ],
-          "country": "Malaysia",
-          "web_pages": [
-            "http://www.kdu.edu.my/"
-          ],
-          "name": "KDU College Sdn Bhd",
-          "alpha_two_code": "MY"
-        },
-        {
-          "state-province": null,
-          "domains": [
-            "akfarmitseda.ac.id"
-          ],
-          "country": "Indonesia",
-          "web_pages": [
-            "http://www.akfarmitseda.ac.id/"
-          ],
-          "name": "Akademi Farmasi Mitra Sehat Mandiri Sidoarjo",
-          "alpha_two_code": "ID"
+          "name": "Universidad Nacional de Misiones",
+          "alpha_two_code": "AR"
         }
       ],
       "id": 5
@@ -271,6 +209,46 @@
         }
       ],
       "id": 9
+    },
+    {
+      "name": "asdf",
+      "email": "asdf",
+      "password": "asdf",
+      "universities": [
+        {
+          "state-province": null,
+          "domains": [
+            "unexpo.edu.ve"
+          ],
+          "country": "Venezuela, Bolivarian Republic of",
+          "web_pages": [
+            "http://www.unexpo.edu.ve/"
+          ],
+          "name": "Universidad Nacional Experimental Politécnica \"Antonio José de Sucre\"",
+          "alpha_two_code": "VE"
+        }
+      ],
+      "id": 10
+    },
+    {
+      "name": "asd",
+      "email": "asd7",
+      "password": "asd",
+      "universities": [
+        {
+          "state-province": "Ciudad Autónoma de Buenos Aires",
+          "domains": [
+            "uade.edu.ar"
+          ],
+          "country": "Argentina",
+          "web_pages": [
+            "http://www.uade.edu.ar/"
+          ],
+          "name": "Universidad Argentina de la Empresa",
+          "alpha_two_code": "AR"
+        }
+      ],
+      "id": 11
     }
   ]
 }
