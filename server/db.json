@@ -249,6 +249,13 @@
         }
       ],
       "id": 11
+    },
+    {
+      "name": "Mario",
+      "email": "del",
+      "password": "123",
+      "universities": [],
+      "id": 12
     }
   ]
 }

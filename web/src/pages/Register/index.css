@@ -2,3 +2,10 @@
     background-color: aliceblue;
     min-height: 100vh;
 }
+
+.Login__title{
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    color: #0072e1;
+}

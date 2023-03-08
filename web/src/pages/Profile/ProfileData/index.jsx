@@ -12,17 +12,17 @@ function ProfileData(props) {
   console.log(props.weather)
   return (
     <div className="ProfileData__box">
-        {props.selected.name &&<p className="">{props.selected.name}</p>}
-        <p className="">Location: {props.selected.country && props.selected.country} {props.selected.alpha_two_code && "(" + props.selected.alpha_two_code + ")"}</p>
+        {props.selected.name &&<p className="ProfileData__name">{props.selected.name}</p>}
+        <p className=""><span className='ProfileData__title'>Location:</span> {props.selected.country && props.selected.country} {props.selected.alpha_two_code && "(" + props.selected.alpha_two_code + ")"}</p>
         
         {props.country && <>
-          <p className=''>Region: {props.country.region && props.country.region} {props.country.subregion && <span> - {props.country.subregion}</span>}</p>
-          <p className=''>Start of the week: {props.country.startOfWeek && props.country.startOfWeek}</p>
+          <p className=''><span className='ProfileData__title'>Region:</span> {props.country.region && props.country.region} {props.country.subregion && <span> - {props.country.subregion}</span>}</p>
+          <p className=''><span className='ProfileData__title'>Start of the week:</span> {props.country.startOfWeek && props.country.startOfWeek}</p>
           {props.country.timezones && 
           <>
-          Time zones:
+          <span className='ProfileData__title'>Time zones:</span>
             <ul>
-              {props.country.timezones.map((time) => <p>{time}</p>)}
+              {props.country.timezones.map((time) => <li className='ProfileData__tz'>- {time}</li>)}
             </ul>
           </>}
         </>}
@@ -30,23 +30,23 @@ function ProfileData(props) {
 
         {props.selected.domains && 
           <>
-          Domains:
+          <p className='ProfileData__title'>Domains:</p>
             <ul>
               {props.selected.domains.map((domain) => <p>{domain}</p>)}
             </ul>
           </>}
         {props.selected.web_pages && 
           <>
-            <p>Websites:</p>
+            <p className='ProfileData__title'>Websites:</p>
               <ul>
-                {props.selected.web_pages.map((web)=><li><a href={`${web}`}>{web}</a></li>)}
+                {props.selected.web_pages.map((web)=><li><a href={`${web}`} target="_blank">{web}</a></li>)}
               </ul>
 
           </>}
 
         {props.weather && 
           <>
-            <p>Weather for the day:</p>
+            <p className='ProfileData__title'>Weather for the day:</p>
                 {props.weather.dataseries.map((item)=>{
                   if (item.timepoint <= 24 ){
                     return (

@@ -59,7 +59,7 @@ function Register() {
       <Header logged={false} />
       <div className="Login__container">
       {!success &&         <div className="Login__form">
-          <p>Register</p>
+          <p className="Login__title">Register</p>
           <p className="Login__label">Name</p>
           <input
             type="text"
