@@ -1,5 +1,6 @@
 import "../assets/css/styles.css";
+import { BrowserRoutes } from "../components/Routes/BrowserRoutes";
 
 export function App() {
-  return <h1>Hello world!</h1>;
+  return <BrowserRoutes />;
 }
