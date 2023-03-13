@@ -1,6 +1,9 @@
+import { UniversityEntity } from "./university.entity";
+
 export type UserEntity = {
-  id: number;
+  id: string;
   name: string;
-  username: string;
+  email: string;
   password: string;
+  universities?: UniversityEntity[];
 };

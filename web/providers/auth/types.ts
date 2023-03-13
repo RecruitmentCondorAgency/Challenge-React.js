@@ -15,6 +15,7 @@ export type UseAuthState = {
 export type UseAuthDispatch = {
   revalidateUser: () => void;
   login: (values: LoginVariables) => void;
+  logout: () => void;
 };
 
 export type UseAuth = [UseAuthState, UseAuthDispatch];

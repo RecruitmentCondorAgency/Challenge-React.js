@@ -12,25 +12,28 @@ import {
 import { FC, useCallback, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { keys } from "../../common/constants/keys.constants";
 import { paths } from "../../common/constants/paths.constants";
-import { localstorageManager } from "../../common/utils";
 import { Layout } from "../../components/Layout/Layout";
 import { useAuth } from "../../providers/auth/auth.hook";
-import { LoginVariables } from "../../providers/auth/types";
 import { useNotification } from "../../providers/notification/notification.hook";
-import { validationSchema } from "./Login.validation";
+import { RegisterVariables } from "../../providers/user/types";
+import { withRegisterProvider } from "../../providers/user/user.hoc";
+import { useUser } from "../../providers/user/user.hook";
+import { validationSchema } from "./Register.validation";
 
-const Login: FC = () => {
+const Register: FC = () => {
   const navigate = useNavigate();
-  const [{ authenticated, loginData, loginError, loginLoading }, { login }] =
-    useAuth();
+  const [{ authenticated }] = useAuth();
   const { sendNotification } = useNotification();
+  const [
+    { registerUser, registerUserError, registerUserLoading },
+    { register: registerUserFn },
+  ] = useUser();
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<LoginVariables>({ resolver: yupResolver(validationSchema) });
+  } = useForm<RegisterVariables>({ resolver: yupResolver(validationSchema) });
 
   useEffect(() => {
     if (authenticated) {
@@ -39,18 +42,18 @@ const Login: FC = () => {
   }, [authenticated, navigate]);
 
   const onSubmit = useCallback(
-    (values: LoginVariables) => {
-      login(values);
+    (values: RegisterVariables) => {
+      registerUserFn(values);
     },
-    [login]
+    [registerUserFn]
   );
 
   useEffect(() => {
-    if (loginData?.[0]?.email) {
-      sendNotification(`Welcome back ${loginData?.[0]?.name}!`);
-      navigate(paths.UNIVERSITY.SEARCH);
+    if (registerUser) {
+      sendNotification("Registration successfull!", "success");
+      navigate(paths.LOGIN);
     }
-  }, [loginData, navigate]);
+  }, [registerUser, navigate]);
 
   return (
     <Layout>
@@ -64,8 +67,23 @@ const Login: FC = () => {
           borderRadius: 1,
         }}
       >
-        {loginError && <Alert severity="error">{loginError}</Alert>}
+        {registerUserError && (
+          <Alert severity="error">{registerUserError}</Alert>
+        )}
         <form onSubmit={handleSubmit(onSubmit)}>
+          <TextField
+            error={Boolean(errors.name?.message)}
+            label="Name"
+            helperText={errors.name?.message ?? ""}
+            InputProps={{
+              endAdornment: <InputAdornment position="end">*</InputAdornment>,
+            }}
+            fullWidth
+            sx={{
+              marginTop: 2.5,
+            }}
+            {...register("name")}
+          />
           <TextField
             error={Boolean(errors.email?.message)}
             label="Email"
@@ -73,10 +91,10 @@ const Login: FC = () => {
             InputProps={{
               endAdornment: <InputAdornment position="end">*</InputAdornment>,
             }}
+            fullWidth
             sx={{
               marginTop: 2.5,
             }}
-            fullWidth
             {...register("email")}
           />
           <TextField
@@ -93,6 +111,20 @@ const Login: FC = () => {
             }}
             {...register("password")}
           />
+          <TextField
+            error={Boolean(errors.confirmPassword?.message)}
+            label="Confirm Password"
+            helperText={errors.confirmPassword?.message ?? ""}
+            InputProps={{
+              endAdornment: <InputAdornment position="end">*</InputAdornment>,
+            }}
+            fullWidth
+            type="password"
+            sx={{
+              marginTop: 2.5,
+            }}
+            {...register("confirmPassword")}
+          />
           <Button
             sx={{
               marginTop: 2.5,
@@ -101,10 +133,10 @@ const Login: FC = () => {
             fullWidth
             type="submit"
             size="large"
-            disabled={loginLoading}
-            endIcon={!loginLoading ? <ArrowForwardIcon /> : <LoopIcon />}
+            disabled={registerUserLoading}
+            endIcon={!registerUserLoading ? <ArrowForwardIcon /> : <LoopIcon />}
           >
-            Login
+            Register
           </Button>
           <Divider
             sx={{
@@ -120,10 +152,10 @@ const Login: FC = () => {
             variant="outlined"
             fullWidth
             size="large"
-            disabled={loginLoading}
-            onClick={() => navigate(paths.REGISTER)}
+            disabled={registerUserLoading}
+            onClick={() => navigate(paths.LOGIN)}
           >
-            Register
+            Login
           </Button>
         </form>
       </Box>
@@ -131,4 +163,4 @@ const Login: FC = () => {
   );
 };
 
-export default Login;
+export default withRegisterProvider(Register);

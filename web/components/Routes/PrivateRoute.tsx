@@ -1,7 +1,6 @@
 import { Navigate } from "react-router-dom";
 import { paths } from "../../common/constants/paths.constants";
 import { FCWithChildren } from "../../common/types/general.types";
-import { withAuthProvider } from "../../providers/auth/auth.hoc";
 import { useAuth } from "../../providers/auth/auth.hook";
 
 const PrivateRoute: FCWithChildren = ({ children }) => {
@@ -17,4 +16,4 @@ const PrivateRoute: FCWithChildren = ({ children }) => {
   return <>{children}</>;
 };
 
-export default withAuthProvider(PrivateRoute);
+export default PrivateRoute;
