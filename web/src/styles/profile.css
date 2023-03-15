@@ -1,0 +1,19 @@
+.card.myUniversity {
+  margin-top: 1rem;
+  box-shadow: 0 2px 4px 0px rgb(123, 122, 122);
+  padding: 1rem 1.6rem;
+  border-radius: 0.2rem;
+  width: 46rem;
+  height: 50rem;
+}
+.title {
+  font-family: "RobotoBold", Arial, sans-serif;
+  font-weight: 800;
+  color: #0874e4;
+}
+.containerProfile {
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
