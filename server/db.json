@@ -1,3 +1,189 @@
 {
-  "users": []
+  "users": [
+    {
+      "id": 1,
+      "email": "gollodev@gmail.com",
+      "password": "12345678",
+      "universities": [
+        {
+          "name": "Middlesbrough College",
+          "country": "United Kingdom",
+          "website": "https://www.mbro.ac.uk/",
+          "countryCapital": "London",
+          "language": "English",
+          "location": "https://goo.gl/maps/FoDtc3UKMkFsXAjHA",
+          "population": 67215293,
+          "currency": {
+            "GBP": {
+              "name": "British pound",
+              "symbol": "£"
+            }
+          }
+        },
+        {
+          "name": "Middlesex County College",
+          "country": "United States",
+          "website": "http://www.middlesexcc.edu",
+          "countryCapital": "Charlotte Amalie",
+          "language": "English",
+          "location": "https://goo.gl/maps/mBfreywj8dor6q4m9",
+          "population": 106290,
+          "currency": {
+            "USD": {
+              "name": "United States dollar",
+              "symbol": "$"
+            }
+          }
+        },
+        {
+          "name": "Middle Georgia State College",
+          "country": "United States",
+          "website": "http://www.mga.edu/",
+          "countryCapital": "Charlotte Amalie",
+          "language": "English",
+          "location": "https://goo.gl/maps/mBfreywj8dor6q4m9",
+          "population": 106290,
+          "currency": {
+            "USD": {
+              "name": "United States dollar",
+              "symbol": "$"
+            }
+          }
+        },
+        {
+          "name": "Middlebury College",
+          "country": "United States",
+          "website": "http://www.middlebury.edu/",
+          "countryCapital": "Charlotte Amalie",
+          "language": "English",
+          "location": "https://goo.gl/maps/mBfreywj8dor6q4m9",
+          "population": 106290,
+          "currency": {
+            "USD": {
+              "name": "United States dollar",
+              "symbol": "$"
+            }
+          }
+        },
+        {
+          "name": "Middlesex Community College",
+          "country": "United States",
+          "website": "http://www.middlesex.mass.edu",
+          "countryCapital": "Charlotte Amalie",
+          "language": "English",
+          "location": "https://goo.gl/maps/mBfreywj8dor6q4m9",
+          "population": 106290,
+          "currency": {
+            "USD": {
+              "name": "United States dollar",
+              "symbol": "$"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "email": "joselopezgroupenterprises@gmail.com",
+      "password": "12345678",
+      "id": 24
+    },
+    {
+      "email": "nuevoemail@gmail.com",
+      "password": "12345678",
+      "id": 25
+    },
+    {
+      "email": "gollodev@gmail.com",
+      "password": "12345678",
+      "universities": [],
+      "id": 26
+    },
+    {
+      "id": 27,
+      "email": "bestmail@gmail.com",
+      "password": "12345678",
+      "universities": [
+        {
+          "name": "Middlesex Community College",
+          "country": "United States",
+          "website": "http://www.middlesex.mass.edu",
+          "countryCapital": "Charlotte Amalie",
+          "language": "English",
+          "location": "https://goo.gl/maps/mBfreywj8dor6q4m9",
+          "population": 106290,
+          "currency": {
+            "USD": {
+              "name": "United States dollar",
+              "symbol": "$"
+            }
+          }
+        },
+        {
+          "name": "Middlesbrough College",
+          "country": "United Kingdom",
+          "website": "https://www.mbro.ac.uk/",
+          "countryCapital": "London",
+          "language": "English",
+          "location": "https://goo.gl/maps/FoDtc3UKMkFsXAjHA",
+          "population": 67215293,
+          "currency": {
+            "GBP": {
+              "name": "British pound",
+              "symbol": "£"
+            }
+          }
+        },
+        {
+          "name": "Middle East University",
+          "country": "Jordan",
+          "website": "http://www.meu.edu.jo/",
+          "countryCapital": "Amman",
+          "location": "https://goo.gl/maps/ko1dzSDKg8Gsi9A98",
+          "population": 10203140,
+          "currency": {
+            "JOD": {
+              "name": "Jordanian dinar",
+              "symbol": "د.ا"
+            }
+          }
+        },
+        {
+          "name": "Middlesbrough College",
+          "country": "United Kingdom",
+          "website": "https://www.mbro.ac.uk/",
+          "countryCapital": "London",
+          "language": "English",
+          "location": "https://goo.gl/maps/FoDtc3UKMkFsXAjHA",
+          "population": 67215293,
+          "currency": {
+            "GBP": {
+              "name": "British pound",
+              "symbol": "£"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "email": "otroemail@gmail.com",
+      "password": "12345678",
+      "universities": [
+        {
+          "name": "Collegium Civitas",
+          "country": "Poland",
+          "website": "http://www.collegium.edu.pl/",
+          "countryCapital": "Warsaw",
+          "location": "https://goo.gl/maps/gY9Xw4Sf4415P4949",
+          "population": 37950802,
+          "currency": {
+            "PLN": {
+              "name": "Polish złoty",
+              "symbol": "zł"
+            }
+          }
+        }
+      ]
+    }
+  ]
 }
