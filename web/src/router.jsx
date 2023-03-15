@@ -9,11 +9,7 @@ import University from './pages/University';
 import Profile from './pages/Profile';
 
 const ContextWrapper = () => {
-  return (
-    // <AuthProvider>
-    <Outlet />
-    // </AuthProvider>
-  );
+  return <Outlet />;
 };
 
 const router = createBrowserRouter([
