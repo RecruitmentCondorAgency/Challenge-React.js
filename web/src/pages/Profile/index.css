@@ -1,0 +1,31 @@
+.Profile__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 1fr);
+    grid-template-rows: repeat(auto-fit, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    
+    }
+    
+.Profile__favorites { 
+    grid-area: 2 / 1 / 3 / 3;
+    
+}
+.Profile__college-data { 
+    grid-area: 1 / 1 / 2 / 3; 
+}
+
+@media (min-width: 900px) {
+    .Profile__favorites { grid-area: 1 / 1 / 3 / 2; }
+    .Profile__college-data { 
+        grid-area: 1 / 2 / 3 / 3;
+    }
+}
+
+  
+.Profile__title{
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    color: #0072e1;
+}

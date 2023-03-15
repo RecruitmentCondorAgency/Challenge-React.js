@@ -1,0 +1,42 @@
+.Login__container{
+    background-color: aliceblue;
+    height: 100vh;
+}
+
+.Login__form{
+    width: 90%;
+    max-width: 400px;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 5px 5px 0px rgba(170, 170, 170, 0.75);
+}
+
+.Login__label{
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.Login__input{
+    display: block;
+    margin-bottom: 40px;
+    width: 380px;
+    height: 40px;
+    padding-left: 10px;
+}
+
+.Login_button{
+    display: block;
+    width: 360px;
+    background-color: #0072e1;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+}

@@ -1,3 +1,261 @@
 {
-  "users": []
+  "users": [
+    {
+      "id": 1,
+      "email": "test1@test.com",
+      "password": "1234",
+      "name": "test1",
+      "universities": [
+        {
+          "state-province": null,
+          "domains": [
+            "ulm.edu"
+          ],
+          "country": "United States",
+          "web_pages": [
+            "http://www.ulm.edu/"
+          ],
+          "name": "University of Louisiana at Monroe",
+          "alpha_two_code": "US"
+        },
+        {
+          "state-province": null,
+          "domains": [
+            "monroeccc.edu"
+          ],
+          "country": "United States",
+          "web_pages": [
+            "http://www.monroeccc.edu"
+          ],
+          "name": "Monroe County Community College",
+          "alpha_two_code": "US"
+        },
+        {
+          "state-province": null,
+          "domains": [
+            "hsum-ac.mn"
+          ],
+          "country": "Mongolia",
+          "web_pages": [
+            "http://www.hsum-ac.mn/"
+          ],
+          "name": "Health sciences University of Mongolia",
+          "alpha_two_code": "MN"
+        },
+        {
+          "state-province": null,
+          "domains": [
+            "imau.edu.cn"
+          ],
+          "country": "China",
+          "web_pages": [
+            "http://www.imau.edu.cn/"
+          ],
+          "name": "Inner Mongolia Agricultural University",
+          "alpha_two_code": "CN"
+        },
+        {
+          "state-province": null,
+          "domains": [
+            "imu.edu.cn"
+          ],
+          "country": "China",
+          "web_pages": [
+            "http://www.imu.edu.cn/"
+          ],
+          "name": "Inner Mongolia University",
+          "alpha_two_code": "CN"
+        },
+        {
+          "state-province": null,
+          "domains": [
+            "num.edu.mn"
+          ],
+          "country": "Mongolia",
+          "web_pages": [
+            "http://www.num.edu.mn/"
+          ],
+          "name": "Mongolian National University",
+          "alpha_two_code": "MN"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "email": "test2@test.com",
+      "password": "1234",
+      "name": "test2",
+      "universities": []
+    },
+    {
+      "id": 3,
+      "email": "test3@test.com",
+      "password": "1234",
+      "name": "test3",
+      "universities": []
+    },
+    {
+      "name": "MaDe",
+      "email": "a@a.com",
+      "password": "123",
+      "universities": [],
+      "id": 4
+    },
+    {
+      "name": "asd",
+      "email": "asd",
+      "password": "asd",
+      "universities": [
+        {
+          "state-province": null,
+          "domains": [
+            "gadsenstate.edu"
+          ],
+          "country": "United States",
+          "web_pages": [
+            "https://www.gadsdenstate.edu/index.cms"
+          ],
+          "name": "Gasden State Community College",
+          "alpha_two_code": "US"
+        },
+        {
+          "state-province": null,
+          "domains": [
+            "adelphi.edu"
+          ],
+          "country": "United States",
+          "web_pages": [
+            "http://www.adelphi.edu/"
+          ],
+          "name": "Adelphi University",
+          "alpha_two_code": "US"
+        },
+        {
+          "state-province": "Misiones",
+          "domains": [
+            "unam.edu.ar"
+          ],
+          "country": "Argentina",
+          "web_pages": [
+            "http://www.unam.edu.ar/"
+          ],
+          "name": "Universidad Nacional de Misiones",
+          "alpha_two_code": "AR"
+        }
+      ],
+      "id": 5
+    },
+    {
+      "name": "asd",
+      "email": "asd2",
+      "password": "asd",
+      "universities": [],
+      "id": 6
+    },
+    {
+      "name": "asd",
+      "email": "asd3",
+      "password": "asd",
+      "universities": [],
+      "id": 7
+    },
+    {
+      "name": "asd",
+      "email": "asd4",
+      "password": "asd",
+      "universities": [],
+      "id": 8
+    },
+    {
+      "name": "asd",
+      "email": "asd5",
+      "password": "asd",
+      "universities": [
+        {
+          "state-province": null,
+          "domains": [
+            "vdu.lt"
+          ],
+          "country": "Lithuania",
+          "web_pages": [
+            "http://www.vdu.lt/"
+          ],
+          "name": "Vytautas Magnus University",
+          "alpha_two_code": "LT"
+        },
+        {
+          "state-province": null,
+          "domains": [
+            "vsmu.sk"
+          ],
+          "country": "Slovakia",
+          "web_pages": [
+            "http://www.vsmu.sk/"
+          ],
+          "name": "University of Performing Arts in Bratislava",
+          "alpha_two_code": "SK"
+        },
+        {
+          "state-province": null,
+          "domains": [
+            "cfpj.com"
+          ],
+          "country": "France",
+          "web_pages": [
+            "http://www.cfpj.com/"
+          ],
+          "name": "Centre de Formation et de Perfectionnement des Journalistes",
+          "alpha_two_code": "FR"
+        }
+      ],
+      "id": 9
+    },
+    {
+      "name": "asdf",
+      "email": "asdf",
+      "password": "asdf",
+      "universities": [
+        {
+          "state-province": null,
+          "domains": [
+            "unexpo.edu.ve"
+          ],
+          "country": "Venezuela, Bolivarian Republic of",
+          "web_pages": [
+            "http://www.unexpo.edu.ve/"
+          ],
+          "name": "Universidad Nacional Experimental Politécnica \"Antonio José de Sucre\"",
+          "alpha_two_code": "VE"
+        }
+      ],
+      "id": 10
+    },
+    {
+      "name": "asd",
+      "email": "asd7",
+      "password": "asd",
+      "universities": [
+        {
+          "state-province": "Ciudad Autónoma de Buenos Aires",
+          "domains": [
+            "uade.edu.ar"
+          ],
+          "country": "Argentina",
+          "web_pages": [
+            "http://www.uade.edu.ar/"
+          ],
+          "name": "Universidad Argentina de la Empresa",
+          "alpha_two_code": "AR"
+        }
+      ],
+      "id": 11
+    },
+    {
+      "name": "Mario",
+      "email": "del",
+      "password": "123",
+      "universities": [],
+      "id": 12
+    }
+  ]
 }
