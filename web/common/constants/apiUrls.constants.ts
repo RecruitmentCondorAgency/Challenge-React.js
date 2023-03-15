@@ -1,0 +1,9 @@
+const BASE_URL = process.env.API_URL;
+const UNIVERSITY_BASE_URL = process.env.UNIVERSITY_API_URL;
+const COUNTRY_BASE_URL = process.env.COUNTRY_API_URL;
+
+export const apiUrls = {
+  USER_URL: `${BASE_URL}/users`,
+  UNIVERSITY_URL: UNIVERSITY_BASE_URL,
+  COUNTRY_BASE_URL: COUNTRY_BASE_URL,
+};
