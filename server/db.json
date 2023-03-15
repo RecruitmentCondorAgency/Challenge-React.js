@@ -1,3 +1,23 @@
 {
-  "users": []
+  "users": [
+    {
+      "email": "joelvizcarra98@gmail.com",
+      "password": "$2a$10$8MidFVHuyY8kIrQkyB2tN.jFnQDR/f59GKqwEhB3/FHqGk.ecaA2S",
+      "firstName": "Joel Eduardo",
+      "lastName": "Vizcarra Gallegos",
+      "universities": [
+        "",
+        "Somaiya Vidyavihar",
+        "Global Open University , Nagaland",
+        "University of Petroleum and Energy Studies",
+        "NorthCap University",
+        "Universidad Marcelino Champagnat",
+        "Universidad Nacional Agraria La Molina",
+        "Pontificia Universidad Católica del Perú",
+        "Universidad San Ignacio de Loyola",
+        "Universidad Andina Nestor Caceares Velasquez"
+      ],
+      "id": 1
+    }
+  ]
 }
