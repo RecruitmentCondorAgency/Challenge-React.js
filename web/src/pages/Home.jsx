@@ -143,7 +143,7 @@ const Home = () => {
         </React.Fragment>
       )}
       <Grid container spacing={2}>
-        <Grid item sm={12} md={4}>
+        <Grid item xs={12} md={4}>
           <AutocompleteInput
             options={countries}
             label="Country"
@@ -155,7 +155,7 @@ const Home = () => {
             onChange={handleChangeCountry}
           />
         </Grid>
-        <Grid item sm={12} md={8}>
+        <Grid item xs={12} md={8}>
           {/* TODO: virtualization and replace anonymous func for performance */}
           <AutocompleteInput
             options={universitiesOptions}
