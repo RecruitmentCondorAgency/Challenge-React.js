@@ -10,6 +10,8 @@
     "app": "npm start -w web",
     "server": "npm start -w server",
     "clean": "npx rimraf node_modules .parcel-cache web/dist web/.parcel-cache",
+    "lint": "npm run lint -w web",
+    "lint-fix": "npm run lint-fix -w web",
     "reset": "npm run clean && npm i"
   },
   "repository": "git@condor:rgCondor/Challenge-React.js.git",
