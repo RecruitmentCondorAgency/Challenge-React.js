@@ -1,3 +1,110 @@
 {
-  "users": []
+  "users": [],
+  "universities": [
+    {
+      "id": 1,
+      "name": "Massachusetts Institute of Technology",
+      "country": "United States",
+      "language": "English",
+      "url": "https://www.mit.edu/"
+    },
+    {
+      "id": 2,
+      "name": "University of Oxford",
+      "country": "United Kingdom",
+      "language": "English",
+      "url": "https://www.ox.ac.uk/"
+    },
+    {
+      "id": 3,
+      "name": "University of Cambridge",
+      "country": "United Kingdom",
+      "language": "English",
+      "url": "https://www.cam.ac.uk/"
+    },
+    {
+      "id": 4,
+      "name": "California Institute of Technology",
+      "country": "United States",
+      "language": "English",
+      "url": "https://www.caltech.edu/"
+    },
+    {
+      "id": 5,
+      "name": "Stanford University",
+      "country": "United States",
+      "language": "English",
+      "url": "https://www.stanford.edu/"
+    },
+    {
+      "id": 6,
+      "name": "Harvard University",
+      "country": "United States",
+      "language": "English",
+      "url": "https://www.harvard.edu/"
+    },
+    {
+      "id": 7,
+      "name": "ETH Zurich - Swiss Federal Institute of Technology",
+      "country": "Switzerland",
+      "language": "German, English",
+      "url": "https://ethz.ch/en.html"
+    },
+    {
+      "id": 8,
+      "name": "University of Tokyo",
+      "country": "Japan",
+      "language": "Japanese, English",
+      "url": "https://www.u-tokyo.ac.jp/en/index.html"
+    },
+    {
+      "id": 9,
+      "name": "National University of Singapore",
+      "country": "Singapore",
+      "language": "English",
+      "url": "https://www.nus.edu.sg/"
+    },
+    {
+      "id": 10,
+      "name": "University of Toronto",
+      "country": "Canada",
+      "language": "English",
+      "url": "https://www.utoronto.ca/"
+    },
+    {
+      "id": 11,
+      "name": "University of Melbourne",
+      "country": "Australia",
+      "language": "English",
+      "url": "https://www.unimelb.edu.au/"
+    },
+    {
+      "id": 12,
+      "name": "University of Cape Town",
+      "country": "South Africa",
+      "language": "English",
+      "url": "https://www.uct.ac.za/"
+    },
+    {
+      "id": 13,
+      "name": "University of São Paulo",
+      "country": "Brazil",
+      "language": "Portuguese",
+      "url": "https://www5.usp.br/"
+    },
+    {
+      "id": 14,
+      "name": "University of Auckland",
+      "country": "New Zealand",
+      "language": "English",
+      "url": "https://www.auckland.ac.nz/en.html"
+    },
+    {
+      "id": 15,
+      "name": "University of Edinburgh",
+      "country": "United Kingdom",
+      "language": "English",
+      "url": "https://www.ed.ac.uk/"
+    }
+  ]
 }

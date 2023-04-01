@@ -1,5 +1,15 @@
-import './styles.css'
+import React from "react"
+import { createBrowserRouter, RouterProvider } from "react-router-dom"
 
-export function App() {
-	return <h1>Hello world!</h1>
+const router = createBrowserRouter([
+	{
+	  path: '/',
+	  element: <div>Hello World</div>,
+	},
+]);
+
+const App: React.FC = () => {
+  return <RouterProvider router={router} />
 }
+
+export default App
