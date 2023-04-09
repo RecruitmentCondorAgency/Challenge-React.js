@@ -1,5 +1,11 @@
 {
-  "users": [],
+  "users": [
+    {
+      "email": "willemfranco@gmail.com",
+      "password": "123456",
+      "id": 1
+    }
+  ],
   "universities": [
     {
       "id": 1,

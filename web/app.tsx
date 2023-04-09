@@ -1,10 +1,9 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import Login from "./views/Login";
 import Profile from "./views/Profile";
-import Register from "./views/Register";
 import Search from "./views/Search";
+import SignIn from "./views/SignIn";
 
 const router = createBrowserRouter([
   {
@@ -13,11 +12,11 @@ const router = createBrowserRouter([
   },
   {
     path: 'register',
-    element: <Register />,
+    element: <SignIn type="register" />,
   },
   {
     path: 'login',
-    element: <Login />,
+    element: <SignIn type="login" />,
   },
   {
     path: 'profile',
