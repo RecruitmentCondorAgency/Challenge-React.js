@@ -3,114 +3,234 @@
     {
       "email": "willemfranco@gmail.com",
       "password": "123456",
+      "universities": [
+        3,
+        7,
+        1
+      ],
       "id": 1
     }
   ],
   "universities": [
     {
       "id": 1,
-      "name": "Massachusetts Institute of Technology",
+      "name": "Harvard University",
       "country": "United States",
+      "url": "https://www.harvard.edu/",
+      "location": "Cambridge, MA",
+      "capital": "Washington, D.C.",
+      "currency": "United States dollar ($)",
       "language": "English",
-      "url": "https://www.mit.edu/"
+      "population": 318857056
     },
     {
       "id": 2,
-      "name": "University of Oxford",
-      "country": "United Kingdom",
+      "name": "Massachusetts Institute of Technology",
+      "country": "United States",
+      "url": "https://www.mit.edu/",
+      "location": "Cambridge, MA",
+      "capital": "Washington, D.C.",
+      "currency": "United States dollar ($)",
       "language": "English",
-      "url": "https://www.ox.ac.uk/"
+      "population": 318857056
     },
     {
       "id": 3,
-      "name": "University of Cambridge",
-      "country": "United Kingdom",
+      "name": "Stanford University",
+      "country": "United States",
+      "url": "https://www.stanford.edu/",
+      "location": "Stanford, CA",
+      "capital": "Washington, D.C.",
+      "currency": "United States dollar ($)",
       "language": "English",
-      "url": "https://www.cam.ac.uk/"
+      "population": 318857056
     },
     {
       "id": 4,
       "name": "California Institute of Technology",
       "country": "United States",
+      "url": "https://www.caltech.edu/",
+      "location": "Pasadena, CA",
+      "capital": "Washington, D.C.",
+      "currency": "United States dollar ($)",
       "language": "English",
-      "url": "https://www.caltech.edu/"
+      "population": 318857056
     },
     {
       "id": 5,
-      "name": "Stanford University",
-      "country": "United States",
+      "name": "University of Oxford",
+      "country": "United Kingdom",
+      "url": "https://www.ox.ac.uk/",
+      "location": "Oxford, England",
+      "capital": "London",
+      "currency": "Pound sterling (£)",
       "language": "English",
-      "url": "https://www.stanford.edu/"
+      "population": 67886011
     },
     {
       "id": 6,
-      "name": "Harvard University",
-      "country": "United States",
+      "name": "University of Cambridge",
+      "country": "United Kingdom",
+      "url": "https://www.cam.ac.uk/",
+      "location": "Cambridge, England",
+      "capital": "London",
+      "currency": "Pound sterling (£)",
       "language": "English",
-      "url": "https://www.harvard.edu/"
+      "population": 67886011
     },
     {
       "id": 7,
-      "name": "ETH Zurich - Swiss Federal Institute of Technology",
-      "country": "Switzerland",
-      "language": "German, English",
-      "url": "https://ethz.ch/en.html"
+      "name": "University of Chicago",
+      "country": "United States",
+      "url": "https://www.uchicago.edu/",
+      "location": "Chicago, IL",
+      "capital": "Washington, D.C.",
+      "currency": "United States dollar ($)",
+      "language": "English",
+      "population": 318857056
     },
     {
       "id": 8,
-      "name": "University of Tokyo",
-      "country": "Japan",
-      "language": "Japanese, English",
-      "url": "https://www.u-tokyo.ac.jp/en/index.html"
+      "name": "Princeton University",
+      "country": "United States",
+      "url": "https://www.princeton.edu/",
+      "location": "Princeton, NJ",
+      "capital": "Washington, D.C.",
+      "currency": "United States dollar ($)",
+      "language": "English",
+      "population": 318857056
     },
     {
       "id": 9,
-      "name": "National University of Singapore",
-      "country": "Singapore",
+      "name": "California Institute of Technology",
+      "country": "United States",
+      "url": "https://www.caltech.edu/",
+      "location": "Pasadena, CA",
+      "capital": "Washington, D.C.",
+      "currency": "United States dollar ($)",
       "language": "English",
-      "url": "https://www.nus.edu.sg/"
+      "population": 318857056
     },
     {
       "id": 10,
-      "name": "University of Toronto",
-      "country": "Canada",
+      "name": "University of California, Berkeley",
+      "country": "United States",
+      "url": "https://www.berkeley.edu/",
+      "location": "Berkeley, CA",
+      "capital": "Washington, D.C.",
+      "currency": "United States dollar ($)",
       "language": "English",
-      "url": "https://www.utoronto.ca/"
+      "population": 318857056
     },
     {
       "id": 11,
-      "name": "University of Melbourne",
-      "country": "Australia",
+      "name": "University of Oxford",
+      "country": "United Kingdom",
+      "url": "https://www.ox.ac.uk/",
+      "location": "Oxford, England",
+      "capital": "London",
+      "currency": "Pound sterling (£)",
       "language": "English",
-      "url": "https://www.unimelb.edu.au/"
+      "population": 67886011
     },
     {
       "id": 12,
-      "name": "University of Cape Town",
-      "country": "South Africa",
-      "language": "English",
-      "url": "https://www.uct.ac.za/"
+      "name": "ETH Zurich – Swiss Federal Institute of Technology Zurich",
+      "country": "Switzerland",
+      "url": "https://ethz.ch/en.html",
+      "location": "Zurich",
+      "capital": "Bern",
+      "currency": "Swiss franc (CHF)",
+      "language": "German",
+      "population": 8715000
     },
     {
       "id": 13,
-      "name": "University of São Paulo",
-      "country": "Brazil",
-      "language": "Portuguese",
-      "url": "https://www5.usp.br/"
+      "name": "University of Tokyo",
+      "country": "Japan",
+      "url": "https://www.u-tokyo.ac.jp/en/index.html",
+      "location": "Tokyo",
+      "capital": "Tokyo",
+      "currency": "Japanese yen (¥)",
+      "language": "Japanese",
+      "population": 126150000
     },
     {
       "id": 14,
-      "name": "University of Auckland",
-      "country": "New Zealand",
-      "language": "English",
-      "url": "https://www.auckland.ac.nz/en.html"
+      "name": "National University of Singapore (NUS)",
+      "country": "Singapore",
+      "url": "https://www.nus.edu.sg/",
+      "location": "Singapore",
+      "capital": "Singapore",
+      "currency": "Singapore dollar (SGD)",
+      "language": "English, Malay, Mandarin, Tamil",
+      "population": 5700000
     },
     {
       "id": 15,
+      "name": "University of California, Los Angeles (UCLA)",
+      "country": "United States",
+      "url": "https://www.ucla.edu/",
+      "location": "Los Angeles, CA",
+      "capital": "Washington, D.C.",
+      "currency": "United States dollar ($)",
+      "language": "English",
+      "population": 318857056
+    },
+    {
+      "id": 16,
+      "name": "University of Toronto",
+      "country": "Canada",
+      "url": "https://www.utoronto.ca/",
+      "location": "Toronto, Ontario",
+      "capital": "Ottawa",
+      "currency": "Canadian dollar (CAD)",
+      "language": "English, French",
+      "population": 37590000
+    },
+    {
+      "id": 17,
+      "name": "Tsinghua University",
+      "country": "China",
+      "url": "https://www.tsinghua.edu.cn/en/index.htm",
+      "location": "Beijing",
+      "capital": "Beijing",
+      "currency": "Renminbi (CNY)",
+      "language": "Chinese",
+      "population": 1393000000
+    },
+    {
+      "id": 18,
+      "name": "University of Michigan-Ann Arbor",
+      "country": "United States",
+      "url": "https://umich.edu/",
+      "location": "Ann Arbor, MI",
+      "capital": "Washington, D.C.",
+      "currency": "United States dollar ($)",
+      "language": "English",
+      "population": 318857056
+    },
+    {
+      "id": 19,
       "name": "University of Edinburgh",
       "country": "United Kingdom",
-      "language": "English",
-      "url": "https://www.ed.ac.uk/"
+      "url": "https://www.ed.ac.uk/",
+      "location": "Edinburgh, Scotland",
+      "capital": "London",
+      "currency": "Pound sterling (£)",
+      "language": "English, Scots, Scottish Gaelic",
+      "population": 67886011
+    },
+    {
+      "id": 20,
+      "name": "University of Hong Kong (HKU)",
+      "country": "Hong Kong",
+      "url": "https://www.hku.hk/",
+      "location": "Hong Kong",
+      "capital": "Hong Kong",
+      "currency": "Hong Kong dollar (HKD)",
+      "language": "English, Chinese",
+      "population": 7500700
     }
   ]
 }
