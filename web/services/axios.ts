@@ -12,6 +12,12 @@ export function get<T = any, D = any>(url: string, config?: AxiosRequestConfig<D
   return instance.get<T>(url, config).then(response => response.data);
 }
 
+export function patch<T = any, D = any>(url: string, data?: D, config?: AxiosRequestConfig<D>) {
+  return instance.patch<T>(url, data, config).then(response => response.data);
+}
+
 export function post<T = any, D = any>(url: string, data?: D, config?: AxiosRequestConfig<D>) {
   return instance.post<T>(url, data, config).then(response => response.data);
 }
+
+export const remove = instance.delete;
