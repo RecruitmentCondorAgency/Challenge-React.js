@@ -14,7 +14,7 @@ export interface Props extends TextareaHTMLAttributes<HTMLTextAreaElement> {
 const TextArea: React.FC<Props> = ({className, label, onEnter, onKeyDown, ...props}) => (
   <Field label={label}>
     <textarea
-      className={classMerge("border border-gray-400 rounded outline-blue-500 px-2 py-1", className)}
+      className={classMerge("border border-gray-400 rounded outline-primary-500 px-2 py-1", className)}
       onKeyDown={onKeyDownHandler(onEnter, onKeyDown)}
       {...props}
     />

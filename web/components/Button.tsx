@@ -2,7 +2,7 @@ import React, { ButtonHTMLAttributes } from "react";
 import { classMerge } from "../utils/class-converter";
 import Icon, { IconType } from "./Icon";
 
-type Color = 'sky' | 'white';
+type Color = 'primary' | 'white';
 
 interface Props extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'className' | 'color'> {
   className?: unknown;
@@ -28,11 +28,11 @@ const Button: React.FC<Props> = ({children, className, color, disabled: d, icon,
 
 const colors: Record<'enabled'|'disabled', Record<Color, string>> = {
   enabled: {
-    sky: "bg-sky-500 hover:bg-sky-400 text-white",
+    primary: "bg-primary-600 hover:bg-primary-500 text-white",
     white: "bg-white hover:bg-gray-100 text-black border border-gray-400",
   },
   disabled: {
-    sky: "bg-gray-400 text-white",
+    primary: "bg-gray-500 text-white",
     white: "bg-white text-gray-500 border border-gray-400",
   },
 };

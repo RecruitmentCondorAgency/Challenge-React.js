@@ -5,11 +5,10 @@ import Button from '../components/Button';
 import Input from '../components/Input';
 import Layout from '../components/Layout';
 
-import { User } from '../types';
-import { useStore } from '../store';
 import services from '../services';
+import { User } from '../types';
+import { actions, useStore } from '../store';
 import { useDispatch } from 'react-redux';
-import { login } from '../store';
 
 interface Props {
   type: 'login' | 'register';
@@ -22,9 +21,10 @@ const SignIn: React.FC<Props> = ({type}) => {
   const auth = useStore(state => state.auth);
   const [error, setError] = useState<string>('');
   const [disabled, setDisabled] = useState(false);
-  const [user, setUser] = useState<User>({
+  const [user, setUser] = useState<Omit<User, 'id'>>({
     email: "",
     password: "",
+    universities: [],
   });
 
   useEffect(() => {
@@ -47,8 +47,8 @@ const SignIn: React.FC<Props> = ({type}) => {
     setDisabled(true);
     setError('');
     try {
-      const logged = await services.user[type](user);
-      await dispatch(login(logged));
+      const logged = await services[type](user);
+      await dispatch(actions.login(logged));
       navigate('/');
     } catch (e: unknown) {
       if (e instanceof Error) setError(e.message);
@@ -63,7 +63,7 @@ const SignIn: React.FC<Props> = ({type}) => {
         <form className="flex flex-col gap-3" onSubmit={handleSubmit}>
           <Input label="Email" name="email" type="email" value={user.email} onChange={handleChange} required autoFocus />
           <Input label="Password" name="password" type="password" value={user.password} onChange={handleChange} required />
-          <Button color="sky" icon="arrowRight" loading={disabled}>
+          <Button color="primary" icon="arrowRight" loading={disabled}>
             <span className="capitalize">{type}</span>
           </Button>
           {error && <div className="text-rose-600 text-center">{error}</div>}
@@ -71,10 +71,10 @@ const SignIn: React.FC<Props> = ({type}) => {
       </div>
       {type === 'login' ? <span>
         You need an account?
-        <Link to="/register" className="pl-1 text-sky-500">Register</Link>
+        <Link to="/register" className="pl-1 text-primary">Register</Link>
       </span> : <span>
         You have an account?
-        <Link to="/login" className="pl-1 text-sky-500">Login</Link>
+        <Link to="/login" className="pl-1 text-primary">Login</Link>
       </span>}
     </Layout>
   );

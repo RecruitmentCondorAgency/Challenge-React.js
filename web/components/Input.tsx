@@ -19,7 +19,7 @@ const Input: React.FC<Props> = ({autoFocus, className, label, required, value, .
       <input
         ref={input}
         autoFocus={autoFocus}
-        className={classMerge("border border-gray-400 rounded outline-blue-500 px-2 py-1", className)}
+        className={classMerge("border border-gray-400 rounded outline-primary-500 px-2 py-1", className)}
         required={required}
         value={value}
         {...props}
