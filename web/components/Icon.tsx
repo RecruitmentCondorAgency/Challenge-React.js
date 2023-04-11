@@ -1,6 +1,6 @@
 import React, { SVGProps } from "react";
 
-export type IconType = 'arrowRight' | 'externalLink' | 'loader' | 'logo' | 'search';
+export type IconType = 'arrowLeft' | 'arrowRight' | 'externalLink' | 'loader' | 'logo' | 'search';
 
 interface IconProps extends Props {
   type: IconType;
@@ -15,6 +15,11 @@ const Icon: React.FC<IconProps> = ({type, ...props}) => type in Icons
   : null;
 
 const Icons: Record<IconType, React.FC<Props>> = {
+  arrowLeft: (props) => (
+    <svg {...props} viewBox="0 0 16 16">
+      <path d="M15,8l-14,0m4,-4l-4,4l4,4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+    </svg>
+  ),
   arrowRight: (props) => (
     <svg {...props} viewBox="0 0 16 16">
       <path d="M1,8l14,0m-4,-4l4,4l-4,4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>

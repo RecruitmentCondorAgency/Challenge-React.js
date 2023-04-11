@@ -1,4 +1,4 @@
-import { get, patch, post, remove } from "./axios";
+import { get, patch, post } from "./axios";
 import { AuthUser, University, User } from "../types";
 
 export async function login({email, password}: AuthUser) {
@@ -35,24 +35,24 @@ export async function getUniversities(keys?: number | number[]) {
   return get<University[]>(`universities?${query}`);
 }
 
+export async function getUniversity(id?: number) {
+  if (!id) return undefined;
+  return get<University>(`universities/${id}`);
+}
+
 export async function getUserUniversityIds(userId: number): Promise<number[]> {
   const {universities: keys} = await get<User>(`users/${userId}`);
   return keys || [];
 }
 
-export async function getUserUniversities(userId: number): Promise<University[]> {
-  const keys = await getUserUniversityIds(userId);
-  return keys.length ? getUniversities(keys) : [];
-}
-
-export async function addUserUniversity(userId: number, universityId: number) {
-  return remove<UserUniversity>(`user_university/${uuid}`);
-}
-
 const services = {
-  findUniversities,
   login,
   register,
+  getUser,
+  updateUser,
+  findUniversities,
+  getUniversities,
+  getUniversity,
 };
 
 export default services;

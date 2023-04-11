@@ -10,9 +10,13 @@ export interface Payload<T> {
 export interface University {
   id: number;
   name: string;
+  location: string;
   country: string;
+  capital: string;
   language: string;
   url: string;
+  currency: string;
+  population: number;
 }
 
 export interface User extends AuthUser {

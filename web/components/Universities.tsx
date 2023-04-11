@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import Icon from "./Icon";
 import StarButton from "./StarButton";
@@ -6,7 +8,6 @@ import StarButton from "./StarButton";
 import { University } from "../types";
 import { getUser, updateUser } from "../services";
 import { actions, useStore } from "../store";
-import { useDispatch } from "react-redux";
 
 interface Props {
   onUpdate?: (id: number[]) => void;
@@ -50,7 +51,7 @@ const Universities: React.FC<Props> = ({onUpdate, universities}) => {
 
   return (
     <div className="flex flex-col gap-4">
-      {universities?.length ? universities.map(({id, country, language, name, url}, key) => (
+      {universities?.length ? universities.map(({id, country, language, name}, key) => (
         <div key={key} className="border shadow-lg rounded px-7 py-3 flex flex-col gap-5">
           <header className="flex gap-2 items-center justify-between">
             <div className="flex flex-wrap gap-x-2 items-center">
@@ -59,9 +60,9 @@ const Universities: React.FC<Props> = ({onUpdate, universities}) => {
             </div>
             <div className="flex gap-2">
               {auth && <StarButton className="h-5" fill={auth?.universities.includes(id)} onClick={() => handleClick(id)} />}
-              <a href={url} rel="noreferrer" target="_blank">
+              <Link to={`/university/${id}`}>
                 <Icon type="externalLink" className="h-5 text-gray-600" />
-              </a>
+              </Link>
             </div>
           </header>
           <section className="flex gap-2">
