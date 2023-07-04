@@ -1,12 +1,17 @@
-import AppRouter from "./routes/AppRouter.jsx";
-import Navbar from "./components/Navbar.jsx";
+import AppRouter from "./routes/AppRouter";
+import { Navbar } from "./components";
 import "./styles.css";
+import AppProvider from "./context/AppProvider";
 
 export function App() {
 	return (
-		<>
+		<AppProvider>
+		<div className='h-screen'>
 			<Navbar />
-			<AppRouter />
-		</>
+			<div className='h-full'>
+				<AppRouter />
+			</div>
+		</div>
+		</AppProvider>
 	);
 }
