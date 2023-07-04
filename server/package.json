@@ -11,7 +11,7 @@
   "repository": "git@condor:rgCondor/Challenge-React.js.git",
   "author": "Rafael González",
   "license": "MIT",
-  "dependencies": {
-    "json-server": "^0.17.0"
+  "devDependencies": {
+    "json-server": "^0.17.3"
   }
 }

@@ -1,3 +1,52 @@
 {
-  "users": []
+  "users": [
+    {
+      "id": 1,
+      "name": "Alvaro Mercado",
+      "email": "alvaro@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": 2,
+      "name": "Juan Topo",
+      "email": "juan@topo.com",
+      "password": "123456"
+    },
+    {
+      "email": "alvaro.mercado.valle@gmail.com",
+      "password": "123456",
+      "id": 3
+    },
+    {
+      "params": {
+        "email": "alvaro@gmail.com",
+        "password": "123456"
+      },
+      "id": 4
+    },
+    {
+      "params": {
+        "email": "alvaro@gmail.com",
+        "password": "123456"
+      },
+      "id": 5
+    },
+    {
+      "params": {
+        "email": "alvaro1@gmail.com",
+        "password": "123456"
+      },
+      "id": 6
+    }
+  ],
+  "universidades": [
+    {
+      "id": 1,
+      "name": "Product 1"
+    },
+    {
+      "id": 2,
+      "name": "Product 2"
+    }
+  ]
 }
