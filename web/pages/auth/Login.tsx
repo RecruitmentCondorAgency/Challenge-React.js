@@ -1,8 +1,10 @@
 import { useState, ChangeEvent, FormEvent, useContext } from "react";
-import { login } from "../../helpers/login";
+import { login } from "../../helpers/connexion";
 import AppContext from "../../context/AppContext";
 import { User } from "../../types/types";
 import { useNavigate } from "react-router-dom";
+import { AiOutlineArrowRight } from 'react-icons/ai';
+
 
 const Login = () => {
 	const { updateUser } = useContext(AppContext);
@@ -22,7 +24,7 @@ const Login = () => {
 		if (user) {
 			setError("");
 			updateUser(user);
-			navigate("/list");
+			navigate("/profile");
 		} else {
 			setError("Los datos son incorrectos. Intenta de nuevo");
 		}
@@ -77,10 +79,13 @@ const Login = () => {
 				</div>
 				<div className='flex items-center justify-center'>
 					<button
-						className='w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
+						className='flex align-middle items-center justify-center w-full bg-blue hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
 						type='submit'
 					>
 						Login
+						<span className='ml-2 text-2xl'>
+							<AiOutlineArrowRight />
+						</span>
 					</button>
 				</div>
 			</form>

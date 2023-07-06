@@ -16,37 +16,38 @@
       "email": "alvaro.mercado.valle@gmail.com",
       "password": "123456",
       "id": 3
-    },
-    {
-      "params": {
-        "email": "alvaro@gmail.com",
-        "password": "123456"
-      },
-      "id": 4
-    },
-    {
-      "params": {
-        "email": "alvaro@gmail.com",
-        "password": "123456"
-      },
-      "id": 5
-    },
-    {
-      "params": {
-        "email": "alvaro1@gmail.com",
-        "password": "123456"
-      },
-      "id": 6
     }
   ],
   "universidades": [
     {
       "id": 1,
-      "name": "Product 1"
+      "name": "Universidad 1",
+      "country": "La Paz",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis asperiores officia necessitatibus blanditiis tempore, deleniti laudantium adipisci unde! Ad suscipit blanditiis cupiditate quis modi dolore mollitia eligendi voluptate perspiciatis vel?"
     },
     {
       "id": 2,
-      "name": "Product 2"
+      "name": "Universidad 2",
+      "country": "La Paz",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis asperiores officia necessitatibus blanditiis tempore, deleniti laudantium adipisci unde! Ad suscipit blanditiis cupiditate quis modi dolore mollitia eligendi voluptate perspiciatis vel?"
+    },
+    {
+      "id": 3,
+      "name": "Universidad 3",
+      "country": "La Paz",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis asperiores officia necessitatibus blanditiis tempore, deleniti laudantium adipisci unde! Ad suscipit blanditiis cupiditate quis modi dolore mollitia eligendi voluptate perspiciatis vel?"
+    }
+  ],
+  "favorites": [
+    {
+      "userId": 1,
+      "universityId": 2,
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "universityId": 3,
+      "id": 3
     }
   ]
 }

@@ -18,5 +18,20 @@
   "workspaces": [
     "server",
     "web"
-  ]
+  ],
+  "devDependencies": {
+    "assert": "^2.0.0",
+    "buffer": "^5.7.1",
+    "crypto-browserify": "^3.12.0",
+    "events": "^3.3.0",
+    "https-browserify": "^1.0.0",
+    "os-browserify": "^0.3.0",
+    "path-browserify": "^1.0.1",
+    "process": "^0.11.10",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "tty-browserify": "^0.0.1",
+    "url": "^0.11.1",
+    "util": "^0.12.5"
+  }
 }

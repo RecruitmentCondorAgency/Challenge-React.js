@@ -1,18 +1,21 @@
 import Login from '../pages/auth/Login'
-import List from '../pages/university/List'
-import Favorite from '../pages/university/Favorite'
-import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
-const AppRouter = () => {
-    return (
-        <Router>
-            <Routes>
-                <Route path="/login" element={<Login />} />
-                <Route path="/list" element={<List />} />
-                <Route path="/favorite" element={<Favorite />} />
+import Profile from '../pages/university/Profile'
+import Search from '../pages/university/Search'
+import { Route, Routes, Navigate } from "react-router-dom";
+import AppContext from '../context/AppContext';
+import { useContext } from 'react';
 
-                <Route path="/*" element={<Navigate to='/login' />} />
-            </Routes>
-        </Router>
+const AppRouter = () => {
+
+    const { user } = useContext(AppContext);
+
+    return (
+        <Routes>
+            <Route path="/login" element={user ? <Navigate to="/search" /> : <Login />} />
+            <Route path="/search" element={<Search />} />
+            <Route path="/profile" element={user ? <Profile /> : <Navigate to='/login' />} />
+            <Route path="/*" element={<Navigate to='/search' />} />
+        </Routes>
     )
 }
 
