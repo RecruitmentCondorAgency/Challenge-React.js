@@ -1,8 +1,9 @@
 import axios, { AxiosInstance, AxiosResponse } from "axios";
 import { Favorite, University, User } from "../types/types";
+import { REACT_APP_URL_UNIVERSITY } from "../configEnv1";
 
 const api: AxiosInstance = axios.create({
-	baseURL: "http://localhost:3000",
+	baseURL: REACT_APP_URL_UNIVERSITY,
 });
 
 export const login = async (user: User): Promise<User | null> => {
