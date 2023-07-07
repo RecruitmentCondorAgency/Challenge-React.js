@@ -9,6 +9,7 @@ export interface AppContextType {
 	user: User | null;
 	favorites: Favorite[] | null;
 	universities: University[] | null;
+	isLoadingUniversities: boolean;
 	selectedUniversity: University | null;
 	updateUser: (newUser: User | null) => void;
 	addFavorite: (universitiId: number) => void;

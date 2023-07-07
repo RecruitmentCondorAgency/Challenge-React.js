@@ -1,12 +1,13 @@
 import React, { createContext, useState, ReactNode, useEffect } from "react";
 import AppContext, { AppContextType, AppState } from "./AppContext";
-import { Favorite, University, User } from '../types/types';
+import { Favorite, University, User } from "../types/types";
 import {
 	deleteFavorite,
 	getFavorites,
 	getUniversities,
 	saveFavorite,
 } from "../helpers/connexion";
+// import { getUniversities } from "../helpers/universitiesConextion";
 
 type AppProviderProps = {
 	children: ReactNode;
@@ -15,11 +16,11 @@ type AppProviderProps = {
 const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
 	const [user, setUser] = useState<User | null>(null);
 	const [universities, setUniversities] = useState<University[]>([]);
+	const [isLoadingUniversities, setIsLoadingUniversities] = useState(false);
 	const [favorites, setFavorites] = useState<Favorite[] | null>([]);
 	const [selectedUniversity, setSelectedUniversity] = useState<University | null>(null);
 
-
-	//Seleccionar una universidad 
+	//Seleccionar una universidad
 	const selectUniversity = (university: University) => {
 		setSelectedUniversity(university);
 	};
@@ -27,8 +28,10 @@ const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
 	//Cargar universidades
 	useEffect(() => {
 		const loadData = async () => {
+			setIsLoadingUniversities(true);
 			const resp = await getUniversities();
 			setUniversities(resp);
+			setIsLoadingUniversities(false);
 		};
 		loadData();
 	}, []);
@@ -100,11 +103,12 @@ const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
 		user,
 		favorites,
 		universities,
+		isLoadingUniversities,
 		selectedUniversity,
 		updateUser,
 		addFavorite,
 		removeFavorite,
-		selectUniversity
+		selectUniversity,
 	};
 
 	return <AppContext.Provider value={appContextValue}>{children}</AppContext.Provider>;

@@ -4,8 +4,8 @@ import AppContext from "../../context/AppContext";
 import UniversityBox from "./components/UniversityBox";
 
 const Search = () => {
-	const { universities } = useContext(AppContext);
-	
+	const { universities, isLoadingUniversities } = useContext(AppContext);
+
 	const [filter, setFilter] = useState("");
 
 	const filterValue = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -35,7 +35,13 @@ const Search = () => {
 				</div>
 			</div>
 			{/* Cards de universidades */}
-			<UniversityBox filteredUniversities={filteredUniversities} />
+			{!isLoadingUniversities && universities.length > 0 ? (
+				<UniversityBox filteredUniversities={filteredUniversities} />
+			) : (
+				<div className='text-center mt-4'>
+					{isLoadingUniversities ? "Loading..." : "No universities found."}
+				</div>
+			)}
 		</div>
 	);
 };

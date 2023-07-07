@@ -18,3 +18,10 @@ export type Favorite = {
 	userId?: number;
 	universityId?: number;
 };
+
+
+export interface CountryData {
+	languages?: { [code: string]: string };
+	currencies?: { [code: string]: { name: string; symbol: string } };
+	population?: number;
+}

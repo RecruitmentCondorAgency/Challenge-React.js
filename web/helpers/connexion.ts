@@ -83,16 +83,3 @@ export const deleteFavorite = async (universityId: number, userId: number) => {
 		console.error("Error al eliminar el favorito:", error);
 	}
 };
-
-export const getCountryData = () => {
-	fetch("https://restcountries.com/v3.1/name/{countryName}")
-		.then((response) => response.json())
-		.then((data) => {
-			// Aquí puedes procesar los datos del país obtenidos
-			console.log(data);
-		})
-		.catch((error) => {
-			// Manejo de errores
-			console.error(error);
-		});
-};

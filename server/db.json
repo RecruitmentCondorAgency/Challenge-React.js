@@ -42,22 +42,28 @@
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis asperiores officia necessitatibus blanditiis tempore, deleniti laudantium adipisci unde! Ad suscipit blanditiis cupiditate quis modi dolore mollitia eligendi voluptate perspiciatis vel?",
       "website": "universidad.com",
       "city": "La Paz"
+    },
+    {
+      "id": 4,
+      "name": "Universidad 3",
+      "country": "Argentina",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis asperiores officia necessitatibus blanditiis tempore, deleniti laudantium adipisci unde! Ad suscipit blanditiis cupiditate quis modi dolore mollitia eligendi voluptate perspiciatis vel?",
+      "website": "universidad.com",
+      "city": "La Paz"
+    },
+    {
+      "id": 5,
+      "name": "Universidad 3",
+      "country": "Argentina",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis asperiores officia necessitatibus blanditiis tempore, deleniti laudantium adipisci unde! Ad suscipit blanditiis cupiditate quis modi dolore mollitia eligendi voluptate perspiciatis vel?",
+      "website": "universidad.com",
+      "city": "La Paz"
     }
   ],
   "favorites": [
     {
-      "userId": 1,
-      "universityId": 3,
-      "id": 3
-    },
-    {
       "universityId": 1,
       "id": 4
-    },
-    {
-      "userId": 1,
-      "universityId": 1,
-      "id": 6
     },
     {
       "userId": 2,
@@ -73,6 +79,33 @@
       "userId": 2,
       "universityId": 3,
       "id": 9
+    },
+    {
+      "userId": 1,
+      "id": 13
+    },
+    {
+      "userId": 1,
+      "id": 14
+    },
+    {
+      "userId": 1,
+      "id": 15
+    },
+    {
+      "userId": 1,
+      "universityId": 3,
+      "id": 18
+    },
+    {
+      "userId": 1,
+      "universityId": 1,
+      "id": 21
+    },
+    {
+      "userId": 1,
+      "universityId": 2,
+      "id": 22
     }
   ]
 }
