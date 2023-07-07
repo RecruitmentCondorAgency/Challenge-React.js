@@ -1,0 +1,111 @@
+/* File: Header */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.header-logo {
+  width: 50px;
+}
+
+.header-nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.header-nav ul li {
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .header-nav ul {
+    flex-direction: column;
+  }
+
+  .header-nav ul li {
+    margin-bottom: 10px;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: 2rem auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.input {
+  padding: 5rem;
+  margin: 1rem 0;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 100%;
+}
+
+.label {
+  margin-bottom: 2rem;
+  margin-top: 3rem;
+  font-weight: bold;
+  font-size: 100%;
+}
+
+.button {
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  font-size: 100%;
+}
+
+.favUniversityContainer {
+  position: relative;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  padding: 6rem;
+  margin-top: 1rem;
+}
+
+.containers {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns for larger screens */
+  gap: 10px; /* Add some spacing between the containers */
+}
+
+.my-favorites-container,
+.selected-container {
+  width: 100%;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* .my-favorites-container {
+  /* Styles for the container */
+
+.greeting {
+  background-color: white;
+}
+
+.favorites-list {
+  width: 80%;
+  margin-left: 8rem;
+  margin-top: 2rem;
+}
+
+.favorites-header {
+  text-align: left;
+  color: blue;
+}
+
+@media (max-width: 1300px) {
+  .containers {
+    grid-template-columns: 1fr; /* One column for smaller screens */
+  }
+}
