@@ -4,6 +4,8 @@ import Login from '../pages/auth/Login'
 import Profile from '../pages/university/Profile'
 import Search from '../pages/university/Search'
 import AppContext from '../context/AppContext';
+import { routes } from './routes';
+
 
 const AppRouter = () => {
 
@@ -22,12 +24,13 @@ const AppRouter = () => {
 
     return (
         <Routes>
-            <Route path="/search" element={<Search />} />
-            <Route path="/profile" 
+            <Route path={routes.search} element={<Search />} />
+            <Route path={routes.profile}
                 element={
-                    user ? <Profile /> : previousPath ? <Navigate to='/login' /> : <Navigate to={previousPath} />} />
-            <Route path="/login" element={user ? <Navigate to="/search" /> : <Login />} />
-            <Route path="/*" element={<Navigate to='/search' />} />
+                    user ? <Profile /> : previousPath ? <Navigate to='/login' /> : <Navigate to={previousPath} />
+                } />
+            <Route path={routes.login} element={user ? <Navigate to="/search" /> : <Login />} />
+            <Route path={routes.fallback} element={<Navigate to={routes.search} />} />
         </Routes>
     )
 }
