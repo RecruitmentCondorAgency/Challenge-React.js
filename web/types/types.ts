@@ -20,7 +20,7 @@ export type Favorite = {
 };
 
 
-export interface CountryData {
+export type CountryData = {
 	languages?: { [code: string]: string };
 	currencies?: { [code: string]: { name: string; symbol: string } };
 	population?: number;
