@@ -1,26 +1,16 @@
 import { useContext, useEffect, useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
-import { getUniversities } from "../../helpers/connexion";
-import { University } from "../../types/types";
-import UniversityCardSmall from "./components/UniversityCardSmall";
 import AppContext from "../../context/AppContext";
+import UniversityBox from "./components/UniversityBox";
 
 const Search = () => {
-	const { user, updateUser } = useContext(AppContext);
-	const [universities, setUniversities] = useState<University[]>([]);
+	const { universities } = useContext(AppContext);
+	
 	const [filter, setFilter] = useState("");
 
 	const filterValue = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setFilter(event.target.value);
 	};
-
-	useEffect(() => {
-		const loadData = async () => {
-			const resp = await getUniversities();
-			setUniversities(() => resp);
-		};
-		loadData();
-	}, []);
 
 	const filteredUniversities = universities.filter((university) =>
 		university.name.toLowerCase().includes(filter.toLowerCase())
@@ -45,11 +35,7 @@ const Search = () => {
 				</div>
 			</div>
 			{/* Cards de universidades */}
-			<div className='w-screen md:w-1/2'>
-				{filteredUniversities.map((university) => (
-					<UniversityCardSmall university={university} key={university.id} />
-				))}
-			</div>
+			<UniversityBox filteredUniversities={filteredUniversities} />
 		</div>
 	);
 };

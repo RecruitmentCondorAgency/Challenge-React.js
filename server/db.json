@@ -22,32 +22,52 @@
     {
       "id": 1,
       "name": "Universidad 1",
-      "country": "La Paz",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis asperiores officia necessitatibus blanditiis tempore, deleniti laudantium adipisci unde! Ad suscipit blanditiis cupiditate quis modi dolore mollitia eligendi voluptate perspiciatis vel?"
+      "country": "Bolivia",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis asperiores officia necessitatibus blanditiis tempore, deleniti laudantium adipisci unde! Ad suscipit blanditiis cupiditate quis modi dolore mollitia eligendi voluptate perspiciatis vel?",
+      "website": "universidad.com",
+      "city": "La Paz"
     },
     {
       "id": 2,
       "name": "Universidad 2",
-      "country": "La Paz",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis asperiores officia necessitatibus blanditiis tempore, deleniti laudantium adipisci unde! Ad suscipit blanditiis cupiditate quis modi dolore mollitia eligendi voluptate perspiciatis vel?"
+      "country": "Perú",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis asperiores officia necessitatibus blanditiis tempore, deleniti laudantium adipisci unde! Ad suscipit blanditiis cupiditate quis modi dolore mollitia eligendi voluptate perspiciatis vel?",
+      "website": "universidad.com",
+      "city": "La Paz"
     },
     {
       "id": 3,
       "name": "Universidad 3",
-      "country": "La Paz",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis asperiores officia necessitatibus blanditiis tempore, deleniti laudantium adipisci unde! Ad suscipit blanditiis cupiditate quis modi dolore mollitia eligendi voluptate perspiciatis vel?"
+      "country": "Argentina",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis asperiores officia necessitatibus blanditiis tempore, deleniti laudantium adipisci unde! Ad suscipit blanditiis cupiditate quis modi dolore mollitia eligendi voluptate perspiciatis vel?",
+      "website": "universidad.com",
+      "city": "La Paz"
     }
   ],
   "favorites": [
     {
       "userId": 1,
-      "universityId": 2,
-      "id": 2
+      "universityId": 3,
+      "id": 3
+    },
+    {
+      "universityId": 1,
+      "id": 4
+    },
+    {
+      "userId": 2,
+      "universityId": 1,
+      "id": 5
     },
     {
       "userId": 1,
-      "universityId": 3,
-      "id": 3
+      "universityId": 1,
+      "id": 6
+    },
+    {
+      "userId": 1,
+      "universityId": 2,
+      "id": 7
     }
   ]
 }

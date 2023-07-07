@@ -10,6 +10,8 @@ export type University = {
 	name?: string;
 	description?: string;
 	country?: string;
+	city?: string;
+	website?: string;
 };
 
 export type Favorite = {

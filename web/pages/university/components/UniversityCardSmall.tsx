@@ -7,7 +7,8 @@ import AppContext from "../../../context/AppContext";
 const UniversityCardSmall: React.FC<{ university: University }> = ({ university }) => {
 	// const [isFavorite, setIsFavorite] = useState(false);
 
-	const { favorites, addFavorite, removeFavorite } = useContext(AppContext);
+	const { favorites, addFavorite, removeFavorite, selectUniversity } =
+		useContext(AppContext);
 	const isFavorite = favorites.some(
 		(favorite) => favorite.universityId === university.id
 	);
@@ -18,6 +19,10 @@ const UniversityCardSmall: React.FC<{ university: University }> = ({ university 
 		} else {
 			addFavorite(university.id);
 		}
+	};
+
+	const toggleSelectionUniversity = () => {
+		selectUniversity(university);
 	};
 
 	return (
@@ -35,7 +40,7 @@ const UniversityCardSmall: React.FC<{ university: University }> = ({ university 
 						)}
 					</span>
 					<span className='cursor-pointer text-2xl'>
-						<LuExternalLink />
+						<LuExternalLink onClick={toggleSelectionUniversity} />
 					</span>
 				</div>
 			</div>
