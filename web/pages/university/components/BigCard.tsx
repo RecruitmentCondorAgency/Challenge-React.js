@@ -2,18 +2,18 @@ import { useContext, useEffect, useState } from "react";
 import AppContext from "../../../context/AppContext";
 import axios from "axios";
 
-const BigCard = () => {
+const BigCard: React.FC = () => {
 	const { selectedUniversity } = useContext(AppContext);
 
-	const [currency, setCurrency] = useState(null);
-	const [languages, setLanguages] = useState([]);
-	const [population, setPopulation] = useState(null);
+	const [currency, setCurrency] = useState<any>(null);
+	const [languages, setLanguages] = useState<[string, string][]>([]);
+	const [population, setPopulation] = useState<number | null>(null);
 
 	useEffect(() => {
 		const fetchCountryData = async () => {
 			try {
 				const response = await axios.get(
-					`https://restcountries.com/v3.1/name/${selectedUniversity.country}`
+					`https://restcountries.com/v3.1/name/${selectedUniversity?.country}`
 				);
 				const countryData = response.data[0];
 				setLanguages(Object.entries(countryData.languages));
@@ -25,7 +25,6 @@ const BigCard = () => {
 				console.error("Error al obtener los datos del país:", error);
 			}
 		};
-		console.log(selectedUniversity?.country);
 		if (selectedUniversity) {
 			fetchCountryData();
 		}

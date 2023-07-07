@@ -55,19 +55,24 @@
       "id": 4
     },
     {
-      "userId": 2,
-      "universityId": 1,
-      "id": 5
-    },
-    {
       "userId": 1,
       "universityId": 1,
       "id": 6
     },
     {
-      "userId": 1,
-      "universityId": 2,
+      "userId": 2,
+      "universityId": 1,
       "id": 7
+    },
+    {
+      "userId": 2,
+      "universityId": 2,
+      "id": 8
+    },
+    {
+      "userId": 2,
+      "universityId": 3,
+      "id": 9
     }
   ]
 }

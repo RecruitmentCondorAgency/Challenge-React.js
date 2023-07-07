@@ -1,16 +1,19 @@
-import React, { useContext, useState } from "react";
-import { University } from "../../../types/types";
+import React, { useContext } from "react";
+import { University, Favorite } from "../../../types/types";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { LuExternalLink } from "react-icons/lu";
 import AppContext from "../../../context/AppContext";
 
-const UniversityCardSmall: React.FC<{ university: University }> = ({ university }) => {
-	// const [isFavorite, setIsFavorite] = useState(false);
+interface Props {
+	university: University;
+}
 
+const UniversityCardSmall: React.FC<Props> = ({ university }) => {
 	const { favorites, addFavorite, removeFavorite, selectUniversity } =
 		useContext(AppContext);
+
 	const isFavorite = favorites.some(
-		(favorite) => favorite.universityId === university.id
+		(favorite: Favorite) => favorite.universityId === university.id
 	);
 
 	const toggleFavorite = () => {
