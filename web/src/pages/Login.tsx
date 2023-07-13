@@ -25,8 +25,8 @@ export default function Login() {
     formState: { errors },
   } = useForm<Inputs>()
   
-  const [loading, setLoading] = useState(false);
-  const [visible, setVisible] = useState(false);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [visible, setVisible] = useState<boolean>(false);
   
   
 
