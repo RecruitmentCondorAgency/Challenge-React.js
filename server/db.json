@@ -1,3 +1,141 @@
 {
-  "users": []
+  "users": [
+    {
+      "id": 1,
+      "username": "johndoe",
+      "password": "password123",
+      "email": "johndoe@gmail.com",
+      "universities": [{
+        "web_pages": [
+            "https://ieseg.fr"
+        ],
+        "domains": [
+            "ieseg.fr"
+        ],
+        "capital": "Paris",
+        "population": "66,991,000",
+        "language": "French",
+        "currency": "Euro", 
+        "currency_code": "EUR",
+        "country": "France",
+        "name": "IÉSEG School of Management",
+        "state-province": null,
+        "alpha_two_code": "FR"
+    },
+    {
+        "web_pages": [
+            "http://www.acadiau.ca/"
+        ],
+        "domains": [
+            "acadiau.ca"
+        ],
+
+        "country": "Canada",
+        "name": "Acadia University",
+        "state-province": "Nova Scotia",
+        "alpha_two_code": "CA"
+    },
+
+    {
+        "web_pages": [
+            "https://www.ac-aix-marseille.fr/"
+        ],
+        "domains": [
+            "ac-aix-marseille.fr"
+        ],
+        "country": "France",
+        "name": "Académie d'Aix-Marseille",
+        "state-province": null,
+        "alpha_two_code": "FR"
+    },
+    {
+        "web_pages": [
+            "http://www.42.fr/"
+        ],
+        "domains": [
+            "student.42.fr"
+        ],
+
+        "country": "France",
+        "name": "42 FR",
+        "state-province": null,
+        "alpha_two_code": "FR"
+    }]
+    },
+    {
+      "id": 2,
+      "username": "janesmith",
+      "email": "janesmith@gmail.com",
+      "password": "password456",
+      "universities": [{
+        "web_pages": [
+            "https://www.cstj.qc.ca",
+            "https://ccmt.cstj.qc.ca",
+            "https://ccml.cstj.qc.ca"
+        ],
+        "domains": [
+            "cstj.qc.ca"
+        ],
+
+        "country": "Canada",
+        "name": "Cégep de Saint-Jérôme",
+        "state-province": "Quebec",
+        "alpha_two_code": "CA"
+    },
+    {
+        "web_pages": [
+            "https://www.ac-paris.fr/"
+        ],
+        "domains": [
+            "ac-paris.fr"
+        ],
+      
+        "country": "France",
+        "name": "Académie de Paris",
+        "state-province": null,
+        "alpha_two_code": "FR"
+    },
+    {
+        "web_pages": [
+            "https://www.lambtoncollege.ca"
+        ],
+        "domains": [
+            "lambtoncollege.ca",
+            "mylambton.ca"
+        ],
+
+        "country": "Canada",
+        "name": "Lambton College",
+        "state-province": "Ontario",
+        "alpha_two_code": "CA"
+    },
+
+    {
+        "web_pages": [
+            "http://www.algonquincollege.com/"
+        ],
+        "domains": [
+            "algonquincollege.com"
+        ],
+
+        "country": "Canada",
+        "name": "Algonquin College",
+        "state-province": "Ontario",
+        "alpha_two_code": "CA"
+    },
+    {
+        "web_pages": [
+            "http://www.ashtoncollege.com/"
+        ],
+        "domains": [
+            "ashtoncollege.com"
+        ],
+
+        "country": "Canada",
+        "name": "Ashton College",
+        "state-province": "British Columbia",
+        "alpha_two_code": "CA"
+    }]
+    }
+  ]
 }
