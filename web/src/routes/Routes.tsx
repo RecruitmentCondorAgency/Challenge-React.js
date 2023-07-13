@@ -1,32 +1,28 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Navbar from '../utils/partials/Navbar'
+import Login from '../pages/Login'
+import Profile from '../pages/Profile'
+import Search from '../pages/Search'
+import Error404 from '../utils/errors/Error404'
+import UserContextProvider from '../context/UserContext'
 
+export default function Routes(props) {
+    
 
-
-export default function Routes() {
     return (
         <Router>
-        <div>
-        <Navbar/>
-        <Routes>
-            <Route path="/" element={<Dashboard />} exact />
-            <Route path="/login" element={<Dashboard />} exact />
-            {/* USUARIOS ROUTES */}
-            <Route path="/usuarios" element={<Usuarios />} exact />
-            <Route path="/usuarios/crear" element={<CreateUser />} exact />
-            <Route path="/usuarios/:id/editar" element={<EditUser />} exact />
-
-            <Route path="/permisos" element={<Permisos />} exact />
-            <Route path="/roles" element={<Roles />} exact />
-            <Route path="/roles/:clave_usuario/editar" element={<RolUser />} exact />
-
-            
-            <Route path="/edit" element={<Dashboard />} exact />
-            
-            <Route path="/profile" element={<Dashboard />} exact />
-            <Route path="*" element={<Error404/>} />
-        </Routes>
-        </div>
+            <UserContextProvider>
+                <Navbar/>
+                <Routes>
+                    <Route path="/" element={<Login />} exact />
+                    <Route path="/login" element={<Login />} exact />
+                    <Route path="/profile" element={<Profile />} exact />
+                    <Route path="/search" element={<Search />} exact />
+                    <Route path="*" element={<Error404/>} />
+                </Routes>
+            </UserContextProvider>
+        
     </Router>
     )
 }
