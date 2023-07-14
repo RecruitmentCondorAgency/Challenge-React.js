@@ -18,5 +18,8 @@
   "workspaces": [
     "server",
     "web"
-  ]
+  ],
+  "devDependencies": {
+    "process": "^0.11.10"
+  }
 }
