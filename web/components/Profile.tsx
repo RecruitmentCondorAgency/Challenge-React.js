@@ -1,11 +1,19 @@
 import { useEffect, useState } from 'react'
 import { fetchColleges } from '../utils/collegesFetch'
-import { Box, Card, CardContent, Typography } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import { College } from './College'
 import CollegeDescription from './CollegeDescription'
+import { useSelector } from 'react-redux'
+import { red } from '@mui/material/colors'
+import { redirect } from 'react-router-dom'
 const Profile = () => {
   const [colleges, setColleges] = useState([])
   const [collegeSelected, setcollegeSelected] = useState([])
+  const { user } = useSelector((state: any) => state.user)
+
+  if (!user) {
+    return redirect('/login')
+  }
 
   useEffect(() => {
     fetchColleges().then((result) => {
@@ -16,9 +24,9 @@ const Profile = () => {
   return (
     <Box
       display='flex'
+      justifyItems={'center'}
       maxWidth={500}
-      minWidth={500}
-      justifyContent={'space-between'}
+      justifyContent={'center'}
       margin={'auto'}
       marginTop={5}
       padding={3}
@@ -27,15 +35,18 @@ const Profile = () => {
         <Typography variant='h4'>
           <strong>My Colleges</strong>
         </Typography>
-        {colleges.map((college) => {
-          return (
-            <College
-              key={college.id}
-              college={college}
-              onClick={() => setcollegeSelected(college)}
-            />
-          )
-        })}
+        {user.favorites &&
+          colleges
+            .filter((college) => user.favorites.find((id) => id === college.id))
+            .map((college) => {
+              return (
+                <College
+                  key={college.id}
+                  college={college}
+                  onClick={() => setcollegeSelected(college)}
+                />
+              )
+            })}
       </Box>
       <CollegeDescription college={collegeSelected} />
     </Box>

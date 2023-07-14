@@ -4,14 +4,17 @@ import { fetchColleges } from '../utils/collegesFetch'
 import SearchIcon from '@mui/icons-material/Search'
 import { College } from './College'
 import { useSelector, useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 const Search = () => {
   const [colleges, setColleges] = useState([])
   const [collegesFiltered, setcollegesFiltered] = useState([])
-
+  const navigate = useNavigate()
   const { user } = useSelector((state: any) => state.user)
-  console.log('USER===', user)
-  const dispatch = useDispatch()
+
+  if (!user.user) {
+    navigate('/login')
+  }
 
   useEffect(() => {
     fetchColleges().then((result) => {
@@ -38,7 +41,6 @@ const Search = () => {
               <TextField {...params} label='Search Colleges' />
             )}
             onChange={(e, value) => {
-              console.log('value', value)
               if (!value) return setcollegesFiltered(colleges)
               setcollegesFiltered([value])
             }}

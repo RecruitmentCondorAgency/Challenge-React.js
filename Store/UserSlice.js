@@ -37,15 +37,20 @@ const userSlice = createSlice({
   reducers: {
     favoriteCollege: (state, action) => {
       const foundCollege = state.favorites.find(
-        (college) => college.id === action.payload,
+        (college) => college === action.payload,
       )
+
       if (foundCollege) {
         state.favorites = state.favorites.filter(
-          (college) => college.id !== action.payload,
+          (college) => college !== action.payload,
         )
       } else {
         state.favorites.push(action.payload)
       }
+    },
+    logoutUser: (state, action) => {
+      localStorage.removeItem('user')
+      state.user = null
     },
   },
   extraReducers: (builder) => {
@@ -54,7 +59,6 @@ const userSlice = createSlice({
     })
     builder.addCase(loginUser.fulfilled, (state, action) => {
       state.loading = false
-      console.log('USER ACTION', action)
       state.user = action.payload[0]
     })
     builder.addCase(loginUser.rejected, (state, action) => {
@@ -70,7 +74,6 @@ const userSlice = createSlice({
     })
     builder.addCase(signUpUser.fulfilled, (state, action) => {
       state.loading = false
-      console.log('SIGNUP==', action.payload)
       state.user = action.payload
     })
     builder.addCase(signUpUser.rejected, (state, action) => {
@@ -84,5 +87,5 @@ const userSlice = createSlice({
   },
 })
 
-export const { favoriteCollege } = userSlice.actions
+export const { favoriteCollege, logoutUser } = userSlice.actions
 export default userSlice.reducer

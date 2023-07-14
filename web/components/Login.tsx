@@ -18,7 +18,7 @@ const Login = () => {
       if (result.payload.length) {
         setName('')
         setPassword('')
-        navigate('/')
+        navigate('/search')
       }
     })
   }
