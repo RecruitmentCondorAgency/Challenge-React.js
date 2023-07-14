@@ -1,3 +1,111 @@
 {
-  "users": []
+  "users": [
+    {
+      "id": 1,
+      "name": "Alvaro Mercado",
+      "email": "alvaro@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": 2,
+      "name": "Juan Topo",
+      "email": "juan@topo.com",
+      "password": "123456"
+    },
+    {
+      "email": "alvaro.mercado.valle@gmail.com",
+      "password": "123456",
+      "id": 3
+    }
+  ],
+  "universidades": [
+    {
+      "id": 1,
+      "name": "Universidad 1",
+      "country": "Bolivia",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis asperiores officia necessitatibus blanditiis tempore, deleniti laudantium adipisci unde! Ad suscipit blanditiis cupiditate quis modi dolore mollitia eligendi voluptate perspiciatis vel?",
+      "website": "universidad.com",
+      "city": "La Paz"
+    },
+    {
+      "id": 2,
+      "name": "Universidad 2",
+      "country": "Perú",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis asperiores officia necessitatibus blanditiis tempore, deleniti laudantium adipisci unde! Ad suscipit blanditiis cupiditate quis modi dolore mollitia eligendi voluptate perspiciatis vel?",
+      "website": "universidad.com",
+      "city": "La Paz"
+    },
+    {
+      "id": 3,
+      "name": "Universidad 3",
+      "country": "Argentina",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis asperiores officia necessitatibus blanditiis tempore, deleniti laudantium adipisci unde! Ad suscipit blanditiis cupiditate quis modi dolore mollitia eligendi voluptate perspiciatis vel?",
+      "website": "universidad.com",
+      "city": "La Paz"
+    },
+    {
+      "id": 4,
+      "name": "Universidad 3",
+      "country": "Argentina",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis asperiores officia necessitatibus blanditiis tempore, deleniti laudantium adipisci unde! Ad suscipit blanditiis cupiditate quis modi dolore mollitia eligendi voluptate perspiciatis vel?",
+      "website": "universidad.com",
+      "city": "La Paz"
+    },
+    {
+      "id": 5,
+      "name": "Universidad 3",
+      "country": "Argentina",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis asperiores officia necessitatibus blanditiis tempore, deleniti laudantium adipisci unde! Ad suscipit blanditiis cupiditate quis modi dolore mollitia eligendi voluptate perspiciatis vel?",
+      "website": "universidad.com",
+      "city": "La Paz"
+    }
+  ],
+  "favorites": [
+    {
+      "universityId": 1,
+      "id": 4
+    },
+    {
+      "userId": 2,
+      "universityId": 1,
+      "id": 7
+    },
+    {
+      "userId": 2,
+      "universityId": 2,
+      "id": 8
+    },
+    {
+      "userId": 2,
+      "universityId": 3,
+      "id": 9
+    },
+    {
+      "userId": 1,
+      "id": 13
+    },
+    {
+      "userId": 1,
+      "id": 14
+    },
+    {
+      "userId": 1,
+      "id": 15
+    },
+    {
+      "userId": 1,
+      "universityId": 3,
+      "id": 18
+    },
+    {
+      "userId": 1,
+      "universityId": 1,
+      "id": 21
+    },
+    {
+      "userId": 1,
+      "universityId": 2,
+      "id": 22
+    }
+  ]
 }
