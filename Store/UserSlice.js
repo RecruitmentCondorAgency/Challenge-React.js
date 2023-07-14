@@ -7,7 +7,6 @@ export const signUpUser = createAsyncThunk(
   async (userCredentials, thunkAPI) => {
     const request = await axios.post(`${BASE_URL}/users`, userCredentials)
     const response = await request.data
-    localStorage.setItem('user', JSON.stringify(response))
     return response
   },
 )
@@ -33,6 +32,21 @@ const userSlice = createSlice({
     loading: false,
     user: null,
     error: null,
+    favorites: [],
+  },
+  reducers: {
+    favoriteCollege: (state, action) => {
+      const foundCollege = state.favorites.find(
+        (college) => college.id === action.payload,
+      )
+      if (foundCollege) {
+        state.favorites = state.favorites.filter(
+          (college) => college.id !== action.payload,
+        )
+      } else {
+        state.favorites.push(action.payload)
+      }
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(loginUser.pending, (state, action) => {
@@ -40,7 +54,8 @@ const userSlice = createSlice({
     })
     builder.addCase(loginUser.fulfilled, (state, action) => {
       state.loading = false
-      state.user = action.payload
+      console.log('USER ACTION', action)
+      state.user = action.payload[0]
     })
     builder.addCase(loginUser.rejected, (state, action) => {
       state.loading = false
@@ -55,6 +70,7 @@ const userSlice = createSlice({
     })
     builder.addCase(signUpUser.fulfilled, (state, action) => {
       state.loading = false
+      console.log('SIGNUP==', action.payload)
       state.user = action.payload
     })
     builder.addCase(signUpUser.rejected, (state, action) => {
@@ -68,4 +84,5 @@ const userSlice = createSlice({
   },
 })
 
+export const { favoriteCollege } = userSlice.actions
 export default userSlice.reducer

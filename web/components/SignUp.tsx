@@ -15,7 +15,7 @@ const SignUp = () => {
 
   const handleSignUp = (e) => {
     e.preventDefault()
-    let userCredentials = { name, password, email }
+    let userCredentials = { name, password, email, favorites: [] }
     dispatch(signUpUser(userCredentials)).then((result) => {
       if (result.payload) {
         setName('')

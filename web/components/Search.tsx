@@ -3,12 +3,20 @@ import { useEffect, useState } from 'react'
 import { fetchColleges } from '../utils/collegesFetch'
 import SearchIcon from '@mui/icons-material/Search'
 import { College } from './College'
+import { useSelector, useDispatch } from 'react-redux'
+
 const Search = () => {
   const [colleges, setColleges] = useState([])
+  const [collegesFiltered, setcollegesFiltered] = useState([])
+
+  const { user } = useSelector((state: any) => state.user)
+  console.log('USER===', user)
+  const dispatch = useDispatch()
 
   useEffect(() => {
     fetchColleges().then((result) => {
       setColleges(result)
+      setcollegesFiltered(result)
     })
   }, [])
 
@@ -29,12 +37,15 @@ const Search = () => {
             renderInput={(params) => (
               <TextField {...params} label='Search Colleges' />
             )}
-            onChange={(e, v) => {
-              console.log(v)
+            onChange={(e, value) => {
+              console.log('value', value)
+              if (!value) return setcollegesFiltered(colleges)
+              setcollegesFiltered([value])
             }}
           />
           <IconButton
             disableRipple={true}
+            // style into variable
             style={{
               color: 'white',
               width: '60px',
@@ -46,8 +57,16 @@ const Search = () => {
             <SearchIcon />
           </IconButton>
         </Box>
-        {colleges.map((college) => {
-          return <College college={college} />
+        {collegesFiltered.map((college) => {
+          return (
+            <College
+              key={college.id}
+              college={college}
+              isFavorite={user.favorites.some(
+                (collegeId) => collegeId === college.id,
+              )}
+            />
+          )
         })}
       </Stack>
     </div>

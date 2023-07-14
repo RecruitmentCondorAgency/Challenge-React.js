@@ -1,11 +1,22 @@
 import { Box, Card, CardContent, Typography, IconButton } from '@mui/material'
 import OpenInNewIcon from '@mui/icons-material/OpenInNew'
 import StarOutlineIcon from '@mui/icons-material/StarOutline'
+import { favoriteCollege } from '../../Store/UserSlice'
+import { useDispatch } from 'react-redux'
 
-export const College = ({ college }) => {
+export const College = ({ college, isFavorite, onClick }) => {
+  const dispatch = useDispatch()
+
+  const handleFavorite = (e) => {
+    e.preventDefault()
+    console.log('FAVORITE COLLEGE')
+    dispatch(favoriteCollege(college.id))
+  }
+
   return (
     <Box
-      sx={{ marginTop: '20px' }}
+      onClick={onClick}
+      sx={{ marginTop: '20px', cursor: 'pointer' }}
       display='flex'
       flexDirection='column'
       justifyContent={'center'}>
@@ -26,6 +37,7 @@ export const College = ({ college }) => {
             </Typography>
             <Box display='flex' justifyContent={'end'}>
               <IconButton
+                onClick={handleFavorite}
                 disableRipple={true}
                 style={{
                   padding: '0',
@@ -35,6 +47,8 @@ export const College = ({ college }) => {
                 <StarOutlineIcon />
               </IconButton>
               <IconButton
+                target='_blank'
+                href={college.web_page}
                 disableRipple={true}
                 style={{ padding: '0', marginBottom: '15px' }}>
                 <OpenInNewIcon />
