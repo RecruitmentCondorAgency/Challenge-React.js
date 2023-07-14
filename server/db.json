@@ -6,5 +6,49 @@
       "email": "lalo@lalo.com",
       "id": 1
     }
+  ],
+  "colleges": [
+    {
+      "web_page": "http://www.meu.edu.jo/",
+      "country": "Jordan",
+      "domain": "meu.edu.jo",
+      "name": "Middle East University",
+      "id": 1
+    },
+    {
+      "web_page": "http://www.odtu.edu.tr/",
+      "country": "Turkey",
+      "domain": "odtu.edu.tr",
+      "name": "Middle East Technical University",
+      "id": 2
+    },
+    {
+      "web_page": "http://www.mtsu.edu/",
+      "country": "USA",
+      "domain": "mtsu.edu",
+      "name": "Middle Tennessee State University",
+      "id": 3
+    },
+    {
+      "web_page": "http://www.mga.edu/",
+      "country": "USA",
+      "domain": "mga.edu",
+      "name": "Middle Georgia State College",
+      "id": 4
+    },
+    {
+      "web_page": "http://www.mdx.ac.uk/",
+      "country": "United Kingdom",
+      "domain": "mdx.ac.uk",
+      "name": "Middlesex University",
+      "id": 5
+    },
+    {
+      "web_page": "http://www.middlebury.edu/",
+      "country": "USA",
+      "domain": "middlebury.edu",
+      "name": "Middlebury College",
+      "id": 6
+    }
   ]
 }

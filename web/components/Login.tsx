@@ -38,6 +38,7 @@ const Login = () => {
           borderRadius={3}
           boxShadow={'5px 5px 10px #ccc'}>
           <TextField
+            required
             id='name'
             label='Name'
             value={name}
@@ -48,6 +49,7 @@ const Login = () => {
             placeholder='Name'
           />
           <TextField
+            required
             id='password'
             label='Password'
             value={password}

@@ -1,7 +1,7 @@
 import { Box, TextField, Button } from '@mui/material'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { loginUser, signUpUser } from '../../Store/UserSlice'
+import { signUpUser } from '../../Store/UserSlice'
 import { useNavigate } from 'react-router-dom'
 
 const SignUp = () => {
