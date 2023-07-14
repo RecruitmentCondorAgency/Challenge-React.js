@@ -1,13 +1,20 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import axios from 'axios';
-import { generateError } from '../utils/errors/alerts';
-import { University } from '../MyTypes';
+import { useForm } from 'react-hook-form';
+import { generateError, generateSuccess } from '../utils/errors/alerts';
+import { Search, University } from '../MyTypes';
+import { UserContext } from '../context/UserContext';
 
 export default function Table() {
+    const {user, setUser} = useContext(UserContext)
+    const [showModal, setShowModal] = useState<boolean>(false)
     const [data, setData] = useState<University[]>([])
-    const URL_API = 'http://universities.hipolabs.com/';
+    const [modalData, setModalData] = useState<University[]>([])
+    const URL_API:string = 'http://universities.hipolabs.com/';
+    const URL_API2:string =  'http://localhost:3000/';
     const [offset, setOffset] = useState<number>(0);
     const [loader, setLoader] = useState<boolean>(true)
+    const [input, setInput] = useState<string>('')
     const [currentPage, setCurrentPage] = useState<number>(1)
     const limit=20;
 
@@ -27,10 +34,40 @@ export default function Table() {
         
     },[offset])
 
+    const handleAutosuggest = (name:string) => {
+        setInput(name)
+        getData(name)
+        setShowModal(false)
+    }
 
-    const handleChange = (e) => {
+    const handleChange = (e:any) => {
         const name:string = e.target.value;
-        axios.get(`${URL_API}search?name=${name}&offset=${offset}&limit=${limit}`)
+        setInput(name)
+        if(name.length===0){
+            console.log('vacion')
+            setShowModal(false)
+            getData('')
+            return;
+        }
+        setShowModal(true)
+        axios.get(`${URL_API}search?name=${name}&limit=5`)
+        .then(response => {
+            setModalData(response.data)
+        })
+        .catch(error => {
+            console.log(error)
+            generateError('Something went wrong with the request')
+        })
+
+    }
+    const onSubmit = (e?:any) => {
+        e.preventDefault();   
+        getData(input)
+        
+    }
+
+    const getData = (name:string) => {
+        axios.get(`${URL_API}search?name=${name}&offset=0&limit=${limit}`)
         .then(response => {
             console.log(response.data)
             setData(response.data)
@@ -54,9 +91,33 @@ export default function Table() {
         }
     }
 
+    const addUniversity = (university:University)=>{
+        const newuser = localStorage.getItem('user');
+        if(user.id && newuser){
+            user.universities.push(university)
+            console.log(JSON.stringify(university))
+            axios.put(`${URL_API2}users/${user.id}`,
+                user
+            ).then(response =>{
+                console.log(response)
+                if(response.status === 200){
+                    generateSuccess('The university was successfully added!')
+                    setUser(response.data)
+                    localStorage.setItem('user', JSON.stringify(response.data));
+
+                }
+            }).catch(error =>{
+                console.log(error)
+                generateError('Something went wrong')
+            })
+        }else{
+            generateError('You need to login first')
+        } 
+    }
+
     return (
         <>
-            <form className='m-2'>   
+            <form className='m-2' onSubmit={onSubmit}>   
                 <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
                 <div className="relative">
                     <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -66,14 +127,36 @@ export default function Table() {
                     </div>
                     <input 
                     type="search" 
+                    value={input}
                     onChange={handleChange}
                     id="default-search" 
-                    className="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 " placeholder="Search..." required/>
+                    className="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 " placeholder="Search..." />
                     <button 
                     type="submit" 
                     className="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2">Search</button>
                 </div>
+                
             </form>
+            {
+                showModal &&    
+                <div className=" bg-white  z-10 p-4 rounded-xl flex flex-col border justify-center items-center">
+                    <dl className="w-full text-gray-900 divide-y divide-gray-200 dark:text-white dark:divide-gray-700">
+                        {
+                            modalData.length===0 ? <h1 className='text-black font-bold text-xl'>University not found</h1>
+                            :
+                            modalData.map((university, i)=>{
+                                return (
+                                    <div onClick={()=>handleAutosuggest(university.name)} key={i} className="flex flex-col p-3 cursor-pointer">
+                                        <dd className="text-lg text-black font-semibold">{university.name}</dd>
+                                    </div>
+                                )
+                            })
+                        }
+                        
+                    </dl>
+
+                </div>
+            }
             {/* mostrar modal para inputs */}
 
             {
@@ -91,13 +174,13 @@ export default function Table() {
                                                     <h5 className="block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
                                                     {university.name}
                                                     </h5>
-                                                    <div className="5 flex items-center gap-0">
+                                                    <div onClick={()=>addUniversity(university)} className="5 flex items-center gap-0 cursor-pointer">
                                                         <svg
                                                             xmlns="http://www.w3.org/2000/svg"
                                                             viewBox="0 0 24 24"
                                                             fill="currentColor"
                                                             aria-hidden="true"
-                                                            className="h-5 w-5 text-gray-700"
+                                                            className="h-5 w-5 text-gray-700 hover:text-yellow-500"
                                                         >
                                                             <path
                                                             fillRule="evenodd"

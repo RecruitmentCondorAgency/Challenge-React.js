@@ -13,10 +13,8 @@ export default function UserContextProvider(props:any) {
     
     useEffect(() => {
         const newuser:(string|null) = localStorage.getItem('user')
-        if(!newuser){
-            navigate('/login');
-        }
-        else{
+        
+        if(newuser){
             const data = JSON.parse(newuser);
             setUser(data);
             axios.get(`${URL_API}users?email=${data.email}&password=${data.password}&_limit=1`)

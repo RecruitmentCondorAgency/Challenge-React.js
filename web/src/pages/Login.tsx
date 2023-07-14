@@ -6,6 +6,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import { useForm, SubmitHandler } from "react-hook-form"
 import dotenv from 'dotenv';
+import { Link } from 'react-router-dom';
 import { Inputs, User } from '../MyTypes';
 import { generateError, generateSuccess } from '../utils/errors/alerts';
 import { stringify } from 'querystring';
@@ -124,7 +125,9 @@ export default function Login() {
                 {loading ? 'Loggin in...':'Login'}
             </button>
           </form>
-                    
+          <p className="text-sm mt-4 font-light text-gray-500 dark:text-gray-400">
+              Don’t have an account yet? <Link to='/register' className="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign up</Link>
+          </p>   
         </div>
         <ToastContainer/>
       </div>

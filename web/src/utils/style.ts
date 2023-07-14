@@ -16,7 +16,7 @@ const styles = {
     marginY: "sm:my-16 my-6",
     flexCenter: "flex justify-center items-center",
     flexStart: "flex justify-center items-start",
-    heading2: "font-poppins font-semibold xs:text-[38px]  sm:text-[40px] md:text-[40px] text-[30px] text-black xs:leading-[76.8px] leading-[66.8px] w-full",
+    heading2: "font-poppins font-semibold xs:text-[38px]  sm:text-[40px] md:text-[40px] text-[30px] text-black xs:leading-[76.8px] leading-[66.8px] ",
     paragraph: "font-poppins font-normal text-black text-[18px] leading-[30.8px]",
     inputError:'bg-red-50 border border-red-500 text-red-900 placeholder-red-700 text-sm rounded-lg focus:ring-red-500 dark:bg-gray-700 focus:border-red-500 block w-full p-2.5 dark:text-red-500 dark:placeholder-red-500 dark:border-red-500',
     inputNormal: 'py-4 px-6 border-2 placeholder:text-secondary text-black rounded-lg outlined-none font-medium',
