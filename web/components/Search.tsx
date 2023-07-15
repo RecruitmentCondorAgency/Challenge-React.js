@@ -67,6 +67,7 @@ const Search = () => {
               isFavorite={user.favorites.some(
                 (collegeId) => collegeId === college.id,
               )}
+              onClick={() => {}}
             />
           )
         })}

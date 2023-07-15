@@ -7,9 +7,10 @@ const NavBar = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const { user } = useSelector((state: any) => state.user)
+
   const logout = () => {
     dispatch(logoutUser())
-    navigate('/login')
+    return navigate('/login')
   }
 
   return (

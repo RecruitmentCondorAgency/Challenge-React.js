@@ -10,13 +10,8 @@ export function App() {
   return (
     <div className='App'>
       <Routes>
-        <Route
-          path='/'
-          element={
-            <NavBar>
-              <Profile />
-            </NavBar>
-          }>
+        <Route path='/' element={<NavBar />}>
+          <Route index element={<Profile />} />
           <Route path='signup' element={<SignUp />} />
           <Route path='login' element={<Login />} />
           <Route path='search' element={<Search />} />
