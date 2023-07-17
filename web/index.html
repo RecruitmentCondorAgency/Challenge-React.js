@@ -3,8 +3,75 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>Condor's React.js Challenge</title>
+		<script>
+			function myFunction(id) {
+			  var x = document.getElementById(id);
+			  if (x.className.indexOf("w3-show") == -1) {
+				x.className += " w3-show";
+			  } else { 
+				x.className = x.className.replace(" w3-show", "");
+			  }
+			}
+		</script>
+		<script>
+		// Get the modal
+			var modal = document.getElementById('id01');
+
+			// When the user clicks anywhere outside of the modal, close it
+			window.onclick = function(event) {
+				if (event.target == modal) {
+					modal.style.display = "none";
+				}
+			}
+		</script>
+		<script>
+			function setVisibility()
+			{
+				
+				var id01display = sessionStorage.getItem("id01");
+				console.log(id01display);
+				document.getElementById('id01').style.display = id01display;
+				var id02display = sessionStorage.getItem("id02");
+				console.log(id02display);
+				document.getElementById('id02').style.display = id02display;
+				var id03display = sessionStorage.getItem("id03");
+				console.log(id03display);
+				document.getElementById('id03').style.display = id03display;
+				sessionStorage.clear();
+			}
+			function myFunction2() 
+			{
+				sessionStorage.setItem("id01", "none");
+				sessionStorage.setItem("id02", "block");
+				sessionStorage.setItem("id03", "block");
+			}
+		</script>
+		<script>
+			function search()
+			{
+				var x = document.getElementById("search").value;
+				var universities = ["University 1","University 2", "University 3", "University 4", "University 5"];
+				let text = "Your current search has returned: ";
+				for (let i = 0; i < universities.length; i++) {
+					let currentText = universities[i];
+					let result = currentText.search(x);
+					if(result!==-1){text += currentText + ' ';}
+				}
+				if(text === "Your current search has returned: "){text = "No search results";}
+				document.getElementById("searchResult").innerHTML = text;
+			}
+		</script>
+		<style>
+			#id02 {
+				display: none;
+			}
+			#id03 {
+				display: none;
+			}
+		</style>
 	</head>
-	<body>
+	<body onload="setVisibility()">
+		<div id="demo"></div>
 		<div id="app"></div>
 		<script type="module" src="index.tsx"></script>
 	</body>

@@ -1,5 +1,6 @@
 import './styles.css'
+import { fs } from 'fs';
 
 export function App() {
-	return <h1>Hello world!</h1>
+	return "";
 }

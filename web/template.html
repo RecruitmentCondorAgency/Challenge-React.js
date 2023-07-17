@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* The Modal (background) */
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+
+</style>
+
+</head>
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<body onload="setVisibility()">
+
+<table>
+	<th><div class="imgcontainer">
+	  <img src='data:image/png;base64,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' alt="Avatar" id="avatar">
+	</div></th><th><div id="id03" class="w3-container">
+	<input type="search" id="search" placeholder="Search">
+	<button onclick="search()">Search</button>
+	<div id="searchResult"></div>
+	</div></th><th>Profile<th><th>Logout</th>
+</table>
+<div>
+	
+</div>
+
+<div id="id01">
+	<div class="container">
+	<form onsubmit="myFunction2();">
+		  <label for="uname"><b>Username</b></label>
+		  <input type="text" placeholder="Enter Username" name="uname" required>
+
+		  <label for="psw"><b>Password</b></label>
+		  <input type="password" placeholder="Enter Password" name="psw" required>
+			
+		  <input type="submit" value="Submit" >
+		  <label>
+			<input type="checkbox" checked="checked" name="remember" /> Remember me
+		  </label>
+	</form>
+	</div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+</div>
+
+<div id="id02" class="w3-container">
+	<h2>Accordions</h2>
+	<p>An accordion is used to show (and hide) HTML content:</p>
+	  
+	<button onclick="myFunction('Demo1')" class="w3-btn w3-block w3-black w3-left-align">Open Section 1</button>
+	<div id="Demo1" class="w3-container w3-hide">
+	  <p>Description of University 1</p>
+	</div>
+	<button onclick="myFunction('Demo2')" class="w3-btn w3-block w3-black w3-left-align">Open Section 2</button>
+	<div id="Demo2" class="w3-container w3-hide">
+	  <p>Description of University 2</p>
+	</div>
+	<button onclick="myFunction('Demo3')" class="w3-btn w3-block w3-black w3-left-align">Open Section 3</button>
+	<div id="Demo3" class="w3-container w3-hide">
+	  <p>Description of University 3</p>
+	</div>
+	<button onclick="myFunction('Demo4')" class="w3-btn w3-block w3-black w3-left-align">Open Section 4</button>
+	<div id="Demo4" class="w3-container w3-hide">
+	  <p>Description of University 4</p>
+	</div>
+	<button onclick="myFunction('Demo5')" class="w3-btn w3-block w3-black w3-left-align">Open Section 5</button>
+	<div id="Demo5" class="w3-container w3-hide">
+	  <p>Description of University 5</p>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+</body>
+</html>
