@@ -18,5 +18,13 @@
   "workspaces": [
     "server",
     "web"
-  ]
+  ],
+  "devDependencies": {
+    "@iconify/react": "^4.1.1",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react-redux": "^8.1.1",
+    "redux": "^4.2.1"
+  }
 }
