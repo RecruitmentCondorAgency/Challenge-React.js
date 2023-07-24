@@ -1,3 +1,61 @@
 {
-  "users": []
+  "users": [
+    {
+      "name": "lalo",
+      "password": "lalo",
+      "email": "lalo@lalo.com",
+      "favorites": [],
+      "id": 1
+    }
+  ],
+  "colleges": [
+    {
+      "web_page": "http://www.meu.edu.jo/",
+      "country": "Jordan",
+      "domain": "meu.edu.jo",
+      "name": "Middle East University",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+      "id": 1
+    },
+    {
+      "web_page": "http://www.odtu.edu.tr/",
+      "country": "Turkey",
+      "domain": "odtu.edu.tr",
+      "name": "Middle East Technical University",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+      "id": 2
+    },
+    {
+      "web_page": "http://www.mtsu.edu/",
+      "country": "USA",
+      "domain": "mtsu.edu",
+      "name": "Middle Tennessee State University",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+      "id": 3
+    },
+    {
+      "web_page": "http://www.mga.edu/",
+      "country": "USA",
+      "domain": "mga.edu",
+      "name": "Middle Georgia State College",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+      "id": 4
+    },
+    {
+      "web_page": "http://www.mdx.ac.uk/",
+      "country": "United Kingdom",
+      "domain": "mdx.ac.uk",
+      "name": "Middlesex University",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+      "id": 5
+    },
+    {
+      "web_page": "http://www.middlebury.edu/",
+      "country": "USA",
+      "domain": "middlebury.edu",
+      "name": "Middlebury College",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+      "id": 6
+    }
+  ]
 }
