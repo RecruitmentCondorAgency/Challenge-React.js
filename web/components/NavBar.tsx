@@ -8,10 +8,9 @@ import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Toolbar from "@mui/material/Toolbar";
-import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 import * as classes from "./NavBar.styles";
-import { Link, redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../app";
 // import {Logo} from "./logo.png";
 
@@ -43,8 +42,8 @@ function useAuth() {
 }
 
 function NavBar() {
-  const { user } = React.useContext(AuthContext);
-  console.log("!!!!", user);
+  const auth = React.useContext(AuthContext);
+  const { user } = auth;
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -134,7 +133,7 @@ function NavBar() {
                       </Link>
                     </MenuItem>
                     <MenuItem onClick={handleCloseNavMenu}>
-                      <Link to="/logout">
+                      <Link to="/" onClick={() => console.log('1111')}>
                         <Typography
                           textAlign="center"
                           style={classes.NavBarLink}
@@ -177,7 +176,7 @@ function NavBar() {
                     onClick={handleCloseNavMenu}
                     sx={{ my: 2, display: "block" }}
                   >
-                    <Link to="/logout" style={classes.NavBarLink}>
+                    <Link onClick={() => auth.signout()} to="/" style={classes.NavBarLink}>
                       Logout
                     </Link>
                   </Button>

@@ -20,5 +20,5 @@ export const NavBarText = {
 
 export const NavBarLink = {
     color: Colors.grey[700],
-    textDecoration: 'none !important'
+    textDecoration: 'underline !important'
 }

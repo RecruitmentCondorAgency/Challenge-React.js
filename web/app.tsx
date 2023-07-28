@@ -2,44 +2,43 @@ import * as React from "react";
 import { Routes, Route, Outlet, Link } from "react-router-dom";
 import { MainLayout } from "./MainLayout";
 import { authService } from "./auth/auth.service";
+import { User } from "./types";
 interface AuthContextType {
-  user: any;
-  signin: (user: string, callback: VoidFunction) => void;
-  signout: (callback: VoidFunction) => void;
-  toggle: (callback: VoidFunction, isAuthenticated: boolean) => void;
+  user: User;
+  usersAvailable: User[];
+  getAllUsers: () => void;
+  createNewUser: (newUser: User) => void;
+  signout: () => void;
+  signIn: (user: User) => void;
 }
 
 export let AuthContext = React.createContext<AuthContextType>(null!);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  let [user, setUser] = React.useState<any>(null);
+  let [user, setUser] = React.useState<User>(null);
+  let [usersAvailable, setUsersAvailable] = React.useState<User[]>([]);
 
-  let signin = (newUser: string, callback: VoidFunction) => {
-    return authService.signin(() => {
-      setUser(newUser);
-      callback();
-    });
+  let getAllUsers = async () => {
+    const data = await authService.getAllUsers();
+    setUsersAvailable(data);
   };
 
-  let signout = (callback: VoidFunction) => {
-    return authService.signout(() => {
-      setUser(null);
-      callback();
-    });
+  let createNewUser = async (newUser: User) => {
+    const data = await authService.createNewUser(newUser);
+    setUser(data)
+    await getAllUsers();
   };
 
-  let toggle = (callback: VoidFunction, isAuthenticated: boolean) => {
-    return authService.toggle(() => {
-      if (isAuthenticated) {
-        setUser(null);
-      } else {
-        setUser({ email: "smanaure93@gmail.com" });
-      }
-      callback();
-    });
+  let signIn = (user: User) => {
+    setUser(user);
   };
 
-  let value = { user, signin, signout, toggle };
+  let signout = async () => {
+    setUser(null);
+    await getAllUsers();
+  };
+
+  let value = { user, usersAvailable, getAllUsers, createNewUser, signIn, signout };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
@@ -49,19 +48,10 @@ export function App() {
     <AuthProvider>
       <Routes>
         <Route path="/" element={<MainLayout />}>
-          <Route index element={<Home />} />
           {/* <Route path="search" element={<Search />} />
           <Route path="profile" element={<Profile />} /> */}
         </Route>
       </Routes>
     </AuthProvider>
-  );
-}
-
-function Home() {
-  return (
-    <div>
-      <h2>Home</h2>
-    </div>
   );
 }

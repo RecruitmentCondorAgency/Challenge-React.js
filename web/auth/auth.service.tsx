@@ -1,18 +1,14 @@
-
+import axios from "axios";
+import { User } from "../types";
 
 const authService = {
-  isAuthenticated: false,
-  signin(callback: VoidFunction) {
-    authService.isAuthenticated = true;
-    setTimeout(callback, 100); // fake async
+  getAllUsers: async () => {
+    const { data } = await axios.get("http://localhost:3000/users");
+    return data;
   },
-  signout(callback: VoidFunction) {
-    authService.isAuthenticated = false;
-    setTimeout(callback, 100);
-  },
-  toggle(callback:VoidFunction) {
-    authService.isAuthenticated = !authService.isAuthenticated;
-    setTimeout(callback, 100);
+  createNewUser: async (user: User) => {
+    const { data } = await axios.post("http://localhost:3000/users", user);
+    return data;
   }
 };
 
