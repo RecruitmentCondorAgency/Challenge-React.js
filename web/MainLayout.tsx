@@ -19,9 +19,6 @@ export function MainLayout() {
       }}
     >
       <NavBar />
-      <div style={{ height: "100%", width: "100%" }}>
-        <LoginPage />
-      </div>
       <Outlet />
     </div>
   );

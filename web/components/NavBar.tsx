@@ -113,6 +113,15 @@ function NavBar() {
                   display: { xs: "block", md: "none" },
                 }}
               >
+                {user === null && (
+                  <MenuItem onClick={handleCloseNavMenu}>
+                    <Link to="/login">
+                      <Typography textAlign="center" style={classes.NavBarLink}>
+                        Login
+                      </Typography>
+                    </Link>
+                  </MenuItem>
+                )}
                 <MenuItem onClick={handleCloseNavMenu}>
                   <Link to="/search">
                     <Typography textAlign="center" style={classes.NavBarLink}>
@@ -133,7 +142,7 @@ function NavBar() {
                       </Link>
                     </MenuItem>
                     <MenuItem onClick={handleCloseNavMenu}>
-                      <Link to="/" onClick={() => console.log('1111')}>
+                      <Link to="/" onClick={() => auth.signout()}>
                         <Typography
                           textAlign="center"
                           style={classes.NavBarLink}
@@ -154,6 +163,18 @@ function NavBar() {
                 justifyContent: "flex-end",
               }}
             >
+              {user === null && (
+                <>
+                  <Button
+                    onClick={handleCloseNavMenu}
+                    sx={{ my: 2, display: "block" }}
+                  >
+                    <Link to="/login" style={classes.NavBarLink}>
+                      Login
+                    </Link>
+                  </Button>
+                </>
+              )}
               <Button
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, display: "block" }}
@@ -176,7 +197,11 @@ function NavBar() {
                     onClick={handleCloseNavMenu}
                     sx={{ my: 2, display: "block" }}
                   >
-                    <Link onClick={() => auth.signout()} to="/" style={classes.NavBarLink}>
+                    <Link
+                      onClick={() => auth.signout()}
+                      to="/"
+                      style={classes.NavBarLink}
+                    >
                       Logout
                     </Link>
                   </Button>
