@@ -11,35 +11,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import * as classes from "./NavBar.styles";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../app";
-// import {Logo} from "./logo.png";
-
-const pages = [
-  {
-    label: "Search",
-    url: "/search",
-  },
-  {
-    label: "Profile",
-    url: "/profile",
-  },
-];
-
-const modalStyle = {
-  position: "absolute" as "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-};
-
-function useAuth() {
-  return;
-}
+import { AuthContext } from "../../providers/auth.provider";
 
 function NavBar() {
   const auth = React.useContext(AuthContext);
@@ -64,7 +36,7 @@ function NavBar() {
             <Box sx={{ flexGrow: 0 }}>
               <IconButton sx={{ p: 0 }}>
                 <img
-                  src={require("./logo.png")}
+                  src={require("../../assets/images/logo.png")}
                   alt="logo"
                   style={classes.Logo}
                 />

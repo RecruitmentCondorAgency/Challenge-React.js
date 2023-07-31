@@ -7,15 +7,22 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import * as classes from "./LoginPage.styles";
-import { AuthContext } from "../../app";
+import { AuthContext } from "../../providers/auth.provider";
 import { red } from "@mui/material/colors";
 
 export function LoginPage() {
   const auth = React.useContext(AuthContext);
   const { usersAvailable } = auth;
+
+  const localStorageUser = localStorage.getItem("logged");
+  if (localStorageUser) {
+    auth.signIn(JSON.parse(localStorageUser));
+  }
+
   let [haveAccount, setHaveAccount] = React.useState<boolean>(true);
   let [pageTitle, setPageTitle] = React.useState<string>("Sign in");
   let [formError, setFormError] = React.useState<string>("");
+
   const validateLogin = (user: { email: string; password: string }) => {
     const foundUser = usersAvailable.find((item) => item.email === user.email);
     if (!foundUser) {
@@ -38,6 +45,7 @@ export function LoginPage() {
       foundUser,
     };
   };
+
   const validateRegister = (user: { email: string; password: string }) => {
     const foundUser = usersAvailable.find((item) => item.email === user.email);
     if (!user.email || !user.password) {
@@ -60,6 +68,7 @@ export function LoginPage() {
       foundUser: { ...user, id: usersAvailable.length + 1 },
     };
   };
+  
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);

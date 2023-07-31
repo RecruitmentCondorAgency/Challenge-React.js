@@ -36,9 +36,15 @@ const authService = {
       const { data: allUniversities } = await axios.get(
         `http://localhost:3000/universities`
       );
+      let id = 0;
+      allUniversities.forEach((item) => {
+        if (item.id >= id) {
+          id = item.id + 1;
+        }
+      });
       const { data: response } = await axios.post(
         `http://localhost:3000/universities`,
-        { ...rawData, id: allUniversities.length + 1 }
+        { ...rawData, id}
       );
       return response;
     } catch (error) {

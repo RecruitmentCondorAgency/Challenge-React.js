@@ -7,6 +7,12 @@ const universityService = {
     );
     return data;
   },
+  getUniversityCountry: async (param: string) => {
+    const { data } = await axios.get(
+      `https://restcountries.com/v3.1/alpha/${param}`
+    );
+    return data;
+  }
 };
 
 export { universityService };

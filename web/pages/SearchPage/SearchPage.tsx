@@ -10,9 +10,10 @@ import {
 import SearchIcon from "@mui/icons-material/Search";
 import StarIcon from "@mui/icons-material/Star";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
-import { AuthContext } from "../../app";
+import { AuthContext } from "../../providers/auth.provider";
 import * as classes from "./SearchPage.styles";
 import axios from "axios";
+import { universityService } from "../../services";
 
 export function SearchPage() {
   const [inputValue, setInputValue] = React.useState("");
@@ -20,13 +21,12 @@ export function SearchPage() {
   const [debouncedInputValue, setDebouncedInputValue] = React.useState("");
   const [universities, setUniversities] = React.useState([]);
   const [universitiesFound, setUniversitiesFound] = React.useState([]);
+
   const auth = React.useContext(AuthContext);
   const { universities: favUniversities, user } = auth;
+
   const getUniversities = async (param: string) => {
-    const { data } = await axios.get(
-      `http://universities.hipolabs.com/search?name=${param}`
-    );
-    return data;
+    return await universityService.getUniversities(param);
   };
 
   const handleInputChange = (event) => {
@@ -36,9 +36,13 @@ export function SearchPage() {
   React.useEffect(() => {
     const delayInputTimeoutId = setTimeout(() => {
       setDebouncedInputValue(inputValue);
-    }, 100);
+    }, 1000);
     return () => clearTimeout(delayInputTimeoutId);
-  }, [inputValue, 500]);
+  }, [inputValue, 1000]);
+
+  React.useEffect(() => {
+    setDebouncedInputValue(inputValueSearch);
+  }, [inputValueSearch]);
 
   React.useEffect(() => {
     const getData = async (param: string) => {
@@ -61,7 +65,7 @@ export function SearchPage() {
   };
 
   const handleFav = async (university) => {
-    await auth.saveNewFav({ ...university, userId: user.id })
+    await auth.saveNewFav({ ...university, userId: user.id });
   };
 
   return (
@@ -103,6 +107,21 @@ export function SearchPage() {
         </Grid>
       </Grid>
       <Container style={{ ...classes.ListContainer, flexDirection: "column" }}>
+        {universitiesFound.length === 0 && (
+          <Grid container spacing={2}>
+          <Grid item xs={12} style={classes.UniversityCardContainer}>
+            <Container style={classes.UniversityCard}>
+              <Grid container>
+                <Grid item xs={12}>
+                  <Typography component="h1" variant="h6">
+                    Couldn't find any university, please enter another filter
+                  </Typography>
+                </Grid>
+              </Grid>
+            </Container>
+          </Grid>
+        </Grid>
+        )}
         {universitiesFound.map((university, index) => (
           <Grid container spacing={2} key={index}>
             <Grid item xs={12} style={classes.UniversityCardContainer}>

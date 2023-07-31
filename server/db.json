@@ -4,65 +4,22 @@
       "id": 1,
       "email": "smanaure93@gmail.com",
       "password": "password2023"
-    },
-    {
-      "id": 2,
-      "email": "smanaure93@hotmail.com",
-      "password": "password2022"
-    },
-    {
-      "id": 3,
-      "email": "smanaure93@yahoo.com",
-      "password": "password2025"
-    },
-    {
-      "email": "socrates@condor.tech",
-      "password": "123456789",
-      "id": 4
     }
   ],
   "universities": [
     {
-      "id": 1,
-      "country": "United States",
+      "country": "Venezuela, Bolivarian Republic of",
       "domains": [
-        "centralgatech.edu"
+        "unexpo.edu.ve"
       ],
-      "alpha_two_code": "US",
+      "alpha_two_code": "VE",
       "state-province": null,
       "web_pages": [
-        "http://www.centralgatech.edu"
+        "http://www.unexpo.edu.ve/"
       ],
-      "name": "Central Georgia Technical College",
-      "userId": 1
-    },
-    {
-      "country": "China",
-      "domains": [
-        "crtvu.edu.cn"
-      ],
-      "alpha_two_code": "CN",
-      "state-province": null,
-      "web_pages": [
-        "http://www.crtvu.edu.cn/"
-      ],
-      "name": "Central Radio and TV University",
+      "name": "Universidad Nacional Experimental Politécnica \"Antonio José de Sucre\"",
       "userId": 1,
-      "id": 2
-    },
-    {
-      "country": "China",
-      "domains": [
-        "cun.edu.cn"
-      ],
-      "alpha_two_code": "CN",
-      "state-province": null,
-      "web_pages": [
-        "http://www.cun.edu.cn/"
-      ],
-      "name": "Central University for Nationalities",
-      "userId": 1,
-      "id": 3
+      "id": 5
     }
   ]
 }
