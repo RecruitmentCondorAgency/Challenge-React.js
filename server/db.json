@@ -1,3 +1,25 @@
 {
-  "users": []
+  "users": [
+    {
+      "id": 1,
+      "email": "smanaure93@gmail.com",
+      "password": "password2023"
+    }
+  ],
+  "universities": [
+    {
+      "country": "Venezuela, Bolivarian Republic of",
+      "domains": [
+        "unexpo.edu.ve"
+      ],
+      "alpha_two_code": "VE",
+      "state-province": null,
+      "web_pages": [
+        "http://www.unexpo.edu.ve/"
+      ],
+      "name": "Universidad Nacional Experimental Politécnica \"Antonio José de Sucre\"",
+      "userId": 1,
+      "id": 5
+    }
+  ]
 }
