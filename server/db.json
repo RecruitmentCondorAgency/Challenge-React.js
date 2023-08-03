@@ -1,3 +1,91 @@
 {
-  "users": []
+  "users": [{
+    "id": 1,
+    "email": "jsiewdass@gmail.com",
+    "password": "123456"
+  }],
+  "universities": [{
+    "id": 1,
+    "name": "University name",
+    "location": {
+      "Country": "Country",
+      "City": "City"
+    },
+    "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos obcaecati ad earum quae nihil nemo culpa, ea tempora debitis laborum. Quae accusamus nihil animi. Fuga ipsa sapiente nesciunt corporis porro.",
+    "isFavorite": false,
+    "website": "www.fake.com",
+    "currency": "Name (symbol)",
+    "Language": "Name",
+    "population": "9999999"
+  },
+  {
+    "id": 2,
+    "name": "University name",
+    "location": {
+      "Country": "Country",
+      "City": "City"
+    },
+    "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos obcaecati ad earum quae nihil nemo culpa, ea tempora debitis laborum. Quae accusamus nihil animi. Fuga ipsa sapiente nesciunt corporis porro.",
+    "isFavorite": false,
+    "website": "www.fake.com",
+    "currency": "Name (symbol)",
+    "Language": "Name",
+    "population": "9999999"
+  },
+  {
+    "id": 3,
+    "name": "University name",
+    "location": {
+      "Country": "Country",
+      "City": "City"
+    },
+    "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos obcaecati ad earum quae nihil nemo culpa, ea tempora debitis laborum. Quae accusamus nihil animi. Fuga ipsa sapiente nesciunt corporis porro.",
+    "isFavorite": false,
+    "website": "www.fake.com",
+    "currency": "Name (symbol)",
+    "Language": "Name",
+    "population": "9999999"
+  },
+  {
+    "id": 4,
+    "name": "University name",
+    "location": {
+      "Country": "Country",
+      "City": "City"
+    },
+    "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos obcaecati ad earum quae nihil nemo culpa, ea tempora debitis laborum. Quae accusamus nihil animi. Fuga ipsa sapiente nesciunt corporis porro.",
+    "isFavorite": false,
+    "website": "www.fake.com",
+    "currency": "Name (symbol)",
+    "Language": "Name",
+    "population": "9999999"
+  },
+  {
+    "id": 5,
+    "name": "University name",
+    "location": {
+      "Country": "Country",
+      "City": "City"
+    },
+    "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos obcaecati ad earum quae nihil nemo culpa, ea tempora debitis laborum. Quae accusamus nihil animi. Fuga ipsa sapiente nesciunt corporis porro.",
+    "isFavorite": false,
+    "website": "www.fake.com",
+    "currency": "Name (symbol)",
+    "Language": "Name",
+    "population": "9999999"
+  },
+  {
+    "id": 6,
+    "name": "University name",
+    "location": {
+      "Country": "Country",
+      "City": "City"
+    },
+    "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos obcaecati ad earum quae nihil nemo culpa, ea tempora debitis laborum. Quae accusamus nihil animi. Fuga ipsa sapiente nesciunt corporis porro.",
+    "isFavorite": false,
+    "website": "www.fake.com",
+    "currency": "Name (symbol)",
+    "Language": "Name",
+    "population": "9999999"
+  }]
 }
