@@ -5,15 +5,17 @@
     "node": ">=16"
   },
   "scripts": {
-    "start": "parcel ./index.html",
+    "dev": "parcel ./index.html",
     "build": "parcel build ./index.html",
-    "all": "npx tailwindcss -i ./tailwind.css -o ./dist/tailwind.css && parcel ./index.html"
+    "all": "npx tailwindcss -i ./tailwind.css -o ./dist/tailwind.css && parcel ./index.html",
+    "start": "concurrently \"npx tailwindcss -i ./tailwind.css -o ./dist/tailwind.css\" \"parcel ./index.html\""
   },
   "repository": "git@condor:rgCondor/Challenge-React.js.git",
   "author": "Rafael González",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.26.1",
+    "concurrently": "^8.2.0",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

@@ -1,6 +1,11 @@
 {
-  "users": [],
+  "users": [{
+    "id": 1,
+    "email": "jsiewdass@gmail.com",
+    "password": "123456"
+  }],
   "universities": [{
+    "id": 1,
     "name": "University name",
     "location": {
       "Country": "Country",
@@ -14,6 +19,7 @@
     "population": "9999999"
   },
   {
+    "id": 2,
     "name": "University name",
     "location": {
       "Country": "Country",
@@ -27,6 +33,7 @@
     "population": "9999999"
   },
   {
+    "id": 3,
     "name": "University name",
     "location": {
       "Country": "Country",
@@ -40,6 +47,7 @@
     "population": "9999999"
   },
   {
+    "id": 4,
     "name": "University name",
     "location": {
       "Country": "Country",
@@ -53,6 +61,7 @@
     "population": "9999999"
   },
   {
+    "id": 5,
     "name": "University name",
     "location": {
       "Country": "Country",
@@ -66,6 +75,7 @@
     "population": "9999999"
   },
   {
+    "id": 6,
     "name": "University name",
     "location": {
       "Country": "Country",

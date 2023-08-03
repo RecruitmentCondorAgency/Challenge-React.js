@@ -8,8 +8,8 @@ export const Navbar = ({ items }) => {
     console.log(items);
     
   return (
-    <nav className="sticky top-0 p-4 border border-slate-300 shadow-md">
-      <div className="flex justify-between items-center px-10 ">
+    <nav className="sticky top-0 p-4 border border-slate-300 shadow-md bg-white">
+      <div className="flex justify-between items-center px-10 bg-white">
         
         <img src={logo} alt="Logo de la empresa" className="h-8" />
         <ul className="flex space-x-4">
