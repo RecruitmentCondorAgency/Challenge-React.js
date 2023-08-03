@@ -6,20 +6,24 @@
   },
   "scripts": {
     "start": "parcel ./index.html",
-    "build": "parcel build ./index.html"
+    "build": "parcel build ./index.html",
+    "all": "npx tailwindcss -i ./tailwind.css -o ./dist/tailwind.css && parcel ./index.html"
   },
   "repository": "git@condor:rgCondor/Challenge-React.js.git",
   "author": "Rafael González",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.26.0",
+    "axios": "^0.26.1",
+    "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-icons": "^4.10.1",
     "react-router-dom": "^6.2.2"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
-    "parcel": "^2.2.1"
+    "parcel": "^2.2.1",
+    "tailwindcss": "^3.3.3"
   }
 }
