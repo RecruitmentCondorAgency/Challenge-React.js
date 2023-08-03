@@ -1,4 +1,4 @@
-interface UniversityModel {
+export interface UniversityModel {
     name: string;
     location: {
       Country: string;
