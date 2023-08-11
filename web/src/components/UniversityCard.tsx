@@ -1,3 +1,5 @@
+import { Card } from './Card';
+
 type ResultProps = {
   title: string;
   country: string;
@@ -10,7 +12,7 @@ export const UniversityCard: React.FC<ResultProps> = ({
   description,
 }) => {
   return (
-    <article className='drop-shadow-lg bg-white rounded-sm p-4'>
+    <Card element='article'>
       <div className='flex flex-col mb-6'>
         <h3 className='text-black font-bold'>{title}</h3>
         <span>{country}</span>
@@ -20,6 +22,6 @@ export const UniversityCard: React.FC<ResultProps> = ({
         </div>
       </div>
       <p>{description}</p>
-    </article>
+    </Card>
   );
 };

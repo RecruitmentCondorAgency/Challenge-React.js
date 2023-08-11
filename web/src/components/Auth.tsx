@@ -1,6 +1,8 @@
+import { Card } from "./Card";
+
 export function Auth() {
   return (
-    <div className='bg-white max-w-lg mx-auto px-6 py-4 drop-shadow-lg rounded-md'>
+    <Card className='max-w-lg mx-auto'>
       <form action=''>
         <fieldset className='flex flex-col gap-2 mb-4'>
           <label htmlFor='user' className='after:content-["*"] after:ml-0.5'>
@@ -34,6 +36,6 @@ export function Auth() {
           Login
         </button>
       </form>
-    </div>
+    </Card>
   );
 }
