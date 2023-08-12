@@ -2,9 +2,10 @@ import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
 import './styles.css';
 // @ts-ignore
 import logo from './logo.png';
-import { Auth } from './components/Auth';
+import { Login } from './components/Login';
 import Search from './components/Search';
 import { Profile } from './components/Profile';
+import { Register } from './components/Register';
 
 const router = createBrowserRouter([
   {
@@ -13,7 +14,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: 'login',
-        element: <Auth />,
+        element: <Login />,
+      },
+      {
+        path: 'register',
+        element: <Register />,
       },
       {
         path: 'search',
