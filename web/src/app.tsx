@@ -1,4 +1,9 @@
-import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
+import {
+  createBrowserRouter,
+  Outlet,
+  redirect,
+  RouterProvider,
+} from 'react-router-dom';
 import './styles.css';
 // @ts-ignore
 import logo from './logo.png';
@@ -6,6 +11,7 @@ import { Login } from './components/Login';
 import Search from './components/Search';
 import { Profile } from './components/Profile';
 import { Register } from './components/Register';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const router = createBrowserRouter([
   {
@@ -18,10 +24,20 @@ const router = createBrowserRouter([
       },
       {
         path: 'register',
+        loader: () => {
+          const prevUser = localStorage.getItem('condor-user');
+          if (prevUser) return redirect('/search');
+          return null;
+        },
         element: <Register />,
       },
       {
         path: 'search',
+        loader: () => {
+          const prevUser = localStorage.getItem('condor-user');
+          if (!prevUser) return redirect('/login');
+          return null;
+        },
         element: <Search />,
       },
       {
@@ -32,8 +48,14 @@ const router = createBrowserRouter([
   },
 ]);
 
+const queryClient = new QueryClient();
+
 export function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
+  );
 }
 
 function Root() {

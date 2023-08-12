@@ -1,10 +1,12 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Card } from './Card';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { userAPI } from '../repository/api';
 
 export function Register() {
   const defaultValues = {
-    user: '',
+    email: '',
     password: '',
     repeatPassword: '',
   };
@@ -14,9 +16,21 @@ export function Register() {
     formState: { errors },
   } = useForm({ defaultValues });
 
+  const queryClient = useQueryClient();
+  const navigate = useNavigate();
+  const { mutate, isError, isLoading } = useMutation({
+    mutationFn: userAPI.registerUser,
+    onSuccess: (data) => {
+      const { password, ...user } = data;
+      queryClient.setQueryData(['user'], user);
+      localStorage.setItem('condor-user', JSON.stringify(user));
+      navigate('/search');
+    },
+  });
+
   const onSubmit: SubmitHandler<typeof defaultValues> = (data) => {
     const { repeatPassword, ...user } = data;
-    // TODO: Save user to db
+    mutate(user);
   };
 
   return (
@@ -24,18 +38,18 @@ export function Register() {
       <form onSubmit={handleSubmit(onSubmit)}>
         <fieldset className='flex flex-col gap-2 mb-4'>
           <label htmlFor='user' className='after:content-["*"] after:ml-0.5'>
-            User
+            Email
           </label>
           <input
             className='p-2 border rounded-md'
-            placeholder='username'
-            type='text'
+            placeholder='user@email.com'
+            type='email'
             id='user'
-            {...register('user', {
+            {...register('email', {
               required: 'The field is required',
             })}
           />
-          <span className='text-xs text-red-500'>{errors?.user?.message}</span>
+          <span className='text-xs text-red-500'>{errors?.email?.message}</span>
           <label
             htmlFor='password'
             className='after:content-["*"] after:ml-0.5'
@@ -43,6 +57,7 @@ export function Register() {
             Password
           </label>
           <input
+            disabled={isLoading}
             className='p-2 border rounded-md'
             placeholder='****'
             type='password'
@@ -61,6 +76,7 @@ export function Register() {
             Repeat password
           </label>
           <input
+            disabled={isLoading}
             className='p-2 border rounded-md'
             placeholder='****'
             type='password'
@@ -78,11 +94,15 @@ export function Register() {
           </span>
         </fieldset>
         <button
-          className='bg-sky-500 px-6 py-2 rounded-md w-full text-white font-bold'
+          disabled={isLoading}
+          className='bg-sky-500 px-6 py-2 rounded-md w-full text-white font-bold disabled:bg-sky-500/60'
           type='submit'
         >
-          Create account
+          {isLoading ? 'Creating account...' : 'Create account'}
         </button>
+        <span className='text-xs text-red-500 block text-center my-2'>
+          {isError && 'There was and error, try again latet'}
+        </span>
       </form>
       <Link className='text-center m-1 block text-sm' to='/login'>
         Have and account already? login now
