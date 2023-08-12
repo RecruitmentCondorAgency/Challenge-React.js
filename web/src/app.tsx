@@ -1,5 +1,6 @@
 import {
   createBrowserRouter,
+  Link,
   Outlet,
   redirect,
   RouterProvider,
@@ -13,6 +14,16 @@ import { Profile } from './components/Profile';
 import { Register } from './components/Register';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
+const redirectIfUser = () => {
+  const prevUser = localStorage.getItem('condor-user');
+  if (prevUser) return redirect('/search');
+  return null;
+};
+const redirectIfNoUser = () => {
+  const prevUser = localStorage.getItem('condor-user');
+  if (!prevUser) return redirect('/login');
+  return null;
+};
 const router = createBrowserRouter([
   {
     path: '/',
@@ -20,24 +31,17 @@ const router = createBrowserRouter([
     children: [
       {
         path: 'login',
+        loader: redirectIfUser,
         element: <Login />,
       },
       {
         path: 'register',
-        loader: () => {
-          const prevUser = localStorage.getItem('condor-user');
-          if (prevUser) return redirect('/search');
-          return null;
-        },
+        loader: redirectIfUser,
         element: <Register />,
       },
       {
         path: 'search',
-        loader: () => {
-          const prevUser = localStorage.getItem('condor-user');
-          if (!prevUser) return redirect('/login');
-          return null;
-        },
+        loader: redirectIfNoUser,
         element: <Search />,
       },
       {
@@ -62,7 +66,9 @@ function Root() {
   return (
     <>
       <header className='flex px-10 py-8 drop-shadow-lg items-center bg-white mb-5'>
-        <img src={logo} className='w-8' />
+        <Link to='/search'>
+          <img src={logo} className='w-8' />
+        </Link>
         <a href='#' className='ml-auto'>
           Search
         </a>
