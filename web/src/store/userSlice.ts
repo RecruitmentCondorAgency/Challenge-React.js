@@ -19,6 +19,7 @@ export const userSlice = createSlice({
   reducers: {
     saveUser: (state, action) => {
       state.user = action.payload;
+      localStorage.setItem('condor-user', JSON.stringify(action.payload));
     },
     resetUser: (state) => {
       state.user = initialState.user;

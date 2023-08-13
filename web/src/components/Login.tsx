@@ -28,7 +28,6 @@ export function Login() {
     onSuccess: (data) => {
       const { password, ...user } = data;
       queryClient.setQueryData(['user'], user);
-      localStorage.setItem('condor-user', JSON.stringify(user));
       dispatch(saveUser(user));
       navigate('/search');
     },
