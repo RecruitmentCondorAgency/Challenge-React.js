@@ -30,6 +30,33 @@ function loginUser(user: smallUser) {
   });
 }
 
+function updateUser(user: Partial<User>) {
+  const { id, ...userData } = user;
+  return api
+    .patch<User>(`/users/${id}`, { ...userData })
+    .then((response) => response.data);
+}
+
+function addUniversity(user: Partial<User>, newUniversity: University) {
+  const isFavorite = user.universities.some(
+    (uni) => uni.name === newUniversity.name
+  );
+  if (isFavorite) return;
+  const newUniversities = [...user.universities, newUniversity];
+  return updateUser({ id: user.id, universities: newUniversities });
+}
+
+function removeUniversity(user: Partial<User>, university: University) {
+  const isFavorite = user.universities.some(
+    (uni) => uni.name === university.name
+  );
+  if (!isFavorite) return;
+  const newUniversities = user.universities.filter(
+    (uni) => uni.name !== university.name
+  );
+  return updateUser({ id: user.id, universities: newUniversities });
+}
+
 function searchUniversities(search: string) {
   return axios
     .get<University[]>('http://universities.hipolabs.com/search', {
@@ -43,6 +70,8 @@ function searchUniversities(search: string) {
 export const userAPI = {
   registerUser,
   loginUser,
+  addUniversity,
+  removeUniversity,
 };
 
 export const universityAPI = {

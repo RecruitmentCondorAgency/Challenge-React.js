@@ -7,6 +7,8 @@ type ResultProps = {
   country: string;
   domains: University['domains'];
   favorite?: boolean;
+  addFavorite: () => void;
+  removeFavorite: () => void;
 };
 
 export const UniversityCard: React.FC<ResultProps> = ({
@@ -14,7 +16,16 @@ export const UniversityCard: React.FC<ResultProps> = ({
   country,
   domains,
   favorite = false,
+  addFavorite,
+  removeFavorite,
 }) => {
+  const handleFavoriteButton = () => {
+    if (favorite) {
+      removeFavorite();
+    } else {
+      addFavorite();
+    }
+  };
   return (
     <Card element='article'>
       <div className='flex flex-col mb-6 md:flex-row md:gap-2'>
@@ -22,6 +33,7 @@ export const UniversityCard: React.FC<ResultProps> = ({
         <span>{country}</span>
         <div className='ml-auto flex gap-4'>
           <button
+            onClick={handleFavoriteButton}
             aria-label='add to favorites'
             className={`hover:bg-slate-100 rounded-full p-1
            flex items-center justify-center
@@ -33,7 +45,6 @@ export const UniversityCard: React.FC<ResultProps> = ({
               <StarIcon className='w-6 h-6' />
             )}
           </button>
-          <button>O</button>
         </div>
       </div>
       <p>Domains</p>
