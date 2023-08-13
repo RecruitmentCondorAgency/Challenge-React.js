@@ -6,13 +6,13 @@ import {
   RouterProvider,
 } from 'react-router-dom';
 import './styles.css';
-// @ts-ignore
-import logo from './logo.png';
+
 import { Login } from './components/Login';
 import Search from './components/Search';
 import { Profile } from './components/Profile';
 import { Register } from './components/Register';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { Root } from './components/Layout';
 
 const redirectIfUser = () => {
   const prevUser = localStorage.getItem('condor-user');
@@ -59,23 +59,5 @@ export function App() {
     <QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />
     </QueryClientProvider>
-  );
-}
-
-function Root() {
-  return (
-    <>
-      <header className='flex px-10 py-8 drop-shadow-lg items-center bg-white mb-5'>
-        <Link to='/search'>
-          <img src={logo} className='w-8' />
-        </Link>
-        <a href='#' className='ml-auto'>
-          Search
-        </a>
-      </header>
-      <main>
-        <Outlet />
-      </main>
-    </>
   );
 }
