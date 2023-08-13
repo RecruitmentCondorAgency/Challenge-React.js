@@ -13,6 +13,8 @@ import { Profile } from './components/Profile';
 import { Register } from './components/Register';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Root } from './components/Layout';
+import { Provider } from 'react-redux';
+import { store } from './store/store';
 
 const redirectIfUser = () => {
   const prevUser = localStorage.getItem('condor-user');
@@ -56,8 +58,10 @@ const queryClient = new QueryClient();
 
 export function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
-    </QueryClientProvider>
+    <Provider store={store}>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
+    </Provider>
   );
 }
