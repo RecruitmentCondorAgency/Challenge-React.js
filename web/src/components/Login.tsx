@@ -3,6 +3,8 @@ import { Card } from './Card';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useQueryClient, useMutation } from '@tanstack/react-query';
 import { userAPI } from '../repository/api';
+import { useDispatch } from 'react-redux';
+import { saveUser } from '../store/userSlice';
 
 export function Login() {
   const defaultValues = {
@@ -18,12 +20,16 @@ export function Login() {
 
   const queryClient = useQueryClient();
   const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+
   const { mutate, isError, isLoading, error } = useMutation({
     mutationFn: userAPI.loginUser,
     onSuccess: (data) => {
       const { password, ...user } = data;
       queryClient.setQueryData(['user'], user);
       localStorage.setItem('condor-user', JSON.stringify(user));
+      dispatch(saveUser(user));
       navigate('/search');
     },
     onError: () => {

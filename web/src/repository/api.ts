@@ -5,7 +5,7 @@ const api = axios.create({
   baseURL: 'http://localhost:3000',
 });
 
-type smallUser = Omit<User, 'universities'>;
+type smallUser = Omit<User, 'universities' | 'id'>;
 
 function registerUser(user: smallUser) {
   const newUser: User = { ...user, universities: [] };
