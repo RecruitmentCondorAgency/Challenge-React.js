@@ -33,7 +33,7 @@ export function Root() {
   return (
     <>
       <header className='flex px-10 py-8 drop-shadow-lg items-center bg-white mb-5'>
-        <Link to='/search'>
+        <Link to='/'>
           <img src={logo} className='w-8' />
         </Link>
         <div className='ml-auto flex items-center gap-4'>
@@ -52,7 +52,7 @@ export function Root() {
           {prevUser && (
             <>
               <NavLink
-                to='/search'
+                to='/'
                 className={({ isActive }) =>
                   isActive
                     ? 'text-gray-400 underline'

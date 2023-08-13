@@ -51,7 +51,7 @@ export const Profile = () => {
           {isLoading && <p>Loading favorites universities...</p>}
           {!isLoading && data.id !== 0 && data?.universities.length === 0 && (
             <p>
-              No favorites yet, <Link to='/search'>take a look</Link>
+              No favorites yet, <Link to='/'>take a look</Link>
             </p>
           )}
           {data?.universities?.map((university, i) => (

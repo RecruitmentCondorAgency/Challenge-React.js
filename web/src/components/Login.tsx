@@ -29,7 +29,7 @@ export function Login() {
       const { password, ...user } = data;
       queryClient.setQueryData(['user'], user);
       dispatch(saveUser(user));
-      navigate('/search');
+      navigate('/');
     },
     onError: () => {
       reset({ password: '' });

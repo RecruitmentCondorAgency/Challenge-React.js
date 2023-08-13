@@ -29,7 +29,7 @@ export function Register() {
       const { password, ...user } = data;
       queryClient.setQueryData(['user'], user);
       dispatch(saveUser(user));
-      navigate('/search');
+      navigate('/');
     },
   });
 

@@ -18,7 +18,7 @@ import { store } from './store/store';
 
 const redirectIfUser = () => {
   const prevUser = localStorage.getItem('condor-user');
-  if (prevUser) return redirect('/search');
+  if (prevUser) return redirect('/');
   return null;
 };
 const redirectIfNoUser = () => {
@@ -42,7 +42,7 @@ const router = createBrowserRouter([
         element: <Register />,
       },
       {
-        path: 'search',
+        index: true,
         loader: redirectIfNoUser,
         element: <Search />,
       },
