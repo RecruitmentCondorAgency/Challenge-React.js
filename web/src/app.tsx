@@ -48,6 +48,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'profile',
+        loader: redirectIfNoUser,
         element: <Profile />,
       },
     ],

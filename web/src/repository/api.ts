@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { User } from '../types/user';
 import { University } from '../types/university';
+import { Country } from '../types/country';
+import { Weather } from '../types/weather';
 
 const api = axios.create({
   baseURL: 'http://localhost:3000',
@@ -37,6 +39,10 @@ function updateUser(user: Partial<User>) {
     .then((response) => response.data);
 }
 
+function getUser(id: number) {
+  return api.get<User>(`/users/${id}`).then((response) => response.data);
+}
+
 function addUniversity(user: Partial<User>, newUniversity: University) {
   const isFavorite = user.universities.some(
     (uni) => uni.name === newUniversity.name
@@ -67,7 +73,35 @@ function searchUniversities(search: string) {
     .then((response) => response.data);
 }
 
+function getCountryInfo(alphaCode: string) {
+  return axios
+    .get<Country[]>(`https://restcountries.com/v3.1/alpha/${alphaCode}`)
+    .then((response) => {
+      if (response.data.length !== 1) throw Error('Multiple countries');
+      return response.data[0];
+    });
+}
+
+function getWeatherInfo(lon: number, lat: number) {
+  return api
+    .get<Weather>('http://www.7timer.info/bin/api.pl', {
+      params: {
+        lon,
+        lat,
+        product: 'two',
+        output: 'json',
+      },
+    })
+    .then((response) => response.data);
+}
+
+export const countryAPI = {
+  getCountryInfo,
+  getWeatherInfo,
+};
+
 export const userAPI = {
+  getUser,
   registerUser,
   loginUser,
   addUniversity,

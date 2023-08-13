@@ -1,36 +1,17 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { UniversityCard } from './UniversityCard';
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { universityAPI, userAPI } from '../repository/api';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../store/store';
-import { University } from '../types/university';
-import { useEffect } from 'react';
-import { saveUser } from '../store/userSlice';
+import { useQuery } from '@tanstack/react-query';
+import { universityAPI } from '../repository/api';
+import { useUniversity } from '../hooks/useUniversity';
 
 export default function Search() {
   const defaultValues = {
     search: '',
   };
 
-  const user = useSelector((state: RootState) => state.user.user);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (user.id === 0) {
-      const prevUser = localStorage.getItem('condor-user');
-      if (prevUser) {
-        const userSaved = JSON.parse(prevUser);
-        dispatch(saveUser(userSaved));
-      }
-    }
-    return () => {};
-  }, []);
-
-  const isFavorite = (university: University) =>
-    user.universities.some((uni) => uni.name === university.name);
-
   const { handleSubmit, register, watch } = useForm({ defaultValues });
+
+  const { isFavorite, addUniversity, removeUniversity } = useUniversity();
 
   const search = watch('search');
 
@@ -44,25 +25,6 @@ export default function Search() {
     queryFn: () => universityAPI.searchUniversities(search),
     enabled: false,
     refetchOnWindowFocus: false,
-  });
-
-  const queryClient = useQueryClient();
-
-  const { mutate: addUniversity } = useMutation({
-    mutationFn: (university: University) =>
-      userAPI.addUniversity(user, university),
-    onSuccess: (data) => {
-      queryClient.invalidateQueries(['universities']);
-      dispatch(saveUser(data));
-    },
-  });
-  const { mutate: removeUniversity } = useMutation({
-    mutationFn: (university: University) =>
-      userAPI.removeUniversity(user, university),
-    onSuccess: (data) => {
-      queryClient.invalidateQueries(['universities']);
-      dispatch(saveUser(data));
-    },
   });
 
   const onSubmit: SubmitHandler<typeof defaultValues> = () => refetch();

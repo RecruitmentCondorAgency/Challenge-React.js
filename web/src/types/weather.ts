@@ -1,3 +1,12 @@
+export type weatherType =
+  | 'clear'
+  | 'pcloudy'
+  | 'cloudy'
+  | 'rain'
+  | 'snow'
+  | 'ts'
+  | 'tsrain';
+
 export interface Weather {
   product: string;
   init: string;
@@ -11,7 +20,7 @@ export interface Weather {
         temp2m: number;
         rh2m: string;
         wind10m: { direction: string; speed: number };
-        weather: string;
+        weather: weatherType;
       }[]
     | null;
 }

@@ -7,8 +7,8 @@ type ResultProps = {
   country: string;
   domains: University['domains'];
   favorite?: boolean;
-  addFavorite: () => void;
-  removeFavorite: () => void;
+  addFavorite?: () => void;
+  removeFavorite?: () => void;
 };
 
 export const UniversityCard: React.FC<ResultProps> = ({
@@ -21,9 +21,9 @@ export const UniversityCard: React.FC<ResultProps> = ({
 }) => {
   const handleFavoriteButton = () => {
     if (favorite) {
-      removeFavorite();
+      removeFavorite && removeFavorite();
     } else {
-      addFavorite();
+      addFavorite && addFavorite();
     }
   };
   return (
@@ -47,11 +47,11 @@ export const UniversityCard: React.FC<ResultProps> = ({
           </button>
         </div>
       </div>
-      <p>Domains</p>
+      <p className='text-left'>Domains</p>
       {domains?.map((domain) => (
-        <span key={`domain-${domain}`} className='font-semibold'>
+        <p key={`domain-${domain}`} className='font-semibold text-left'>
           {domain}
-        </span>
+        </p>
       ))}
     </Card>
   );

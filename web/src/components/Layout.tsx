@@ -1,6 +1,10 @@
 // @ts-ignore
+import { useEffect } from 'react';
 import logo from '../logo.png';
 import { Link, NavLink, Outlet, useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '../store/store';
+import { saveUser } from '../store/userSlice';
 
 export function Root() {
   const navigate = useNavigate();
@@ -12,9 +16,22 @@ export function Root() {
     navigate('/login');
   };
 
+  const user = useSelector((state: RootState) => state.user.user);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (user.id === 0) {
+      const prevUser = localStorage.getItem('condor-user');
+      if (prevUser) {
+        const userSaved = JSON.parse(prevUser);
+        dispatch(saveUser(userSaved));
+      }
+    }
+    return () => {};
+  }, []);
+
   return (
     <>
-    
       <header className='flex px-10 py-8 drop-shadow-lg items-center bg-white mb-5'>
         <Link to='/search'>
           <img src={logo} className='w-8' />
