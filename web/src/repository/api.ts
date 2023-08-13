@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { User } from '../types/user';
+import { University } from '../types/university';
 
 const api = axios.create({
   baseURL: 'http://localhost:3000',
@@ -29,7 +30,21 @@ function loginUser(user: smallUser) {
   });
 }
 
+function searchUniversities(search: string) {
+  return axios
+    .get<University[]>('http://universities.hipolabs.com/search', {
+      params: {
+        name: search,
+      },
+    })
+    .then((response) => response.data);
+}
+
 export const userAPI = {
   registerUser,
   loginUser,
+};
+
+export const universityAPI = {
+  searchUniversities,
 };
