@@ -63,11 +63,12 @@ function removeUniversity(user: Partial<User>, university: University) {
   return updateUser({ id: user.id, universities: newUniversities });
 }
 
-function searchUniversities(search: string) {
+function searchUniversities(search: string, limit?: number) {
   return axios
     .get<University[]>('http://universities.hipolabs.com/search', {
       params: {
         name: search,
+        limit,
       },
     })
     .then((response) => response.data);

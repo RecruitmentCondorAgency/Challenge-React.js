@@ -133,8 +133,11 @@ export const Profile = () => {
             <p className='text-semibold text-black'>Weather - two weeks</p>
             {isLoadingWeather && <p>Loading weather data...</p>}
             <div className='grid grid-cols-7'>
-              {weatherInfo?.dataseries.map((ds) => (
-                <WeatherIcon weatherType={ds.weather} />
+              {weatherInfo?.dataseries.map((ds, i) => (
+                <WeatherIcon
+                  key={`weather-${countryData?.name}-${i}`}
+                  weatherType={ds.weather}
+                />
               ))}
             </div>
           </Card>
