@@ -1,0 +1,10 @@
+{
+  "name": "react-i",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "parcel ./index.html"
+  },
+  "repository": "git@condor:rgCondor/Challenge-React.js.git",
+  "author": "Rafael González",
+  "license": "MIT"
+}
