@@ -3,3 +3,5 @@
 node_modules
 dist
 .nvmrc
+server/db.json
+web/src/styles.css
