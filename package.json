@@ -3,20 +3,37 @@
   "version": "1.0.0",
   "description": "Condor's React.js assessment challenge",
   "main": "index.js",
+  "private": true,
+  "license": "MIT",
+  "repository": "git@condor:rgCondor/Challenge-React.js.git",
+  "author": "Rafael González",
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   },
   "scripts": {
-    "app": "npm start -w web",
-    "server": "npm start -w server",
+    "start": "node start-workspace.js",
+    "server": "json-server --watch db.json",
     "clean": "npx rimraf node_modules .parcel-cache web/dist web/.parcel-cache web/node_modules",
     "reset": "npm run clean && npm i"
   },
-  "repository": "git@condor:rgCondor/Challenge-React.js.git",
-  "author": "Rafael González",
-  "license": "MIT",
   "workspaces": [
-    "server",
-    "web"
-  ]
+    "packages/*",
+    "server"
+  ],
+  "dependencies": {
+    "axios": "^0.26.0",
+    "json-server": "^0.17.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^6.2.2"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@types/react-router-dom": "^5.3.3",
+    "parcel": "^2.2.1",
+    "prompt-sync": "^4.2.0",
+    "typescript": "^5.1.6"
+  }
 }
