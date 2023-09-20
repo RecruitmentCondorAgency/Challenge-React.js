@@ -6,5 +6,8 @@
   },
   "repository": "git@condor:rgCondor/Challenge-React.js.git",
   "author": "Rafael González",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "parcel": "^2.9.3"
+  }
 }
