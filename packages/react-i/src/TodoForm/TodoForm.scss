@@ -1,0 +1,31 @@
+@import "../styles.scss";
+
+.todo-input {
+  @include createInput();
+
+  margin-top: 4rem;
+}
+
+.btn-container {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: space-around;
+
+  .btn-form {
+    border: none;
+    background-color: $tertiary;
+    padding: 0.5rem;
+    width: 10rem;
+    color: $white;
+
+    &.cancel {
+      background-color: $white;
+      color: $black;
+    }
+
+    &.disabled {
+      background-color: $gray;
+      color: $gray-lighten;
+    }
+  }
+}

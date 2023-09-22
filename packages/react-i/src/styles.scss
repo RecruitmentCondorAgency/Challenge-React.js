@@ -1,0 +1,24 @@
+$primary: #46539e;
+$secondary: #16317a;
+$tertiary: #2ebaef;
+$white: #ffffff;
+$gray: #c6c6c6;
+$gray-lighten: #eeeeee;
+$success: #37d7b2;
+$black: #000000;
+
+@mixin createInput($color: $white) {
+  border: 1px solid $color;
+  background-color: $color;
+  border-radius: 3px;
+  padding: 0.5rem;
+  outline: 0;
+  transition: 0.25s ease-in-out;
+  width: 100%;
+
+  &:focus,
+  &:active,
+  &:hover {
+    border-color: $primary;
+  }
+}
