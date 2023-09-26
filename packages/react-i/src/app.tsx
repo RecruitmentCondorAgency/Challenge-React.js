@@ -1,3 +1,24 @@
+
+import ItemList from './component/itemList';
+
 import './styles.css'
 
-export const App = () => <h1>Hello world!</h1>
+
+
+
+const App: React.FC = () => {
+  return (
+
+
+
+      <div className="container mx-auto p-4">
+
+        <ItemList />
+
+      </div>
+
+ 
+  );
+};
+
+export default App;
