@@ -6,12 +6,10 @@ export const Readme = ({ readme: ReadmeB }: { readme: typeof ReadmeA }) => {
 	const [toc, setToc] = useState<JSX.Element>()
 
 	useEffect(() => {
-		if (!ref.current) return
-		appendToggle(ref.current)
+		if (!ref.current || toc) return
 		setToc(buildTOC(ref.current))
+		appendToggle(ref.current)
 	}, [ref.current])
-
-	console.log({ toc })
 
 	return (
 		<>
@@ -42,10 +40,9 @@ const buildTOC = (div: HTMLDivElement) => {
 		if (!allowedTags.includes(cn.tagName.toLowerCase())) return
 		const cnid = cn.tagName + '-' + i
 		cn.id = cnid
-		console.log({ cnid })
 
 		TOC.push(
-			<a href={`#${cnid}`} target='_self' className={cn.tagName}>
+			<a href={`#${cnid}`} key={i} target='_self' className={cn.tagName}>
 				{cn.innerText}
 			</a>
 		)
