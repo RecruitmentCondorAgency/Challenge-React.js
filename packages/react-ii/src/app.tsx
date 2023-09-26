@@ -1,5 +1,4 @@
-import './styles.css'
+import { Readme } from '../../../common/readme'
+import ReadmeB from '../README.mdx'
 
-export function App() {
-	return <h1>Hello world!</h1>
-}
+export const App = () => <Readme readme={ReadmeB} />
