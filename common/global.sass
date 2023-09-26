@@ -1,0 +1,119 @@
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap')
+
+html
+  scroll-behavior: smooth
+
+  *, *::after
+    transition: all 150ms ease-in-out
+
+#toc,
+#readme
+  max-width: 800px
+  width: 100%
+  padding: 1rem 2rem
+  margin: 0 auto
+  line-height: 1.5
+  text-align: justify
+
+#toc
+  display: flex
+  flex-flow: column nowrap
+
+blockquote,
+code
+  font-family: 'JetBrains Mono'
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul
+  margin-bottom: 1rem
+
+li,
+*
+  margin-bottom: 0.5rem
+
+  &:last-child
+    margin-bottom: 0
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+code
+  font-weight: 600
+
+h1
+  font-size: 2.5rem
+
+h2
+  font-size: 1.5rem
+
+code
+  font-size: 0.85rem
+  color: indianred
+  padding: 0.25rem 0.5rem
+  border-radius: 0.25rem
+  background: transparentize(black, 0.95)
+
+blockquote
+  padding: 1rem
+  margin: 1rem
+  border-radius: 0.5rem
+  background: #ffd9b3
+  color: darken(#ffd9b3,50%)
+  font-weight: bold
+  font-size: 0.8rem
+
+ul
+  padding: 1rem
+  margin: 1rem
+  border-radius: 0.5rem
+  background: lighten(black,95%)
+
+li
+  position: relative
+  padding-left: 2rem
+  cursor: pointer
+  &::after
+    display: block
+    width: 1.5rem
+    height: 1.5rem
+    border-radius: 0.25rem
+    text-align: center
+    aspect-ratio: 1
+    content: '✓'
+    position: absolute
+    left: 0
+    top: 0
+    color: gray
+    background: transparentize(black, 0.95)
+  &.done::after
+    color: white
+    background: transparentize(green, 0.55)
+
+a
+  position: relative
+  color: dodgerblue
+  width: max-content
+
+  &:hover
+    &::after
+      width: 100%
+
+  &::after
+    content: ''
+    position: absolute
+    bottom: -2px
+    left: 0
+    width: 0.5rem
+    height: 2px
+    border-radius: 1rem
+    background-color: currentColor
