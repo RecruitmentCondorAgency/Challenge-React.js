@@ -21,6 +21,7 @@
     "server"
   ],
   "dependencies": {
+    "@mdx-js/react": "^1.6.22",
     "axios": "^0.26.0",
     "json-server": "^0.17.0",
     "react": "^17.0.2",
@@ -28,7 +29,10 @@
     "react-router-dom": "^6.2.2"
   },
   "devDependencies": {
+    "@parcel/transformer-mdx": "^2.8.3",
+    "@parcel/transformer-sass": "^2.8.3",
     "@types/axios": "^0.14.0",
+    "@types/mdx": "^2.0.6",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@types/react-router-dom": "^5.3.3",
