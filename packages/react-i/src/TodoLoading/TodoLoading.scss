@@ -1,0 +1,27 @@
+@import "../styles.scss";
+
+.todo-loading {
+  width: 100%;
+  padding: 1rem;
+  transition: 0.5s;
+  min-height: 5rem;
+  border-radius: 1rem 1rem 0 0;
+  margin-top: 1rem;
+  background: linear-gradient(
+    90deg,
+    $gray-lighten 25%,
+    $gray 50%,
+    $gray-lighten 75%
+  );
+  background-size: 200% 100%;
+  animation: loading 2s infinite ease-in-out;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
