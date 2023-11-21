@@ -2,5 +2,140 @@
 @tailwind components
 @tailwind utilities
 
-// You can remove the following line
-@import '../../../common/global'
+.dark
+
+    color: #fff
+
+    .container
+        background: #000
+
+    input
+        &:checked
+            background-color: #2196F3
+        &:focus
+            box-shadow: 0 0 1px #2196F3
+        &:checked + .slider
+            background-color: #2196F3
+        &:focus + .slider
+            box-shadow: 0 0 1px #2196F3
+
+    .slider
+        background-color: #ccc
+
+    .add-item-form
+        input
+            border: 1px solid #fff
+            background: #fff
+            color: #000
+
+.light
+
+    color: #000
+
+    .container
+        background: #f2f2f2
+
+    input
+        &:checked
+            background-color: #2196F3
+        &:focus
+            box-shadow: 0 0 1px #2196F3
+        &:checked + .slider
+            background-color: #2196F3
+        &:focus + .slider
+            box-shadow: 0 0 1px #2196F3
+
+    .slider
+        background-color: #ccc
+
+.container
+    margin: 50px
+    padding: 16px
+    border-radius: 8px
+
+ul
+    list-style-type: none
+    margin-top: 16px
+
+li
+    line-height: 26px
+    font-size: 16px
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin-bottom: 8px
+
+.list-header
+    display: flex
+    justify-content: space-between
+    margin-bottom: 16px
+
+.btn-sort, .btn-add
+    border: 1px solid
+    padding: 4px 8px
+    border-radius: 4px
+    margin: 0 4px
+
+.add-item-form
+    label
+        line-height: 26px
+        margin-right: 8px
+
+    input
+        height: 34px
+        border: 1px solid #000
+        background: #fff
+        color: #000
+        border-radius: 4px
+        &:focus
+            box-shadow: none
+        &:focus-visible
+            outline: none
+
+.theme-switcher
+    display: flex
+    align-items: center
+
+    span
+        margin-right: 4px
+
+.switch
+    position: relative
+    display: inline-block
+    width: 60px
+    height: 34px
+
+    input
+        opacity: 0
+        width: 0
+        height: 0
+        &:checked + .slider
+            &::before
+                -webkit-transform: translateX(26px)
+                -ms-transform: translateX(26px)
+                transform: translateX(26px)
+
+    .slider
+        position: absolute
+        cursor: pointer
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+        -webkit-transition: .4s
+        transition: .4s
+        &::before
+            position: absolute
+            content: ""
+            height: 26px
+            width: 26px
+            left: 4px
+            bottom: 4px
+            background-color: white
+            -webkit-transition: .4s
+            transition: .4s
+
+    .round
+        border-radius: 34px
+        &::before
+            border-radius: 50%
