@@ -19,7 +19,7 @@ const Header: FC = () => {
       <div className='header-content'>
         <a href='/' className='logo-section'>
           <img src={logoIcon} alt='logo' />
-          <span>React App</span>
+          <span>Listing App</span>
         </a>
         <div className='toggle-btn-section'>
           <div className={`toggle-checkbox m-vertical-auto`}>
