@@ -109,6 +109,9 @@
   @include themify($themes) {
     background: themed('bodyBackgroundColor');
   }
+  @include themify($themes) {
+    color: themed('textColor');
+  }
   
 }
 
@@ -118,4 +121,179 @@
 //   height: calc(100vh - 78px);
 }
 
+$background: #efefef;
+$lfs-blue: #000;
+$lfs-yellow: #000;
+$lfs-grey: #75787b;
 
+.table-latitude {
+    width: 100%;
+    margin-top: 50px;
+    thead {
+        @include themify($themes) {
+          border-top: 2px solid themed('textColor');
+        }
+        @include themify($themes) {
+          border-bottom: 2px solid themed('textColor');
+        }
+
+        // border-top: 2px solid $lfs-yellow;
+        // border-bottom: 2px solid $lfs-yellow;
+        th {
+            text-transform: uppercase;
+            text-align: center;
+            padding: 10px;
+            // color: $lfs-blue;
+            @include themify($themes) {
+              color: themed('textColor');
+            }
+            border: 1px solid #F1F1F1;
+        }
+    }
+    tbody {
+        tr {
+            border-bottom: 1px solid #F1F1F1;
+            color: $lfs-grey;
+            td {
+                padding: 10px;
+                border: 1px solid #F1F1F1;
+                text-align: center;
+            }
+            th {
+                padding-left: 10px;
+                border: 1px solid #F1F1F1;
+            }
+        }
+    }
+    tfoot {
+        color: $lfs-yellow;
+        font-style: italic;
+        border-bottom: 2px solid $lfs-yellow;
+        tr {
+            td {
+                padding: 10px;
+                border: 1px solid #F1F1F1;
+            }
+        }
+    }
+}
+
+.btn {
+  appearance: none;
+  -webkit-appearance: none;
+  font-family: sans-serif;
+  cursor: pointer;
+  padding: 6px;
+  min-width: 100px;
+  border: 0px;
+  transition: background-color 100ms linear;
+
+  &:focus, &.focus {
+    outline: 0;
+  }
+}
+
+.btn-round-1 {
+  border-radius: 8px;
+}
+
+.btn-primary {
+  background: #3498db;
+  color: #ffffff;
+
+  &:hover {
+    background: #2980b9;
+    color: #ffffff;
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 100;
+  bottom: 140;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  visibility: visible;
+  opacity: 1;
+
+  // &:target {
+  //   visibility: visible;
+  //   opacity: 1;
+  // }
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 40%;
+  position: relative;
+  transition: all 5s ease-in-out;
+
+  h2 {
+    margin-top: 0;
+    // color: #333;
+    @include themify($themes) {
+      color: themed('textColor');
+    }
+    font-family: Tahoma, Arial, sans-serif;
+  }
+
+  .close {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+    cursor: pointer;
+  }
+
+  .content {
+    margin-top: 20px;
+    max-height: 50%;
+    overflow: auto;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .box {
+    width: 70%;
+  }
+
+  .popup {
+    width: 70%;
+  }
+}
+
+.form-popup {
+  label {
+    color: #000;
+  }
+}
+
+input[type="text"],input[type="number"] {
+  width: 100%;
+  padding: 8px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #000;
+}
+
+input[type="submit"] {
+  width: 100%;
+  background: #3498db;
+  color: white;
+  padding: 10px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}

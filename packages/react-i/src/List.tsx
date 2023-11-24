@@ -1,32 +1,89 @@
-function List({ item }) {
+import Modal from "./Modal"
+
+function List({
+  item,
+  handleSorting,
+  getSortingIcon,
+  open,
+  handleOpen,
+  handleClose,
+  defaultValue,
+  handleInputChange,
+  handleSubmit
+}) {
+  console.log("defaultValue", defaultValue)
   return (
-    <table className='table-fixed'>
-      <thead>
-        <tr>
-          <th>Song</th>
-          <th>Artist</th>
-          <th>Year</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>
-          <td>Malcolm Lockyer</td>
-          <td>1961</td>
-        </tr>
-        <tr>
-          <td>Witchy Woman</td>
-          <td>The Eagles</td>
-          <td>1972</td>
-        </tr>
-        <tr>
-          <td>Shining Star</td>
-          <td>Earth, Wind, and Fire</td>
-          <td>1975</td>
-        </tr>
-      </tbody>
-    </table>
-  );
+    <>
+      <div className="container">
+        <div className="panel panel-default">
+          <div className="panel-body">
+            <table className="table-latitude">
+              <thead>
+                <th onClick={() => handleSorting("id")}># ID</th>
+                <th onClick={() => handleSorting("label")}>Label</th>
+                <th onClick={() => handleSorting("value")}>Value</th>
+                <th>Action</th>
+              </thead>
+              <tbody>
+                {item?.map((item, index) => (
+                  <tr key={index}>
+                    <th>{item.id}</th>
+                    <td>{item.label}</td>
+                    <td>{item.value}</td>
+                    <td>
+                      <button
+                        className="btn btn-primary btn-round-1"
+                        onClick={() => {
+                          handleOpen(item.id)
+                        }}
+                      >
+                        Edit
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <Modal isOpen={open} onClose={handleClose}>
+        <>
+          <div className="form-popup">
+            <label htmlFor="fname">Label</label>
+            <input
+              type="text"
+              id="label"
+              name="label"
+              placeholder="Please Enter Label"
+              value={defaultValue.label}
+              onChange={(e) => {
+                handleInputChange(e, e.target.value, "label")
+              }}
+            />
+
+            <label htmlFor="lname">Value</label>
+            <input
+              type="number"
+              id="value"
+              name="value"
+              placeholder="Please Enter Value"
+              value={defaultValue.value}
+              onChange={(e) => {
+                handleInputChange(e, Number(e.target.value), "value")
+              }}
+            />
+
+            <input
+              type="submit"
+              value="Submit"
+              onClick={() => {handleSubmit(defaultValue.id)}}
+            />
+          </div>
+        </>
+      </Modal>
+    </>
+  )
 }
 
-export default List;
+export default List
