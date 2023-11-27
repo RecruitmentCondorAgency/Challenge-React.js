@@ -1,1 +1,29 @@
-{}
+{
+  "list-items": [
+    {
+      "id": "1",
+      "label": "Travis",
+      "value": 1
+    },
+    {
+      "id": "2",
+      "label": "Warner",
+      "value": 2
+    },
+    {
+      "id": "3",
+      "label": "Smith",
+      "value": 3
+    },
+    {
+      "id": "4",
+      "label": "Michel",
+      "value": 4
+    },
+    {
+      "id": "5",
+      "label": "Marnus",
+      "value": 5
+    }
+  ]
+}
