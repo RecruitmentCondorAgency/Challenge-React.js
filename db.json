@@ -1,1 +1,93 @@
-{}
+{
+  "users": [
+    {
+      "email": "testmohit@gmail.com",
+      "password": "$2a$10$i1X/IwM7Z.EJR/AV1cECx.oEfCzRz.Tb1BqvuZIGtZ0yaLqIlYvma",
+      "firstName": "test",
+      "lastName": "mohit",
+      "id": 1
+    },
+    {
+      "email": "raj@gmail.com",
+      "password": "$2a$10$d9kMyKkf3Z5f4jAnobR0huTNJwdxx9SWwFfAgAJJszDaFBg0U.cIS",
+      "firstName": "rajdeepak",
+      "lastName": "condor",
+      "id": 2
+    },
+    {
+      "email": "testrohit@gmail.com",
+      "password": "$2a$10$e23Wj98G3re.5EZQMVwq5.cBswZSZtfacd21.S4qQ93/QZTV8ztO2",
+      "firstName": "test",
+      "lastName": "rohit",
+      "id": 3
+    }
+  ],
+  "favorites": [
+    {
+      "userId": "1",
+      "status": true,
+      "country": "Ukraine",
+      "domains": "student.karazin.ua",
+      "title": "Kharkiv National University",
+      "webPages": "https://karazin.ua",
+      "state": null,
+      "alpha": "UA",
+      "id": 1
+    },
+    {
+      "userId": "1",
+      "status": true,
+      "country": "Chile",
+      "domains": "usm.cl",
+      "title": "Universidad Técnica Federico Santa María",
+      "webPages": "https://usm.cl",
+      "state": null,
+      "alpha": "CL",
+      "id": 2
+    },
+    {
+      "userId": "1",
+      "status": true,
+      "country": "Ukraine",
+      "domains": "student.karazin.ua",
+      "title": "Kharkiv National University",
+      "webPages": "https://karazin.ua",
+      "state": null,
+      "alpha": "UA",
+      "id": 3
+    },
+    {
+      "userId": "2",
+      "status": true,
+      "country": "Ukraine",
+      "domains": "student.karazin.ua",
+      "title": "Kharkiv National University",
+      "webPages": "https://karazin.ua",
+      "state": null,
+      "alpha": "UA",
+      "id": 4
+    },
+    {
+      "userId": "3",
+      "status": true,
+      "country": "Ukraine",
+      "domains": "student.karazin.ua",
+      "title": "Kharkiv National University",
+      "webPages": "https://karazin.ua",
+      "state": null,
+      "alpha": "UA",
+      "id": 5
+    },
+    {
+      "userId": "3",
+      "status": true,
+      "country": "France",
+      "domains": "ieseg.fr",
+      "title": "IÉSEG School of Management",
+      "webPages": "https://ieseg.fr",
+      "state": null,
+      "alpha": "FR",
+      "id": 6
+    }
+  ]
+}
