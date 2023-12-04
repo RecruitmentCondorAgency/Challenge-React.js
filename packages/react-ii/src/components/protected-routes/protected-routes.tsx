@@ -2,7 +2,7 @@ import { FC, ReactNode } from "react";
 import { Navigate } from "react-router-dom";
 import Login from "../../pages/login/login";
 
-export type ProtectedProps {
+export type ProtectedProps = {
     isLoggedIn: boolean,
     children: ReactNode
 }
