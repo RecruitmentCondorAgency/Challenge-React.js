@@ -1,16 +1,24 @@
-import { FC, ReactNode } from "react";
+import { FC, ReactNode, useEffect } from "react";
 import { Navigate } from "react-router-dom";
-import Login from "../../pages/login/login";
+import { User } from "../../types/user";
 
 export type ProtectedProps = {
-    isLoggedIn: boolean,
     children: ReactNode
 }
 
 const ProtectedRoutes: FC<ProtectedProps> = (props: ProtectedProps) => {
-    const { isLoggedIn, children } = props;
+    const { children } = props;
+    const getLocalStorageUser = () => {
+        const userFromStorage = localStorage.getItem("currentUser");
+        if (userFromStorage && Object.keys(userFromStorage).length) {
+            return JSON.parse(userFromStorage) as User
+        } else {
+            return null;
+        }
+    }
+
     return (<>
-        {isLoggedIn ? { children } : <Navigate to={'/login'} />}
+        {!!(getLocalStorageUser()?.email) ? { children } : <Navigate to={'/login'} />}
     </>
     )
 }

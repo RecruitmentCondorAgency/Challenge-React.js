@@ -2,31 +2,66 @@ import { StarIcon, ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline
 import { StarIcon as SolidStarIcon, } from '@heroicons/react/24/solid';
 import './university-list-card.sass';
 import { University } from '../../types/university';
+import { useAppDispatch, useAppSelector } from '../../hooks';
+import { useEffect, useState } from 'react';
+import { APIResponse } from '../../types/api';
+import { User } from '../../types/user';
+import UserService from '../../services/user-service';
+import { setUser } from '../../features/users/userSlice';
 
 export interface UniversityListCardProps {
 	university?: University
-	selected?: boolean
 	width?: number
 }
 
 const UniversityListCard = (props: UniversityListCardProps) => {
-	const {width = 50, selected = false, university} = props;
+	const { width = 50, university } = props;
+	const user = useAppSelector((state) => state.users)
+	const [selected, setSelected] = useState<boolean>(false);
+	const dispatch = useAppDispatch()
+
+	const toggleSelection = async () => {
+		if (selected) {
+			const response: APIResponse<User> = await UserService.removeUniversityFromFavourites(user.user, university);
+			console.log(response)
+			if (response.status !== '200') {
+				alert('Could Not remove from Favourites')
+			} else {
+				dispatch(setUser(response.response))
+				setSelected(!selected)
+			}
+		} else {
+			const response: APIResponse<User> = await UserService.addFavouriteUniversity(user.user, university);
+			console.log(response)
+			if (response.status !== '200') {
+				alert('Could not add to favourites')
+			} else {
+				dispatch(setUser(response.response))
+				setSelected(!selected)
+			}
+		}
+	}
+	useEffect(() => {
+		if (university?.name) {
+			const found = user?.user.universities.find((uni) => uni?.name === university?.name);
+			setSelected(!!found)
+		}
+	}, [user, university])
 	return (
 		<div className="bg-white px-8 py-4 rounded-lg shadow-lg mt-2" style={{ width: `${width}%` }}>
 			<div className='flex items-start justify-between'>
 				<div className='flex flex-col items-center justify-between'>
 					<div className='flex flex-row items-center w-full justify-start'>
-						<h2 className='text-gray-800 font-medium'>University name</h2>
-						<h3 className='text-gray-800' style={{ margin: '0px 0px 0px 25px' }}>Country</h3>
+						<h2 className='text-gray-800 font-medium'>{university?.name}</h2>
+						<h3 className='text-gray-800' style={{ margin: '0px 0px 0px 25px' }}>{university?.country}</h3>
 					</div>
 					<div className='flex flex-row items-center w-full justify-start'>
-						<p className='text-sm'>We'd like to see a proposal to enrich this module.Malesuada purus nibh dictumst odio sed elit adipiscing. Turpis malesuada nulla molestie ac gravida magna. Imperdiet tempus, commodo non morbi nisi. Et sit dictum velit facilisi id. Sed augue eget metus non habitant. Donec praesent vel tellus consequat turpis venenatis quis.
-Curabitur urna arcu et venenatis, aliquet turpis elit risus. Sapien, at vitae molestie purus nec quam fermentum adipiscing. Varius eget nibh mi, ut dui nisi, cursus nunc. Hendrerit faucibus amet vel nisl, integer. Odio sit pretium sed nascetur vitae in aliquam feugiat integer.
-</p>
+						<p className='text-sm'>{university?.name} is the best university.
+						</p>
 					</div>
 				</div>
-				<div className='flex flex-row items-center justify-between icons-block'  style={{ margin: '0px 0px 0px 10px' }}>
-					{selected ? <SolidStarIcon className="block h-4 w-4 m-[5px] cursor-pointer hover:bg-sky-300" aria-hidden="true" style={{ color: '#ffc233' }} /> : <StarIcon className="block h-4 w-4 m-[5px] cursor-pointer hover:bg-sky-300" aria-hidden="true" />}
+				<div className='flex flex-row items-center justify-between icons-block' style={{ margin: '0px 0px 0px 10px' }}>
+					{selected ? <SolidStarIcon className="block h-4 w-4 m-[5px] cursor-pointer hover:bg-sky-300" aria-hidden="true" style={{ color: '#ffc233' }} onClick={toggleSelection} /> : <StarIcon className="block h-4 w-4 m-[5px] cursor-pointer hover:bg-sky-300" aria-hidden="true" onClick={toggleSelection} />}
 					<ArrowTopRightOnSquareIcon className="block h-4 w-4 m-[5px] cursor-pointer hover:bg-sky-300" aria-hidden="true" />
 				</div>
 			</div>

@@ -7,6 +7,7 @@ import { User } from '../../types/user';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../../features/users/userSlice';
 import { useNavigate } from 'react-router-dom';
+import { useAppDispatch } from '../../hooks';
 
 const Register = () => {
 	const [email, setEmail] = useState<string>('');
@@ -14,16 +15,16 @@ const Register = () => {
 	const [password, setPassword] = useState<string>('');
 	const [passwordError, setPasswordError] = useState<string>('');
 	const [confirmPassword, setConfirmPassword] = useState<string>('');
-	const dispatch =useDispatch()
-	const navigate=useNavigate();
+	const dispatch = useAppDispatch()
+	const navigate = useNavigate();
 	const validations = () => {
 		const validateEmail = (email) => {
 			return String(email)
-			  .toLowerCase()
-			  .match(
-				/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-			  );
-		  };
+				.toLowerCase()
+				.match(
+					/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+				);
+		};
 
 		if (email && !validateEmail(email)) {
 			setEmailError('Please Enter a valid Email');
@@ -37,14 +38,14 @@ const Register = () => {
 		return true
 	}
 
-	useEffect(function() {
+	useEffect(function () {
 		setEmailError('')
 		setPasswordError('')
 		validations();
-		
+
 	}, [email, password, confirmPassword])
-	
-	
+
+
 	const registrationHandler = async () => {
 		setEmailError('')
 		setPasswordError('')
@@ -66,6 +67,7 @@ const Register = () => {
 					universities: []
 				});
 				if (regResponse.status == '200') {
+					localStorage.setItem("currentUser", JSON.stringify(regResponse.response));
 					dispatch(setUser(regResponse.response))
 					navigate("/search")
 				} else {
@@ -90,7 +92,7 @@ const Register = () => {
 								name="email"
 								type="email"
 								value={email}
-								onChange={(e)=> {
+								onChange={(e) => {
 									setEmail(e?.target?.value)
 								}}
 								autoComplete="email"
@@ -98,8 +100,8 @@ const Register = () => {
 								placeholder='Email'
 								className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
 							/>
-							{emailErrpr && <><span className='text-sm' style={{color:'red'}}>*{emailErrpr}</span></>}
-							
+							{emailErrpr && <><span className='text-sm' style={{ color: 'red' }}>*{emailErrpr}</span></>}
+
 						</div>
 					</div>
 
@@ -116,7 +118,7 @@ const Register = () => {
 								name="password"
 								type="password"
 								value={password}
-								onChange={(e)=> {
+								onChange={(e) => {
 									setPassword(e?.target?.value)
 								}}
 								autoComplete="current-password"
@@ -139,7 +141,7 @@ const Register = () => {
 								name="confirm-password"
 								type="password"
 								value={confirmPassword}
-								onChange={(e)=> {
+								onChange={(e) => {
 									setConfirmPassword(e?.target?.value)
 								}}
 								autoComplete="current-password"
@@ -147,7 +149,7 @@ const Register = () => {
 								placeholder='Enter your password again'
 								className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
 							/>
-							{passwordError && <><span className='text-sm' style={{color:'red'}}>*{passwordError}</span></>}
+							{passwordError && <><span className='text-sm' style={{ color: 'red' }}>*{passwordError}</span></>}
 						</div>
 					</div>
 
