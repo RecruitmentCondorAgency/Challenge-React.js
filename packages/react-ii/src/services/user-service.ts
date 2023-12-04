@@ -41,11 +41,16 @@ const UserService = {
     addFavouriteUniversity: async (user: User, university: University) => {
         const response: APIResponse<User> = {} as APIResponse<User>;
         const found = user?.universities.find((uni) => uni?.name === university?.name);
+        const newList = [...user?.universities]
         if (!found) {
-            user?.universities.push(university)
+            newList.push(university)
+            user.universities = newList
         }
         try {
-            const { data, status } = await axios.put(`http://localhost:3000/users${user?.id}`,user)
+            const { data, status } = await axios.put(`http://localhost:3000/users/${user?.id}`, {
+                ...user,
+                universities:newList
+            })
             response.response = data;
             response.status = '200'
         } catch (err) {
@@ -60,11 +65,15 @@ const UserService = {
     removeUniversityFromFavourites: async (user: User, university: University) => {
         const response: APIResponse<User> = {} as APIResponse<User>;
         const found = user?.universities.find((uni) => uni?.name === university?.name);
+        let newList = [...user?.universities]
         if (found) {
-            user.universities = user?.universities.filter((uni) => uni?.name !== university?.name);
+            newList = newList?.filter((uni) => uni?.name !== university?.name);
         }
         try {
-            const { data, status } = await axios.put(`http://localhost:3000/users${user?.id}`,user)
+            const { data, status } = await axios.put(`http://localhost:3000/users/${user?.id}`, {
+                ...user,
+                universities:newList
+            })
             response.response = data;
             response.status = '200'
         } catch (err) {
