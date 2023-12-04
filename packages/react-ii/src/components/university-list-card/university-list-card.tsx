@@ -9,6 +9,7 @@ import UserService from '../../services/user-service';
 import { setUser } from '../../features/users/userSlice';
 import { Country } from '../../types/country';
 import CountryService from '../../services/country-service';
+import { Link } from 'react-router-dom';
 
 export interface UniversityListCardProps {
 	university?: University
@@ -70,20 +71,20 @@ const UniversityListCard = (props: UniversityListCardProps) => {
 					<div className='flex flex-col items-center w-full justify-start'>
 						<p className='text-sm'>{university?.name} is the best university.</p>
 						{showDetails && <>
-						<p className='text-sm'>Website: {university?.web_pages?.length ? university.web_pages[0] : ''}</p>
-						<p className='text-sm'>Location: {university?.country}, {university['state-province']}</p>
-						<p className='text-sm'>Country's capital: {university?.country}, {country?.capital?.length ? country.capital[0] : ''}</p>
-						<p className='text-sm'>Currency: {country?.currencies ? country?.currencies[Object.keys(country.currencies)[0]]?.name : ''}</p>
-						<p className='text-sm'>Language: {country?.languages ? country?.languages[Object.keys(country.languages)[0]] : ''}</p>
-						<p className='text-sm'>Population: {country?.population}</p>
+							<p className='text-sm'>Website: {university?.web_pages?.length ? university.web_pages[0] : ''}</p>
+							<p className='text-sm'>Location: {university?.country}, {university['state-province']}</p>
+							<p className='text-sm'>Country's capital: {university?.country}, {country?.capital?.length ? country.capital[0] : ''}</p>
+							<p className='text-sm'>Currency: {country?.currencies ? country?.currencies[Object.keys(country.currencies)[0]]?.name : ''}</p>
+							<p className='text-sm'>Language: {country?.languages ? country?.languages[Object.keys(country.languages)[0]] : ''}</p>
+							<p className='text-sm'>Population: {country?.population}</p>
 
 						</>}
 					</div>
 				</div>
-				{!hideControls && <div className='flex flex-row items-center justify-between icons-block' style={{ margin: '0px 0px 0px 10px' }}>
+				<div className='flex flex-row items-center justify-between icons-block' style={{ margin: '0px 0px 0px 10px' }}>
 					{selected ? <SolidStarIcon className="block h-4 w-4 m-[5px] cursor-pointer hover:bg-sky-300" aria-hidden="true" style={{ color: '#ffc233' }} onClick={toggleSelection} /> : <StarIcon className="block h-4 w-4 m-[5px] cursor-pointer hover:bg-sky-300" aria-hidden="true" onClick={toggleSelection} />}
-					<ArrowTopRightOnSquareIcon className="block h-4 w-4 m-[5px] cursor-pointer hover:bg-sky-300" aria-hidden="true" />
-				</div>}
+					{!hideControls && <Link to={`/university?university=${university.name}`} ><ArrowTopRightOnSquareIcon className="block h-4 w-4 m-[5px] cursor-pointer hover:bg-sky-300" aria-hidden="true" /></Link>}
+				</div>
 			</div>
 		</div>
 	)

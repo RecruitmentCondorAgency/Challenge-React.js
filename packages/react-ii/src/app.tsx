@@ -8,7 +8,6 @@ import Layout from "./components/layout/layout";
 import { Provider } from 'react-redux'
 import { store } from './store'
 
-import ProtectedRoutes from "./components/protected-routes/protected-routes";
 import Session from "./components/session/session";
 
 export const App = () => {
