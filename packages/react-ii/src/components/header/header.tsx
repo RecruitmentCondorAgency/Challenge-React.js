@@ -2,9 +2,10 @@ import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import logo from '../../assets/logo.png';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { useAppSelector } from '../../hooks';
+import { useAppDispatch, useAppSelector } from '../../hooks';
+import { removeUser } from '../../features/users/userSlice';
 
 
 const navigation = [
@@ -12,7 +13,6 @@ const navigation = [
 	{ name: 'University', href: '/university', current: false, linkType: 'LOGGED_IN' },
 	{ name: 'Register', href: '/register', current: false, linkType: 'ANONYMOUS' },
 	{ name: 'Login', href: '/login', current: false, linkType: 'ANONYMOUS' },
-	{ name: 'Logout', href: '/logout', current: false, linkType: 'LOGGED_IN' },
 ]
 
 function classNames(...classes) {
@@ -22,6 +22,14 @@ function classNames(...classes) {
 const Header = () => {
 	const location = useLocation();
 	const user = useAppSelector((state) => state.users)
+	const dispatch = useAppDispatch()
+	const navigate = useNavigate()
+
+	const logout = () => {
+		localStorage.removeItem("currentUser");
+		dispatch(removeUser())
+		navigate("/login")
+	}
 	return (
 		<Disclosure as="nav" className="border border-grey-800 shadow-lg">
 			{({ open }) => (
@@ -39,7 +47,7 @@ const Header = () => {
 								<div className="hidden md:block">
 									<div className="ml-10 flex items-baseline space-x-4">
 										{navigation.filter((item) => {
-											return item.linkType === 'LOGGED_IN' && user?.user.email || item.linkType === 'ANONYMOUS' && !user?.user.email
+											return item.linkType === 'LOGGED_IN' && user?.user?.email || item.linkType === 'ANONYMOUS' && !user?.user?.email
 										}).map((item) => {
 											return {
 												...item,
@@ -60,6 +68,21 @@ const Header = () => {
 												{item.name}
 											</a>
 										))}
+
+{!!user?.user?.email && 											<a
+												key={'Logout'}
+												href={'#'}
+												className={classNames(
+													false
+														? 'bg-gray-900 text-white'
+														: 'text-gray-800 hover:bg-gray-700 hover:text-white',
+													'rounded-md px-3 py-2 text-sm font-medium'
+												)}
+												aria-current={undefined}
+												onClick={logout}
+											>
+												{'Logout'}
+											</a>}
 									</div>
 								</div>
 							</div>
@@ -81,7 +104,7 @@ const Header = () => {
 					<Disclosure.Panel className="md:hidden">
 						<div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
 							{navigation.filter((item) => {
-								return item.linkType === 'LOGGED_IN' && user?.user.email || item.linkType === 'ANONYMOUS' && !user?.user.email
+								return item.linkType === 'LOGGED_IN' && user?.user?.email || item.linkType === 'ANONYMOUS' && !user?.user?.email
 							}).map((item) => {
 								return {
 									...item,
@@ -101,6 +124,20 @@ const Header = () => {
 									{item.name}
 								</Disclosure.Button>
 							))}
+
+{user?.user?.email && 						<Disclosure.Button
+									key={'Logout'}
+									as="a"
+									href={'#'}
+									className={classNames(
+										false ? 'bg-gray-900 text-white' : 'text-gray-700 hover:bg-gray-700 hover:text-white',
+										'block rounded-md px-3 py-2 text-base font-medium'
+									)}
+									aria-current={false ? 'page' : undefined}
+									onClick={logout}
+								>
+									{'Logout'}
+								</Disclosure.Button>}
 						</div>
 
 					</Disclosure.Panel>

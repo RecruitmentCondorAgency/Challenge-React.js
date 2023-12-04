@@ -39,7 +39,7 @@ const Search = () => {
 
 							</div>
 							<div style={{ width: '20%' }} className="px-4">
-								<div className=' flex justify-center items-center bg-sky-500 hover:bg-white rounded-lg w-full text-white hover:text-gray-700' style={{ height: '100%' }}>
+								<div className=' flex justify-center items-center bg-sky-500 hover:bg-white rounded-lg w-full text-white hover:text-gray-700' style={{ height: '100%', minWidth: '42px' }}>
 									<MagnifyingGlassCircleIcon className="block h-8 w-8 cursor-pointer " aria-hidden="true" />
 								</div>
 							</div>

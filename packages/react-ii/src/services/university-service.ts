@@ -7,7 +7,7 @@ const UniversityService = {
     searchUniversity: async (query: string) => {
         const response: APIResponse<University[]> = {} as APIResponse<University[]>;
         try {
-            const { data, status } = await axios.get<University[]>(`http://universities.hipolabs.com/search?name=${query}`)
+            const { data, status } = await axios.get<University[]>(`http://universities.hipolabs.com/search?name=${query}&limit=50`)
             if (data?.length) {
                 response.status = '200'
                 response.response = data;
