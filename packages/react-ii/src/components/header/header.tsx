@@ -3,19 +3,17 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import './header.sass';
 import logo from '../../assets/logo.png';
+import { useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useAppSelector } from '../../hooks';
 
-const user = {
-	name: 'Tom Cook',
-	email: 'tom@example.com',
-	imageUrl:
-		'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-}
+
 const navigation = [
-	{ name: 'Search', href: '/search', current: true },
-	{ name: 'University', href: '/university', current: false },
-	{ name: 'Register', href: '/register', current: false },
-	{ name: 'Login', href: '/login', current: false },
-	{ name: 'Logout', href: '/logout', current: false },
+	{ name: 'Search', href: '/search', current: true, linkType: 'LOGGED_IN' },
+	{ name: 'University', href: '/university', current: false, linkType: 'LOGGED_IN' },
+	{ name: 'Register', href: '/register', current: false, linkType: 'ANONYMOUS' },
+	{ name: 'Login', href: '/login', current: false, linkType: 'ANONYMOUS' },
+	{ name: 'Logout', href: '/logout', current: false, linkType: 'LOGGED_IN' },
 ]
 
 function classNames(...classes) {
@@ -23,6 +21,8 @@ function classNames(...classes) {
 }
 
 const Header = () => {
+	const location = useLocation();
+	const user = useAppSelector((state) => state.users)
 	return (
 		<Disclosure as="nav" className="border border-grey-800 shadow-lg">
 			{({ open }) => (
@@ -39,7 +39,14 @@ const Header = () => {
 								</div>
 								<div className="hidden md:block">
 									<div className="ml-10 flex items-baseline space-x-4">
-										{navigation.map((item) => (
+										{navigation.filter((item) => {
+											return item.linkType === 'LOGGED_IN' && user?.user.email || item.linkType === 'ANONYMOUS' && !user?.user.email
+										}).map((item) => {
+											return {
+												...item,
+												current: item.href === location.pathname
+											}
+										}).map((item) => (
 											<a
 												key={item.name}
 												href={item.href}
@@ -74,7 +81,14 @@ const Header = () => {
 
 					<Disclosure.Panel className="md:hidden">
 						<div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
-							{navigation.map((item) => (
+							{navigation.filter((item) => {
+								return item.linkType === 'LOGGED_IN' && user?.user.email || item.linkType === 'ANONYMOUS' && !user?.user.email
+							}).map((item) => {
+								return {
+									...item,
+									current: item.href === location.pathname
+								}
+							}).map((item) => (
 								<Disclosure.Button
 									key={item.name}
 									as="a"
@@ -89,7 +103,7 @@ const Header = () => {
 								</Disclosure.Button>
 							))}
 						</div>
-					
+
 					</Disclosure.Panel>
 				</>
 			)}

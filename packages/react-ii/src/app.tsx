@@ -5,19 +5,24 @@ import Search from "./pages/search/search";
 import University from "./pages/university/university";
 import Layout from "./components/layout/layout";
 
+import { Provider } from 'react-redux'
+import { store } from './store'
+
 export const App = () => {
     return (
         <>
-            <Layout>
+            <Provider store={store}>
                 <BrowserRouter>
-                    <Routes>
-                        <Route path="/login" element={<Login />} />
-                        <Route path="/register" element={<Register />} />
-                        <Route path="/search" element={<Search />} />
-                        <Route path="/university" element={<University />} />
-                    </Routes>
+                    <Layout>
+                        <Routes>
+                            <Route path="/login" element={<Login />} />
+                            <Route path="/register" element={<Register />} />
+                            <Route path="/search" element={<Search />} />
+                            <Route path="/university" element={<University />} />
+                        </Routes>
+                    </Layout>
                 </BrowserRouter>
-            </Layout>
+            </Provider>
         </>
     );
 }
