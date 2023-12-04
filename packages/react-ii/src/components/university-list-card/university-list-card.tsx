@@ -1,6 +1,5 @@
 import { StarIcon, ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
 import { StarIcon as SolidStarIcon, } from '@heroicons/react/24/solid';
-import './university-list-card.sass';
 import { University } from '../../types/university';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { useEffect, useState } from 'react';

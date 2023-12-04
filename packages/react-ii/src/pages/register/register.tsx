@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import Card from '../../components/card/card';
-import './register.sass';
 import UserService from '../../services/user-service';
 import { APIResponse } from '../../types/api';
 import { User } from '../../types/user';

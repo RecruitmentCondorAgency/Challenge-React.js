@@ -3,7 +3,6 @@ import UniversityListCard from '../../components/university-list-card/university
 import Card from '../../components/card/card';
 import { Combobox } from '@headlessui/react'
 import { MagnifyingGlassCircleIcon } from '@heroicons/react/24/outline';
-import './search.sass';
 import { useDebounce } from "use-debounce";
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import UniversityService from '../../services/university-service';

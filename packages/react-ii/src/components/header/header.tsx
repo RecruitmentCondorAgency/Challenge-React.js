@@ -1,7 +1,6 @@
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import './header.sass';
 import logo from '../../assets/logo.png';
 import { useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';

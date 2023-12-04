@@ -1,4 +1,3 @@
-import './card.sass';
 
 export interface CardProps {
 	children: React.ReactNode

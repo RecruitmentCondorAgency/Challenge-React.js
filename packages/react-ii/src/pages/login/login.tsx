@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import Card from '../../components/card/card';
-import './login.sass';
 import { useDispatch } from 'react-redux';
 import { APIResponse } from '../../types/api';
 import UserService from '../../services/user-service';

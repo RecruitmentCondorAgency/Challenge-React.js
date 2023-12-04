@@ -1,6 +1,5 @@
 import UniversityListCard from '../../components/university-list-card/university-list-card';
 import { useAppSelector } from '../../hooks';
-import './university.sass';
 
 const University = () => {
 	const user = useAppSelector((state) => state.users)
