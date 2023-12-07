@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.auto_container {
+  @apply max-w-full md:max-w-screen-md xl:max-w-6xl 3xl:max-w-[90rem] w-full mx-auto px-6
+}
+
+body {
+  @apply w-full overflow-x-hidden !bg-[#f6f8fc]
+}
+button.MuiButtonBase-root.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeMedium.MuiButton-containedSizeMedium.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeMedium.MuiButton-containedSizeMedium.col-span-2.css-10dt044-MuiButtonBase-root-MuiButton-root {
+  min-width: 100%;
+  margin: 0;
+}
+span.css-1d6wzja-MuiButton-startIcon {
+  margin: 0;
+}
+.rs-panel-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.css-b62m3t-container > div{
+  min-height: 56px !important;
+}
+
+.css-l4u8b9-MuiInputBase-root-MuiInput-root:before,
+.css-l4u8b9-MuiInputBase-root-MuiInput-root:after,
+.rs-panel-group > .rs-panel + .rs-panel:before,
+.rs-panel-collapsible > .rs-panel-header > .rs-icon {
+  display: none !important;
+}
+.MuiStack-root {
+  @apply border border-gray-300 bg-white
+}
+
+.css-iwcgw7-MuiFormLabel-root-MuiInputLabel-root {
+  -webkit-transform: translate(15px, 15px) scale(1)!important;
+  -moz-transform: translate(15px, 15px) scale(1)!important;
+  -ms-transform: translate(15px, 15px) scale(1)!important;
+  transform: translate(15px, 15px) scale(1)!important;
+}
+
+.css-1717ajk-MuiFormLabel-root-MuiInputLabel-root {
+  -webkit-transform: translate(15px, -1px) scale(0.75)!important;
+  -moz-transform: translate(15px, -1px) scale(0.75)!important;
+  -ms-transform: translate(15px, -1px) scale(0.75)!important;
+  transform: translate(15px, -1px) scale(0.75)!important;
+}
+
+.css-1q60rmi-MuiAutocomplete-endAdornment {
+  display: none !important;
+}
+
