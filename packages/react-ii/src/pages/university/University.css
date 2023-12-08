@@ -1,0 +1,28 @@
+.container__university {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  
+  .card__item {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .title_text {
+    color: rgb(22, 168, 216);
+  }
+  
+  .university_name {
+    color: black;
+    font-weight: bold;
+  }
+  
+  @media (max-width: 768px) {
+    .container__university {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+    }
+  }

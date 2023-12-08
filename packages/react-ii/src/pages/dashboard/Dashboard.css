@@ -1,0 +1,58 @@
+.dashboard__container {
+    margin-top: 10rem;
+  }
+  
+  .dashboard__container_input {
+    & .MuiInputBase-root {
+      width: 420px;
+    }
+  }
+  
+  .dashboard__input_main {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+  }
+  
+  .input__button {
+    margin-top: 5px;
+  }
+  
+  .card__container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card__item {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .unordered__list {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .unordered__list li {
+    list-style-type: none;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  
+  .university__title{
+    background-color: red !important;
+  }
+  
+  .loading {
+    text-align: center;
+    font-weight: 600;
+  }
+  
+  @media (max-width: 768px) {
+    .dashboard__container_input {
+      & .MuiInputBase-root {
+        width: 70vw !important;
+      }
+    }
+  }

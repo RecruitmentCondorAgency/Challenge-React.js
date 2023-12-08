@@ -6,5 +6,37 @@
   },
   "repository": "git@condor:rgCondor/Challenge-React.js.git",
   "author": "Rafael González",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@material-ui/core": "^4.12.4",
+    "@material-ui/icons": "^4.11.3",
+    "@mdx-js/react": "^1.6.22",
+    "@mui/icons-material": "^5.14.18",
+    "@mui/material": "^5.14.18",
+    "@mui/styles": "^5.14.18",
+    "@syncfusion/ej2-react-dropdowns": "^23.2.5",
+    "axios": "^0.26.0",
+    "json-server": "^0.17.0",
+    "json-server-auth": "^2.1.0",
+    "react": "^17.0.2",
+    "react-autocomplete": "^1.8.1",
+    "react-dom": "^17.0.2",
+    "react-infinite-scroll-component": "^6.1.0",
+    "react-router-dom": "^6.2.2"
+  },
+  "devDependencies": {
+    "@parcel/transformer-mdx": "^2.8.3",
+    "@parcel/transformer-sass": "^2.8.3",
+    "@types/axios": "^0.14.0",
+    "@types/mdx": "^2.0.6",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@types/react-router-dom": "^5.3.3",
+    "parcel": "^2.2.1",
+    "prompt-sync": "^4.2.0",
+    "tailwindcss": "^3.3.3",
+    "typescript": "^5.1.6"
+  }
 }

@@ -1,1 +1,46 @@
-{}
+{
+  "users": [
+    {
+      "email": "yashsanja1@gmail.com",
+      "password": "$2a$10$1JJyfDlqFkVD7LMnX29UxONJYquCAW/1Xofd1BaX0wKtiTeRX2TwG",
+      "firstName": "TEST",
+      "lastName": "test",
+      "id": 1
+    }
+  ],
+  "favorites": [
+    {
+      "userId": "1",
+      "status": true,
+      "country": "Ukraine",
+      "domains": "student.karazin.ua",
+      "title": "Kharkiv National University",
+      "webPages": "https://karazin.ua",
+      "state": null,
+      "alpha": "UA",
+      "id": 1
+    },
+    {
+      "userId": "1",
+      "status": true,
+      "country": "Chile",
+      "domains": "usm.cl",
+      "title": "Universidad Técnica Federico Santa María",
+      "webPages": "https://usm.cl",
+      "state": null,
+      "alpha": "CL",
+      "id": 2
+    },
+    {
+      "userId": "1",
+      "status": true,
+      "country": "France",
+      "domains": "ieseg.fr",
+      "title": "IÉSEG School of Management",
+      "webPages": "https://ieseg.fr",
+      "state": null,
+      "alpha": "FR",
+      "id": 3
+    }
+  ]
+}
