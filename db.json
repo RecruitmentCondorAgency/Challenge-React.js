@@ -1,1 +1,130 @@
-{}
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "users": [
+    {
+      "id": 1,
+      "email": "test@gmail.com",
+      "password": "123456",
+      "country": "India"
+    },
+    {
+      "country": "India",
+      "email": "testaa@gmail.com",
+      "password": "123456",
+      "id": 2
+    },
+    {
+      "country": "India",
+      "email": "testcc@gmail.com",
+      "password": "123456",
+      "id": 3
+    },
+    {
+      "country": "India",
+      "email": "testab@gmail.com",
+      "password": "12345",
+      "id": 4
+    },
+    {
+      "country": "India",
+      "email": "testabc@gmail.com",
+      "password": "123456",
+      "id": 5
+    },
+    {
+      "country": "India",
+      "email": "testoo@gmail.com",
+      "password": "1234",
+      "id": 6
+    },
+    {
+      "country": "India",
+      "email": "testbbbb@gmail.com",
+      "password": "12345",
+      "id": 7
+    },
+    {
+      "country": "India",
+      "email": "tetsqq@gmail.com",
+      "password": "123456",
+      "id": 8
+    },
+    {
+      "country": "India",
+      "email": "nnnn@gmail.com",
+      "password": "12345",
+      "id": 9
+    },
+    {
+      "country": "India",
+      "email": "testnnn@gmail.com",
+      "password": "123456",
+      "id": 10
+    },
+    {
+      "country": "India",
+      "email": "eerr@fdfdf.com",
+      "password": "1234",
+      "id": 11
+    },
+    {
+      "country": "Australia",
+      "email": "testqq@gmail.com",
+      "password": "123456",
+      "id": 12
+    }
+  ],
+  "userUniversities": [
+    {
+      "universityName": "Lovely Professional University",
+      "country": "India",
+      "webpage": "http://www.lpu.in/",
+      "userId": 9,
+      "id": 4
+    },
+    {
+      "universityName": "Adamson University",
+      "country": "Philippines",
+      "webpage": "http://www.adamson.edu.ph/",
+      "userId": 1,
+      "id": 5
+    },
+    {
+      "universityName": "Academy of Economics in Poznan",
+      "country": "Poland",
+      "webpage": "http://www.ae.poznan.pl/",
+      "userId": 1,
+      "id": 6
+    },
+    {
+      "universityName": "Adam Mickiewicz University of Poznan",
+      "country": "Poland",
+      "webpage": "http://www.amu.edu.pl/",
+      "userId": 1,
+      "id": 7
+    },
+    {
+      "universityName": "University of Adelaide",
+      "country": "Australia",
+      "webpage": "http://www.adelaide.edu.au/",
+      "userId": 12,
+      "id": 8
+    }
+  ]
+}
