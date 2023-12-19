@@ -13,7 +13,7 @@
   "scripts": {
     "start": "node start-workspace.js",
     "server": "json-server --watch db.json",
-    "clean": "npx rimraf node_modules .parcel-cache web/dist web/.parcel-cache web/node_modules",
+    "clean": "npx rimraf -g **/{dist,.parcel-cache,node_modules,package-lock.json}",
     "reset": "npm run clean && npm i"
   },
   "workspaces": [
