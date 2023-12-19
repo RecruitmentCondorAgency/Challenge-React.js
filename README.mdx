@@ -20,7 +20,7 @@ Each assessment is pre-configured, so just running `npm i` should install these 
 
 In the main `package.json` you'll have access to the following scripts:
 
-- `npm run start`: To run an assesstement test. You'll have to provide the name of the assessment's folder.
+- `npm run start` or `npm run start [folder-name]`: To run an assesstement test. You'll have to provide the name of the assessment's folder as a command argument, otherwise you'll be prompted for it. If none is provided the command will fail.
 - `npm run server`: To start a local db for some tests.
 - `npm run clean`: Remove ignored folders.
 - `npm run reset`: Clean and install anew.
