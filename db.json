@@ -1,1 +1,104 @@
-{}
+{
+  "lists": [
+    {
+      "label": "John Smith",
+      "value": "42",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "label": "Jane Doe",
+      "value": 17
+    },
+    {
+      "id": 3,
+      "label": "Michael Johnson",
+      "value": 99
+    },
+    {
+      "id": 4,
+      "label": "Emily Davis",
+      "value": 23
+    },
+    {
+      "id": 5,
+      "label": "David Brown",
+      "value": 56
+    },
+    {
+      "id": 6,
+      "label": "Sarah Wilson",
+      "value": 8
+    },
+    {
+      "id": 7,
+      "label": "Matthew Miller",
+      "value": 71
+    },
+    {
+      "id": 8,
+      "label": "Olivia Jones",
+      "value": 33
+    },
+    {
+      "id": 9,
+      "label": "Christopher White",
+      "value": 64
+    },
+    {
+      "id": 10,
+      "label": "Ava Martinez",
+      "value": 12
+    },
+    {
+      "id": 11,
+      "label": "Daniel Taylor",
+      "value": 45
+    },
+    {
+      "id": 12,
+      "label": "Sophia Anderson",
+      "value": 29
+    },
+    {
+      "id": 13,
+      "label": "Ethan Thomas",
+      "value": 88
+    },
+    {
+      "id": 14,
+      "label": "Isabella Wilson",
+      "value": 5
+    },
+    {
+      "id": 15,
+      "label": "James Jackson",
+      "value": 77
+    },
+    {
+      "id": 16,
+      "label": "Amelia Harris",
+      "value": 41
+    },
+    {
+      "id": 17,
+      "label": "William Hall",
+      "value": 19
+    },
+    {
+      "id": 18,
+      "label": "Grace Turner",
+      "value": 50
+    },
+    {
+      "id": 19,
+      "label": "Benjamin Reed",
+      "value": 93
+    },
+    {
+      "id": 20,
+      "label": "Chloe Walker",
+      "value": 14
+    }
+  ]
+}
