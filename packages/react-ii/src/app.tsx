@@ -1,4 +1,19 @@
-import { Readme } from '../../../common/readme'
-import ReadmeB from '../README.mdx'
+import { BrowserRouter } from "react-router-dom";
 
-export const App = () => <Readme readme={ReadmeB} />
+import { AuthProvider } from "./contexts/AuthContext";
+import AppRoutes from "./Routes";
+import Header from "./layout/Header";
+import { ToastProvider } from "./contexts/ToastContext";
+
+import "./styles.sass";
+
+export const App = () => (
+  <BrowserRouter>
+    <ToastProvider>
+      <AuthProvider>
+        <Header />
+        <AppRoutes />
+      </AuthProvider>
+    </ToastProvider>
+  </BrowserRouter>
+);
