@@ -1,3 +1,4 @@
+import { IHttpState } from '../hooks/useFetch'
 import { University } from './university'
 
 export interface User {
@@ -5,3 +6,9 @@ export interface User {
 	password: string
 	universities: University[]
 }
+
+
+export interface UserResponse extends IHttpState {
+	universities: University[]
+  }
+  

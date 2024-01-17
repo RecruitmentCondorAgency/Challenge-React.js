@@ -1,1 +1,22 @@
-{}
+{
+  "users": [
+    {
+      "email": "candidate3@teravisiontech.com",
+      "password": "123456",
+      "universities": [],
+      "id": 1
+    },
+    {
+      "email": "david.503sv@hotmail.com",
+      "password": "123456",
+      "universities": [],
+      "id": 2
+    },
+    {
+      "email": "hernandez.alexander9900@gmail.com",
+      "password": "123456",
+      "universities": [],
+      "id": 3
+    }
+  ]
+}
