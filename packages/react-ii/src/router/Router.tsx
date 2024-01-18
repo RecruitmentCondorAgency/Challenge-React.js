@@ -6,7 +6,6 @@ const PrivateRoutes = () => {
     const { data }  = useUserData()
     const userInfo = JSON.parse(localStorage.getItem('userInfo')) || data
    
-    console.log('DATA',data)
     return(
         userInfo ? <Outlet/> : <Navigate to="/login"/>
     )

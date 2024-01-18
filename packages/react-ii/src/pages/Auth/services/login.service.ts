@@ -1,7 +1,4 @@
-import { useEffect, useState } from "react"
-import UseFetch, { IHttpState } from "../../../hooks/useFetch"
-import { University } from "../../../types/university"
-import { Univeristy } from "../../University/Univeristy"
+import UseFetch from "../../../hooks/useFetch"
 
 
 const useLogin = () => {

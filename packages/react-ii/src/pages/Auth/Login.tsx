@@ -41,7 +41,6 @@ export const Login = () => {
       
       if(data.length > 0) {
         setUserData(loginResponse.data[0])
-        console.log(loginResponse.data[0])
         navigate('/home')
       }
     }

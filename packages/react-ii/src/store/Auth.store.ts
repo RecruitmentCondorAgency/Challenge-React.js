@@ -13,7 +13,7 @@ export const useUserData = create<UserStore>()((set) => ({
     localStorage.setItem('userInfo', JSON.stringify(data))
     return ({ ...state,data:{...data} })
   }),
-  clear: () => set((state) => null),
+clear: () => set((state) => ({})),
 }))
 
 

@@ -11,18 +11,18 @@ const useGetAllUniversities = () => {
     loading:false
   })
 
-  const getAll = () => {
+  const getAll = (termino: string ) => {
     request({
       method: 'GET',
       exactUrl: true,
-      url:'http://universities.hipolabs.com/search?name=&limit=100'
+      url:`http://universities.hipolabs.com/search?name=${termino}&limit=100`
     })
   }
 
-  useEffect(() => {
-    if(state)
-    setuniversities({...state})
-  },[state])
+    useEffect(() => {
+        if(state)
+        setuniversities({...state})
+    },[state])
 
 
   return {getAll, universitiesRes:universities }

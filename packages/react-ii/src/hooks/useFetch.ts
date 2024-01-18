@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { BASE_URL } from '../config/config';
 
 type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE'
-type OptionsRequest = { method: HttpMethod, url: string, exactUrl?:boolean; body?: Record<string, string> }
+type OptionsRequest = { method: HttpMethod, url: string, exactUrl?:boolean; body?: unknown }
 
 export interface IHttpState {
     loading: boolean,
