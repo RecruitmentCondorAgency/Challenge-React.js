@@ -6,5 +6,9 @@
   },
   "repository": "git@condor:rgCondor/Challenge-React.js.git",
   "author": "Rafael González",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^5.3.2",
+    "react-bootstrap": "^2.10.0"
+  }
 }

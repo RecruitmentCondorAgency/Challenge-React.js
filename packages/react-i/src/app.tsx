@@ -1,4 +1,35 @@
-import { Readme } from '../../../common/readme'
-import ReadmeB from '../README.mdx'
+import { Container, Row, Col } from "react-bootstrap";
+import ThemeToggle from "./components/themeToggle/ThemeToggle";
+import ItemsManager from "./components/items/ItemsManager";
+import { ThemeProvider } from "./context/ThemeContext";
 
-export const App = () => <Readme readme={ReadmeB} />
+const AppContent = () => {
+  return (
+    <Container fluid>
+      <Row>
+        <Col
+          style={{ display: "flex" }}
+          className="flex  justify-content-end p-2"
+        >
+          <ThemeToggle />
+        </Col>
+      </Row>
+      <Row>
+        <h1 className="mainTitleRow">Items Manager App</h1>
+      </Row>
+      <Row>
+        <Col>
+          <ItemsManager />
+        </Col>
+      </Row>
+    </Container>
+  );
+};
+
+export const App = () => {
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
+  );
+};
