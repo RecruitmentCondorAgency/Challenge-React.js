@@ -1,1 +1,124 @@
-{}
+{
+  "users": [
+    {
+      "email": "candidate3@teravisiontech.com",
+      "password": "123456",
+      "universities": [],
+      "id": 1
+    },
+    {
+      "email": "david.503sv@hotmail.com",
+      "password": "123456",
+      "universities": [
+        {
+          "alpha_two_code": "UA",
+          "country": "Ukraine",
+          "name": "Kharkiv National University",
+          "state-province": null,
+          "domains": [
+            "student.karazin.ua",
+            "karazin.ua"
+          ],
+          "web_pages": [
+            "https://karazin.ua"
+          ]
+        },
+        {
+          "alpha_two_code": "FR",
+          "country": "France",
+          "name": "IÉSEG School of Management",
+          "state-province": null,
+          "domains": [
+            "ieseg.fr"
+          ],
+          "web_pages": [
+            "https://ieseg.fr"
+          ]
+        }
+      ],
+      "id": 2
+    },
+    {
+      "email": "hernandez.alexander9900@gmail.com",
+      "password": "123456",
+      "universities": [],
+      "id": 3
+    },
+    {
+      "email": "jorge.wilchez@otfpos.com",
+      "password": "123456",
+      "universities": [
+        {
+          "alpha_two_code": "FR",
+          "country": "France",
+          "name": "IÉSEG School of Management",
+          "state-province": null,
+          "domains": [
+            "ieseg.fr"
+          ],
+          "web_pages": [
+            "https://ieseg.fr"
+          ]
+        },
+        {
+          "alpha_two_code": "CL",
+          "country": "Chile",
+          "name": "Universidad Técnica Federico Santa María",
+          "state-province": null,
+          "domains": [
+            "usm.cl"
+          ],
+          "web_pages": [
+            "https://usm.cl"
+          ]
+        },
+        {
+          "alpha_two_code": "UA",
+          "country": "Ukraine",
+          "name": "Kharkiv National University",
+          "state-province": null,
+          "domains": [
+            "student.karazin.ua",
+            "karazin.ua"
+          ],
+          "web_pages": [
+            "https://karazin.ua"
+          ]
+        }
+      ],
+      "id": 4
+    },
+    {
+      "email": "jhb@qwd.com",
+      "password": "123456",
+      "universities": [
+        {
+          "alpha_two_code": "CL",
+          "country": "Chile",
+          "name": "Universidad Técnica Federico Santa María",
+          "state-province": null,
+          "domains": [
+            "usm.cl"
+          ],
+          "web_pages": [
+            "https://usm.cl"
+          ]
+        },
+        {
+          "alpha_two_code": "UA",
+          "country": "Ukraine",
+          "name": "Kharkiv National University",
+          "state-province": null,
+          "domains": [
+            "student.karazin.ua",
+            "karazin.ua"
+          ],
+          "web_pages": [
+            "https://karazin.ua"
+          ]
+        }
+      ],
+      "id": 5
+    }
+  ]
+}
