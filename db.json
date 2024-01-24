@@ -1,1 +1,39 @@
-{}
+{
+  "items": [
+    {
+      "label": "iPhone 13 Pro Max",
+      "value": 10,
+      "id": 1
+    },
+    {
+      "label": "Google Pixel 6 Pro",
+      "value": 3132,
+      "id": 2
+    },
+    {
+      "label": "Google Pixel 6 Pro MAx",
+      "value": 1002,
+      "id": 3
+    },
+    {
+      "label": "MacBook Pro (14-inch, 2021)",
+      "value": 2333,
+      "id": 4
+    },
+    {
+      "label": "Samsung A2",
+      "value": 200,
+      "id": 5
+    },
+    {
+      "label": "Nokia",
+      "value": 3333,
+      "id": 6
+    },
+    {
+      "label": "Motorola Za",
+      "value": 2311,
+      "id": 7
+    }
+  ]
+}
